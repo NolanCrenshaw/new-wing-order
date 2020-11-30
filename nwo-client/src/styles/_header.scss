@@ -1,0 +1,40 @@
+.header-container {
+  background: rgb(27, 26, 26);
+}
+nav {
+  width: 80%;
+  margin: auto;
+  min-height: 5vh;
+  padding: 3rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    height: 8rem;
+    width: 16rem;
+    position: relative;
+    display: flex;
+    // background-size: contain;
+    // overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8rem;
+      height: 8rem;
+      background: radial-gradient(#f53d30, #680b05);
+      border-radius: 50%;
+      transform: translate(100%, 0%);
+      mix-blend-mode: screen;
+    }
+
+    img {
+      //   background-size: contain;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    // flex: 1;
+  }
+}
