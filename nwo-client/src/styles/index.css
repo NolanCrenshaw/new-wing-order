@@ -42,13 +42,15 @@ a {
 }
 
 .header-container {
-  background: #1b1a1a;
+  background: radial-gradient(#313131, #131313);
+  -webkit-box-shadow: 0 2px 5px;
+          box-shadow: 0 2px 5px;
 }
 
 nav {
-  width: 80%;
+  width: 85%;
   margin: auto;
-  min-height: 5vh;
+  min-height: 10vh;
   padding: 3rem 0rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,18 +70,21 @@ nav div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-nav div::after {
-  content: "";
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  background: radial-gradient(#f53d30, #680b05);
-  border-radius: 50%;
-  -webkit-transform: translate(100%, 0%);
-          transform: translate(100%, 0%);
-  mix-blend-mode: screen;
+nav div img {
+  height: 125%;
+}
+
+nav span {
+  color: #777676;
+  font-size: 2.5rem;
 }
 
 nav ul {
@@ -89,5 +94,21 @@ nav ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  list-style: none;
+}
+
+nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem;
+  background: #777676;
+  border-radius: 20%;
+}
+
+.main-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 90vh;
 }
 /*# sourceMappingURL=index.css.map */

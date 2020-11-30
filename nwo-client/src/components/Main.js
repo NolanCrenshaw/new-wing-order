@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from './Header';
 
 
 const Main = () => {
@@ -7,7 +7,7 @@ const Main = () => {
 
     return (
         <div className="main-container">
-            <Header/>
+            {/* <Header/> */}
             <h1>Hello World</h1>
             {/* <div className="main">
                 <div className="hero-logo--container">
