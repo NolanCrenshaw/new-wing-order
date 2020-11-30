@@ -1,9 +1,0 @@
-.app {
-    width: 100vw;
-    height: 100vh;
-    scrollbar-width: none;
-    overflow-x: hidden;
-    background-image: url(https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg);
-    background-size: cover;
-    background-position: center;
-}
