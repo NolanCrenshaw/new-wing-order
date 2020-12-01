@@ -1,16 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="footer-container">
       <nav>
-        <span>Menu</span>
+        <Link to="/">Home</Link>
         <span>|</span>
-        <span>Catering</span>
+        <Link to="/menu">Menu</Link>
         <span>|</span>
-        <span>Awards</span>
+        <Link to="/catering">Catering</Link>
         <span>|</span>
-        <span>Contact</span>
+        <Link to="/awards">Awards</Link>
+        <span>|</span>
+        <Link to="/contact">Contact</Link>
       </nav>
       <div>
         <span>info@newwingorder.com | 901.747.8893 </span>

@@ -31,7 +31,6 @@ li {
 }
 
 a {
-  color: white;
   text-decoration: none;
 }
 
@@ -79,6 +78,14 @@ a {
   display: flex;
   margin: 1rem;
   border-radius: 20%;
+}
+
+.navbar-container nav ul li a:hover {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  background: #777676;
+  background-size: 150%;
+  border-radius: 1rem;
 }
 
 .navbar-container nav span {
@@ -170,6 +177,50 @@ a {
   color: red;
 }
 
+.menu-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75.6vh;
+  background-color: white;
+  -ms-grid-columns: 0.2fr 1.5fr 3fr;
+      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
+.catering-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75.6vh;
+  background-color: white;
+  -ms-grid-columns: 0.2fr 1.5fr 3fr;
+      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
+.awards-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75.6vh;
+  background-color: white;
+  -ms-grid-columns: 0.2fr 1.5fr 3fr;
+      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
+.contact-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75.6vh;
+  background-color: white;
+  -ms-grid-columns: 0.2fr 1.5fr 3fr;
+      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
 .footer-container {
   background: radial-gradient(#313131, #131313);
 }
@@ -188,6 +239,20 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.footer-container nav a {
+  color: #777676;
+  font-size: 2.5rem;
+  padding: 0 2.5rem;
+}
+
+.footer-container nav a:hover {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  background: #313131;
+  border-radius: 1rem;
+  color: white;
 }
 
 .footer-container nav span {

@@ -28,7 +28,6 @@ li {
   font-size: 2rem;
 }
 a {
-  color: white;
   text-decoration: none;
 }
 
@@ -43,4 +42,8 @@ a {
 @import "navbar";
 @import "header";
 @import "main";
+@import "menu";
+@import "catering";
+@import "awards";
+@import "contact";
 @import "footer";
