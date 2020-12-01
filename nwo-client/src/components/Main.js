@@ -1,11 +1,10 @@
 import React from "react";
+import Location from "./Location";
 
 const Main = () => {
   return (
     <div className="main-container">
-      <div id="location-container">
-        <p>Hello World</p>
-      </div>
+      <Location />
     </div>
   );
 };
