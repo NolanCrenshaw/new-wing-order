@@ -31,11 +31,17 @@ a {
   color: white;
   text-decoration: none;
 }
+
 #root {
-  background: radial-gradient(#525252, #131313);
+  // background: radial-gradient(#525252, #131313);
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
+  background-size: cover;
+  background-position: center;
   overflow-x: hidden;
   scrollbar-width: none;
 }
 
+@import "navbar";
 @import "header";
 @import "main";
+@import "footer";

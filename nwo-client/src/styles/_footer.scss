@@ -1,0 +1,34 @@
+.footer-container {
+  background: radial-gradient(#313131, #131313);
+
+  nav {
+    width: 85%;
+    margin: auto;
+    min-height: 8vh;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: $_gray;
+      font-size: 2.5rem;
+      padding: 0 2.5rem;
+    }
+  }
+
+  div {
+    width: 95%;
+    margin: auto;
+    min-height: 7vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+    span {
+      color: $_gray;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}
