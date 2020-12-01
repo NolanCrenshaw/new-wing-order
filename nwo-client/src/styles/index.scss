@@ -1,0 +1,47 @@
+// Variable Declarations
+$_red: #f53d30;
+$_gray: rgb(119, 118, 118);
+
+// Default CSS settings
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 8rem;
+}
+p {
+  font-size: 2.5rem;
+}
+li {
+  font-size: 2rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#root {
+  // background: radial-gradient(#525252, #131313);
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+@import "navbar";
+@import "header";
+@import "main";
+@import "footer";

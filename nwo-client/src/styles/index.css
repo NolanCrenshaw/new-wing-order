@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 8rem;
+}
+
+p {
+  font-size: 2.5rem;
+}
+
+li {
+  font-size: 2rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#root {
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.navbar-container {
+  background: radial-gradient(#313131, #131313);
+}
+
+.navbar-container nav {
+  width: 85%;
+  margin: auto;
+  min-height: 9vh;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-container nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.navbar-container nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem;
+  border-radius: 20%;
+}
+
+.navbar-container nav span {
+  color: #777676;
+  font-size: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.header-container {
+  background: radial-gradient(#313131, #131313);
+}
+
+.header-container nav {
+  width: 85%;
+  margin: auto;
+  min-height: 10vh;
+  padding: 3rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container nav div {
+  height: 8rem;
+  width: 16rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container nav div img {
+  height: 125%;
+}
+
+.header-container nav span {
+  color: #777676;
+  font-size: 2.5rem;
+}
+
+.main-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75.6vh;
+  -ms-grid-columns: 10% 80% 10%;
+      grid-template-columns: 10% 80% 10%;
+  -ms-grid-rows: 75.6vh (auto)[2];
+      grid-template-rows: 75.6vh repeat(2, auto);
+}
+
+.main-container .bulk-image--container {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-size: cover;
+  -o-object-position: center;
+     object-position: center;
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.main-container .bulk-image--container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.main-container #menu {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+.main-container #awards {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+.footer-container {
+  background: radial-gradient(#313131, #131313);
+}
+
+.footer-container nav {
+  width: 85%;
+  margin: auto;
+  min-height: 8vh;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-container nav span {
+  color: #777676;
+  font-size: 2.5rem;
+  padding: 0 2.5rem;
+}
+
+.footer-container div {
+  width: 95%;
+  margin: auto;
+  min-height: 7vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+.footer-container div span {
+  color: #777676;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/*# sourceMappingURL=index.css.map */

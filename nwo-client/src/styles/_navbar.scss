@@ -1,0 +1,30 @@
+.navbar-container {
+  background: radial-gradient(#313131, #131313);
+
+  nav {
+    width: 85%;
+    margin: auto;
+    min-height: 9vh;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+
+      li {
+        display: flex;
+        margin: 1rem;
+        border-radius: 20%;
+      }
+    }
+    span {
+      color: $_gray;
+      font-size: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+}

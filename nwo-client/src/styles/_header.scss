@@ -1,0 +1,57 @@
+.header-container {
+  background: radial-gradient(#313131, #131313);
+
+  nav {
+    width: 85%;
+    margin: auto;
+    min-height: 10vh;
+    padding: 3rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      height: 8rem;
+      width: 16rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background: rebeccapurple;
+
+      // creates cirle element
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 8rem;
+      //   height: 8rem;
+      //   background: radial-gradient($project_red, #680b05);
+      //   border-radius: 50%;
+      //   transform: translate(62.5%, 0%);
+      //   mix-blend-mode: screen;
+      // }
+
+      img {
+        height: 125%;
+      }
+    }
+
+    span {
+      color: $_gray;
+      font-size: 2.5rem;
+    }
+
+    // ul {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   list-style: none;
+
+    //   li {
+    //     display: flex;
+    //     margin: 1rem;
+    //     background: $_gray;
+    //     border-radius: 20%;
+    //   }
+    // }
+  }
+}

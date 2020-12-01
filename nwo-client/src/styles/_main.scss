@@ -1,0 +1,48 @@
+.main-container {
+  display: grid;
+  min-height: 75.6vh;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 75.6vh repeat(2, auto);
+
+  .bulk-image--container {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    object-position: center;
+    position: relative;
+    // overflow: hidden;
+    max-width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      justify-self: center;
+      align-self: flex-start;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  #menu {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    object-position: center;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    z-index: 2;
+  }
+  #awards {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    object-position: center;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    z-index: 2;
+  }
+}
