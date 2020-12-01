@@ -19,6 +19,13 @@
         display: flex;
         margin: 1rem;
         border-radius: 20%;
+
+        a:hover {
+          transition: all 0.8s;
+          background: $_gray;
+          background-size: 150%;
+          border-radius: 1rem;
+        }
       }
     }
     span {

@@ -28,12 +28,10 @@ li {
   font-size: 2rem;
 }
 a {
-  color: white;
   text-decoration: none;
 }
 
 #root {
-  // background: radial-gradient(#525252, #131313);
   background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
   background-size: cover;
   background-position: center;
@@ -44,4 +42,8 @@ a {
 @import "navbar";
 @import "header";
 @import "main";
+@import "menu";
+@import "catering";
+@import "awards";
+@import "contact";
 @import "footer";
