@@ -135,19 +135,19 @@ a {
   display: -ms-grid;
   display: grid;
   min-height: 75.6vh;
-  -ms-grid-columns: 10% 80% 10%;
-      grid-template-columns: 10% 80% 10%;
-  -ms-grid-rows: 75.6vh (auto)[2];
-      grid-template-rows: 75.6vh repeat(2, auto);
+  -ms-grid-columns: 0.2fr 1.5fr 3fr;
+      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
 }
 
-.main-container .bulk-image--container {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 1;
+.main-container #location-container {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
   -ms-grid-row-span: 1;
-  grid-row: 1/2;
+  grid-row: 2/3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,58 +157,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-size: cover;
-  -o-object-position: center;
-     object-position: center;
-  position: relative;
-  max-width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-.main-container .bulk-image--container img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  width: 100%;
+  background-color: white;
+  border-radius: 2rem;
+  -webkit-box-shadow: 1rem 1rem 10px #222222;
+          box-shadow: 1rem 1rem 10px #222222;
+  min-width: 48rem;
   height: 100%;
 }
 
-.main-container #menu {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  max-width: 100%;
-  height: auto;
-  z-index: 2;
-}
-
-.main-container #awards {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3/4;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  max-width: 100%;
-  height: auto;
-  z-index: 2;
+.main-container #location-container p {
+  font-size: 3rem;
+  color: red;
 }
 
 .footer-container {
