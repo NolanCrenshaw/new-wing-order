@@ -14,18 +14,6 @@ const Header = () => {
             alt="md-Logo-text-white"
           />
         </div>
-        <span>info@newwingorder.com | 901.747.8893</span>
-        <ul>
-          <li>
-            <img src="https://img.icons8.com/material/48/000000/facebook--v1.png" />
-          </li>
-          <li>
-            <img src="https://img.icons8.com/material/48/000000/instagram-new--v1.png" />
-          </li>
-          <li>
-            <img src="https://img.icons8.com/material/48/000000/twitter-squared.png" />
-          </li>
-        </ul>
       </nav>
     </div>
   );
