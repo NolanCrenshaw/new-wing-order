@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Menu from "./components/Menu";
+import Store from "./components/Store";
 import Catering from "./components/Catering";
 import Awards from "./components/Awards";
 import Contact from "./components/Contact";
@@ -17,6 +18,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/menu" component={Menu} />
+          <Route path="/store" component={Store} />
           <Route path="/catering" component={Catering} />
           <Route path="/awards" component={Awards} />
           <Route path="/contact" component={Contact} />
