@@ -27,6 +27,7 @@ const Main = () => {
   };
 
   useEffect(() => {
+    console.log(`TEST ENV ${process.env.REACT_APP_TEST_ENV_KEY}`);
     InterpretLocation();
   }, []);
 
