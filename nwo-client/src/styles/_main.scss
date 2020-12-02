@@ -1,8 +1,8 @@
 .main-container {
   display: grid;
   min-height: 75.6vh;
-  grid-template-columns: 0.2fr 1.5fr 3fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-columns: 0.1fr 1.5fr 3fr;
+  grid-template-rows: 0.2fr 4fr 0.2fr;
 
   .location-container {
     grid-column: 2/3;
@@ -10,15 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: $_gray;
     border-radius: 2rem;
-    box-shadow: 1rem 1rem 10px rgb(34, 34, 34);
+    box-shadow: 1rem 1rem 20px rgb(34, 34, 34);
     min-width: 48rem;
     height: 100%;
 
     p {
       font-size: 3rem;
-      color: red;
     }
   }
 }

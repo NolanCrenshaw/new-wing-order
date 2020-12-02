@@ -1,11 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
       <nav>
+        <div>
+          <img
+            src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Head+Logo_Full+Color_White.png"
+            alt="Logo Image"
+          />
+          <img
+            src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Ver+Text+Logo_White.png"
+            alt="Logo Text"
+          />
+        </div>
+        <Link to="/">Home</Link>
+        <span>|</span>
+        <Link to="/menu">Menu</Link>
+        <span>|</span>
+        <Link to="/store">Store</Link>
+        <span>|</span>
+        <Link to="/catering">Catering</Link>
+        <span>|</span>
+        <Link to="/awards">Awards</Link>
+      </nav>
+      {/* <nav>
         <span>info@newwingorder.com | 901.747.8893 </span>
-
         <ul>
           <li>
             <a href="https://www.facebook.com/NewWingOrder/">
@@ -40,7 +61,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </div>
   );
 };
