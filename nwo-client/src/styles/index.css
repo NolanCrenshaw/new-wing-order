@@ -188,12 +188,17 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
   background-color: #777676;
   border-radius: 2rem;
   -webkit-box-shadow: 1rem 1rem 20px #222222;
@@ -202,8 +207,50 @@ a {
   height: 100%;
 }
 
-.main-container .location-container p {
-  font-size: 3rem;
+.main-container .location-container #header-box {
+  height: 20%;
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .location-container #header-box h1 {
+  color: blue;
+}
+
+.main-container .location-container #header-box h3 {
+  color: #f53d30;
+  font-size: 2rem;
+}
+
+.main-container .location-container #map-box {
+  height: 80%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-radius: 0 0 2rem 2rem;
+  background-color: salmon;
+}
+
+.main-container .location-container #map-box .leaflet-container {
+  height: 100%;
+  width: 100%;
 }
 
 .menu-container {

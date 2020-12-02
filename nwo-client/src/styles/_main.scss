@@ -8,16 +8,46 @@
     grid-column: 2/3;
     grid-row: 2/3;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
+    overflow: hidden;
     background-color: $_gray;
     border-radius: 2rem;
     box-shadow: 1rem 1rem 20px rgb(34, 34, 34);
     min-width: 48rem;
     height: 100%;
 
-    p {
-      font-size: 3rem;
+    #header-box {
+      height: 20%;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        color: blue;
+      }
+
+      h3 {
+        color: $_red;
+        font-size: 2rem;
+      }
+    }
+    #map-box {
+      height: 80%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      border-radius: 0 0 2rem 2rem;
+      background-color: salmon;
+
+      .leaflet-container {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }
