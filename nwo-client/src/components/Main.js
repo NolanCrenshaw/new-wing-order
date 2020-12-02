@@ -34,6 +34,7 @@ const Main = () => {
     <div className="main-container">
       <div className="location-container">
         <div id="header-box">
+          <h2>Where is the Truck Now?</h2>
           <h1>{location}</h1>
           <h3>{address}</h3>
         </div>
