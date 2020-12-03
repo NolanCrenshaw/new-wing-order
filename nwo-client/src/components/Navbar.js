@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [dropMenu, setDropMenu] = useState(false);
+
+  const handleHamburger = () => setDropMenu(!dropMenu);
+
   return (
     <div className="navbar-container">
       <nav>
@@ -15,7 +19,10 @@ const Navbar = () => {
             alt="Logo Text"
           />
         </div>
-        <div id="link-box">
+        <div
+          id="link-box"
+          className={`${dropMenu ? "opened-menu" : "closed-menu"}`}
+        >
           <Link to="/">Home</Link>
           <span>|</span>
           <Link to="/menu">Menu</Link>
@@ -26,6 +33,7 @@ const Navbar = () => {
           <span>|</span>
           <Link to="/awards">Awards</Link>
         </div>
+        <button onClick={handleHamburger} />
       </nav>
     </div>
   );

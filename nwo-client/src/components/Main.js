@@ -10,6 +10,7 @@ const Main = () => {
   const [longitude, setLongitude] = useState(-89.8721);
 
   // Geocode
+  Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
 
   const InterpretLocation = async () => {
@@ -27,7 +28,6 @@ const Main = () => {
   };
 
   useEffect(() => {
-    console.log(`TEST ENV ${process.env.REACT_APP_TEST_ENV_KEY}`);
     InterpretLocation();
   }, []);
 
