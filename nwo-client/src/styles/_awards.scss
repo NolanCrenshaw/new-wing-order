@@ -1,7 +1,12 @@
 .awards-container {
-  display: grid;
-  min-height: 75.6vh;
+  display: flex;
+  min-height: $_content_min-height;
   background-color: white;
-  grid-template-columns: 0.2fr 1.5fr 3fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    height: $_content_min-height;
+    grid-template-columns: 2/3;
+  }
 }

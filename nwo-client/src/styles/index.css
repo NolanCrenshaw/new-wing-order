@@ -62,16 +62,20 @@ a {
           align-items: center;
 }
 
-.navbar-container nav div {
+.navbar-container nav #logo-box {
   width: 12rem;
   left: 10rem;
   position: absolute;
 }
 
-.navbar-container nav a {
-  color: #777676;
-  font-size: 2.5rem;
-  padding: 0 2.5rem;
+.navbar-container nav #logo-box img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 5.5rem;
+  padding: 1rem 0;
+}
+
+.navbar-container nav #link-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,27 +87,37 @@ a {
           align-items: center;
 }
 
-.navbar-container nav a:hover {
+.navbar-container nav #link-box a {
+  color: #777676;
+  font-size: 2rem;
+  padding: 0 2rem;
+  border: 0.2rem solid rgba(0, 0, 0, 0);
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-container nav #link-box a:hover {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  background: #313131;
+  background: #5e5e5e;
   height: 1.5rem;
   border: 0.2rem solid black;
   border-radius: 2rem;
   color: white;
 }
 
-.navbar-container nav span {
+.navbar-container nav #link-box span {
   color: #777676;
   font-size: 2.5rem;
   padding: 0 2.5rem;
-}
-
-.navbar-container nav img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  max-width: 5.5rem;
-  padding: 1rem 0;
 }
 
 .navbar-container div {
@@ -291,14 +305,23 @@ a {
 }
 
 .awards-container {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 75.6vh;
   background-color: white;
-  -ms-grid-columns: 0.2fr 1.5fr 3fr;
-      grid-template-columns: 0.2fr 1.5fr 3fr;
-  -ms-grid-rows: 0.5fr 4fr 0.5fr;
-      grid-template-rows: 0.5fr 4fr 0.5fr;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.awards-container img {
+  height: 75.6vh;
+  -ms-grid-columns: 2/3;
+      grid-template-columns: 2/3;
 }
 
 .contact-container {
