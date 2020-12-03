@@ -55,51 +55,15 @@
     }
   }
 
-  div {
-    width: 95%;
-    margin: auto;
-    min-height: 7vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-
-    span {
-      color: $_gray;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
+  button {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 1rem;
   }
-  // nav {
-  //   width: 85%;
-  //   margin: auto;
-  //   min-height: 9vh;
-  //   padding: 0;
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   align-items: center;
 
-  //   ul {
-  //     display: flex;
-  //     justify-content: space-between;
-  //     list-style: none;
-
-  //     li {
-  //       display: flex;
-  //       margin: 1rem;
-  //       border-radius: 20%;
-
-  //       a:hover {
-  //         transition: all 0.8s;
-  //         background: $_gray;
-  //         background-size: 150%;
-  //         border-radius: 1rem;
-  //       }
-  //     }
-  //   }
-  //   span {
-  //     color: $_gray;
-  //     font-size: 2.5rem;
-  //     padding-right: 2.5rem;
-  //   }
-  // }
+  .opened-menu {
+  }
+  .closed-menu {
+    background-color: rgb(226, 120, 120);
+  }
 }

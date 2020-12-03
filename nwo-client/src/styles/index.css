@@ -120,22 +120,14 @@ a {
   padding: 0 2.5rem;
 }
 
-.navbar-container div {
-  width: 95%;
-  margin: auto;
-  min-height: 7vh;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+.navbar-container button {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
 }
 
-.navbar-container div span {
-  color: #777676;
-  font-size: 1.5rem;
-  font-weight: 600;
+.navbar-container .closed-menu {
+  background-color: #e27878;
 }
 
 .header-container {
