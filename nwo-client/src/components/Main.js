@@ -4,22 +4,19 @@ import Geocode from "react-geocode";
 
 const Main = () => {
   // State Hooks
-  const [location, setLocation] = useState("Memphis, TN");
+  const [location, setLocation] = useState(null);
+  const [locationName, setLocationName] = useState("Memphis, TN");
   const [address, setAddress] = useState("default");
-  const [latitude, setLatitude] = useState(35.1295);
-  const [longitude, setLongitude] = useState(-89.8721);
 
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
 
   const InterpretLocation = async () => {
-    await Geocode.fromAddress("Memphis, TN").then(
+    await Geocode.fromAddress("4505 St Elmo Ave").then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
-        setLatitude(lat);
-        setLongitude(lng);
+        setLocation([lat, lng]);
       },
       (error) => {
         console.error(error);
@@ -36,25 +33,25 @@ const Main = () => {
       <div className="location-container">
         <div id="header-box">
           <h2>Where is the Truck Now?</h2>
-          <h1>{location}</h1>
+          <h1>{locationName}</h1>
           <h3>{address}</h3>
         </div>
         <div id="map-box">
-          <MapContainer
-            center={[`${latitude}`, `${longitude}`]}
-            zoom={10}
-            scrollWheelZoom={false}
-          >
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.505, -0.09]}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </MapContainer>
+          {location ? (
+            <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={location}>
+                <Popup>
+                  A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+              </Marker>
+            </MapContainer>
+          ) : (
+            <span>Loading</span>
+          )}
         </div>
       </div>
     </div>

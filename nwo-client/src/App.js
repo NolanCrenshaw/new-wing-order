@@ -10,6 +10,10 @@ import Awards from "./components/Awards";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+// Want to consolidate env files
+// import dotenv from "dotenv";
+// dotenv.config({ path: "../.env" });
+
 const App = () => {
   return (
     <div className="app">
