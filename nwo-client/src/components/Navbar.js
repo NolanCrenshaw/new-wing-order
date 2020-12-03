@@ -33,7 +33,7 @@ const Navbar = () => {
           <span>|</span>
           <Link to="/awards">Awards</Link>
         </div>
-        <button onClick={handleHamburger} />
+        {/* <button onClick={handleHamburger} /> */}
       </nav>
     </div>
   );
