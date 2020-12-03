@@ -6,14 +6,14 @@ const Main = () => {
   // State Hooks
   const [location, setLocation] = useState(null);
   const [locationName, setLocationName] = useState("Memphis, TN");
-  const [address, setAddress] = useState("default");
+  const [address, setAddress] = useState("Central BBQ");
 
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
 
   const InterpretLocation = async () => {
-    await Geocode.fromAddress("4505 St Elmo Ave").then(
+    await Geocode.fromAddress(`${address}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLocation([lat, lng]);

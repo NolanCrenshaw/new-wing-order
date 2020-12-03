@@ -215,8 +215,9 @@ a {
 
 .main-container .location-container #header-box {
   height: 20%;
+  min-height: 9rem;
   width: 100%;
-  background-color: white;
+  background-color: #dadada;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
