@@ -10,7 +10,6 @@ class Config:
 
     # Key Variables
     SECRET_KEY = os.environ.get("SECRET_KEY")
-    # GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
     # Security Variables
