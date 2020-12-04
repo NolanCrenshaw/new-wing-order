@@ -6,6 +6,7 @@ from flask_jwt_extended import JWTManager
 # Local Imports
 from .config import Config
 from .models import db
+from .api.auth import auth
 
 # App Declarations
 app = Flask(__name__)
