@@ -16,6 +16,12 @@ db.init_app(app)
 CORS(app)
 
 
+# Blueprint Registrations
+app.register_blueprint(auth, url_prefix="/api/auth")
+app.register_blueprint(event, url_prefix="/api/event")
+app.register_blueprint(menu_item, url_prefix="api/menu_item")
+
+
 # Default Routing
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
