@@ -11,8 +11,7 @@ const Main = () => {
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
-
-  const InterpretLocation = async () => {
+  const interpretLocation = async () => {
     await Geocode.fromAddress(`${address}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -25,7 +24,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    InterpretLocation();
+    interpretLocation();
   }, []);
 
   return (
