@@ -7,6 +7,9 @@ from flask_jwt_extended import JWTManager
 from .config import Config
 from .models import db
 from .api.auth import auth
+from .api.events import event
+from .api.menu_items import menu_item
+from .api.sauces import sauce
 
 # App Declarations
 app = Flask(__name__)
@@ -20,6 +23,7 @@ CORS(app)
 app.register_blueprint(auth, url_prefix="/api/auth")
 app.register_blueprint(event, url_prefix="/api/event")
 app.register_blueprint(menu_item, url_prefix="api/menu_item")
+app.register_blueprint(sauce, url_prefix="api/sauce")
 
 
 # Default Routing
