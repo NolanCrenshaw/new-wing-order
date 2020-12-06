@@ -73,3 +73,22 @@ class Menu_Item(db.Model):
             "item_type": self.item_type,
             "date_added": self.date_added,
         }
+
+
+class Sauce(db.Model):
+    __tablename__ = "sauces"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40), nullable=False, unique=True)
+    heat = db.Column(db.Integer, nullable=True)
+    date_added = db.Column(
+        db.DateTime(timezone=True), nullable=False, default=datetime.utcnow
+    )
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "heat": self.heat,
+            "date_added": self.date_added,
+        }
