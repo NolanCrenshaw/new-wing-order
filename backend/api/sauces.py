@@ -19,7 +19,7 @@ def get_sauces():
         return jsonify(message="Sauce GET Request Failure"), 400
 
 
-@sauce.route("/", method=["POST"])
+@sauce.route("/", methods=["POST"])
 @jwt_required
 def create_sauce():
     try:
