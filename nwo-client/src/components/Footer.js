@@ -41,20 +41,11 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
-      {/* <nav>
-        <Link to="/">Home</Link>
-        <span>|</span>
-        <Link to="/menu">Menu</Link>
-        <span>|</span>
-        <Link to="/catering">Catering</Link>
-        <span>|</span>
-        <Link to="/awards">Awards</Link>
-        <span>|</span>
-        <Link to="/contact">Contact</Link>
-      </nav>
-      <div>
-        <span>info@newwingorder.com | 901.747.8893 </span>
-      </div> */}
+      <div className="footer-credits">
+        <a href="https://icons8.com/icon/QV5JEtrTP6nH/fire">
+          Fire icon by Icons8
+        </a>
+      </div>
     </div>
   );
 };
