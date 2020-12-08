@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
 
-import { IconRepeater } from "./utils";
+import { Repeater } from "./utils";
 
 const Menu = () => {
   // State
@@ -9,7 +9,7 @@ const Menu = () => {
   const [sauces, setSauces] = useState([]);
   const [rubs, setRubs] = useState([]);
 
-  // Functions
+  // Fetch Functions
   const getMenuItems = async () => {
     const res = await fetch(`${BASE_URL}/api/menu_items/`, {
       method: "GET",
@@ -133,13 +133,13 @@ const Menu = () => {
                   <span>
                     {item.name}
                     <div>
-                      <IconRepeater numTimes={item.heat}>
+                      <Repeater numTimes={item.heat}>
                         {(i) => (
                           <div key={i}>
                             <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
                           </div>
                         )}
-                      </IconRepeater>
+                      </Repeater>
                     </div>
                   </span>
                 </li>
@@ -155,13 +155,13 @@ const Menu = () => {
                   <span>
                     {item.name}
                     <div>
-                      <IconRepeater numTimes={item.heat}>
+                      <Repeater numTimes={item.heat}>
                         {(i) => (
                           <div key={i}>
                             <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
                           </div>
                         )}
-                      </IconRepeater>
+                      </Repeater>
                     </div>
                   </span>
                 </li>
