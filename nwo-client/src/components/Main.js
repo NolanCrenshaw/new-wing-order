@@ -6,14 +6,14 @@ const Main = () => {
   // State Hooks
   const [location, setLocation] = useState(null);
   const [locationName, setLocationName] = useState("Memphis, TN");
-  const [address, setAddress] = useState("default");
+  const [address, setAddress] = useState("Central BBQ");
+  const [truckStatus, setTruckStatus] = useState("");
 
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
-
-  const InterpretLocation = async () => {
-    await Geocode.fromAddress("4505 St Elmo Ave").then(
+  const interpretLocation = async () => {
+    await Geocode.fromAddress(`${address}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLocation([lat, lng]);
@@ -25,14 +25,14 @@ const Main = () => {
   };
 
   useEffect(() => {
-    InterpretLocation();
+    // interpretLocation();
   }, []);
 
   return (
     <div className="main-container">
       <div className="location-container">
         <div id="header-box">
-          <h2>Where is the Truck Now?</h2>
+          <span>{truckStatus}</span>
           <h1>{locationName}</h1>
           <h3>{address}</h3>
         </div>
