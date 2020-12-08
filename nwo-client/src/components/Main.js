@@ -25,7 +25,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    interpretLocation();
+    // interpretLocation();
   }, []);
 
   return (

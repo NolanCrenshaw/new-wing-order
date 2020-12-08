@@ -32,7 +32,7 @@ with app.app_context():
         description="Tortilla chips, house-made queso, crispy chicken, \
           buffalo sauce, jalapeño ranch, pico, cilantro, queso fresco \
           crumbles",
-        price="$11",
+        price="11",
         item_type="kitchen"
     )
     db.session.add(hot_wing_nachos)
@@ -41,7 +41,7 @@ with app.app_context():
         description="Tortilla chips, house-made queso, crispy chicken, \
           Bluff City BBQ sauce, Alabama White BBQ sauce, Backyard BBQ \
           seasoning, and pickled jalapeños",
-        price="$11",
+        price="11",
         item_type="kitchen"
     )
     db.session.add(fried_chicken_bbq_nachos)
@@ -50,7 +50,7 @@ with app.app_context():
         description="Fries stacked high with house-made queso, bacon \
           crumbles, pico de gallo, ancho chipotle sauce, queso fresco \
           crumbles, and scallions",
-        price="$12",
+        price="12",
         item_type="kitchen"
     )
     db.session.add(smokehouse_loaded_fries)
@@ -58,7 +58,7 @@ with app.app_context():
         name="Buffalo Chicken Taco",
         description="Flour tortilla, crispy chicken tossed in buffalo \
           sauce, lettuce, shredded cheese, pico, jalapeño ranch",
-        price="$4",
+        price="4",
         item_type="kitchen"
     )
     db.session.add(buffalo_chicken_taco)
@@ -67,7 +67,7 @@ with app.app_context():
         description="(Vegan) Flour tortilla, fried or raw avocado, red \
           cabbage, pico, pineapple, cilantro, bang bang sauce (gluten \
           free upon request)",
-        price="$5",
+        price="5",
         item_type="kitchen"
     )
     db.session.add(avocado_taco)
@@ -76,7 +76,7 @@ with app.app_context():
         description="King’s Hawaiian roll, crispy chicken tossed in \
           our signature Memphis Buffalo sauce, pepper jack cheese, \
           pickles, jalapeño ranch",
-        price="$10",
+        price="10",
         item_type="kitchen"
     )
     db.session.add(memphis_buffalo_chicken_sliders)
@@ -84,26 +84,26 @@ with app.app_context():
         name="Marie's Kid's Meal",
         description="4 piece chicken nuggets, classic fries, carrots, \
           roll, and dipping sauce",
-        price="$7",
+        price="7",
         item_type="kitchen"
     )
     db.session.add(kid_meal)
     classic_fries = Menu_Item(
         name="Classic Fries",
-        price="$3",
+        price="3",
         item_type="side"
     )
     db.session.add(classic_fries)
     premium_fries = Menu_Item(
         name="Premium Fries",
         description="Garlic parmesan, cajun, lemon pepper, Nikki’s Hot™",
-        price="$4",
+        price="4",
         item_type="side"
     )
     db.session.add(premium_fries)
     nikki_chips = Menu_Item(
         name="Nikki's Chips",
-        price="$1",
+        price="1",
         item_type="side"
     )
     db.session.add(nikki_chips)

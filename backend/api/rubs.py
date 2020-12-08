@@ -10,7 +10,7 @@ rub = Blueprint("rubs", __name__)
 @rub.route("/", methods=["GET"])
 def get_rubs():
     try:
-        rub_objects = rub.query.all()
+        rub_objects = Rub.query.all()
         rubs = []
         for obj in rub_objects:
             rubs.append(obj.to_dict())
