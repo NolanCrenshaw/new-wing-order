@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
 
+import { IconRepeater } from "./utils";
+
 const Menu = () => {
   // State
   const [menuItems, setMenuItems] = useState([]);
@@ -87,10 +89,8 @@ const Menu = () => {
             Seasoned or sauced of your choice of flavor (one flavor per six
             wings).
           </p>
-          <p>
-            Served with Hawaiian Rolls, carrots, celery, and your choice of
-            dipping sauce: Ranch or Blue Cheese.
-          </p>
+          <p>Your choice of dipping sauce: Ranch or Blue Cheese.</p>
+          <p>Includes Hawaiian Roll, Carrots, and Celery.</p>
           <p>Extra sauce $0.25</p>
           <p>Extra bread $0.50</p>
           <div className="wing_option">
@@ -130,25 +130,40 @@ const Menu = () => {
             <ul>
               {sauces.map((item, i) => (
                 <li>
-                  <div className="sauce_text">
-                    <span>
-                      {item.name} {item.heat}
-                    </span>
-                  </div>
+                  <span>
+                    {item.name}
+                    <div>
+                      <IconRepeater numTimes={item.heat}>
+                        {(i) => (
+                          <div key={i}>
+                            <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
+                          </div>
+                        )}
+                      </IconRepeater>
+                    </div>
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
+          <div className="flavors-divider" />
           <div className="rubs">
             <h2>Dry Seasonings</h2>
             <ul>
               {rubs.map((item, i) => (
                 <li>
-                  <div className="rub_text">
-                    <span>
-                      {item.name} {item.heat}
-                    </span>
-                  </div>
+                  <span>
+                    {item.name}
+                    <div>
+                      <IconRepeater numTimes={item.heat}>
+                        {(i) => (
+                          <div key={i}>
+                            <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
+                          </div>
+                        )}
+                      </IconRepeater>
+                    </div>
+                  </span>
                 </li>
               ))}
             </ul>

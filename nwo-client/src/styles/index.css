@@ -365,7 +365,7 @@ a {
 }
 
 .menu-container .menu_items .wings p {
-  margin: 0.2rem 1.8rem;
+  margin: 0.4rem 1.8rem;
   padding: 0 2rem;
   font-style: italic;
 }
@@ -437,6 +437,11 @@ a {
   font-size: 2.5rem;
 }
 
+.menu-container .menu_items .flavors-divider {
+  border: 2px solid #777676;
+  border-radius: 100%;
+}
+
 .menu-container .menu_items .flavors {
   margin: 1.8rem;
   padding: 2rem;
@@ -474,6 +479,35 @@ a {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.menu-container .menu_items .flavors .sauces li span,
+.menu-container .menu_items .flavors .rubs li span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menu-container .menu_items .flavors .sauces li span div,
+.menu-container .menu_items .flavors .rubs li span div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.menu-container .menu_items .flavors .sauces li span div :nth-child(1),
+.menu-container .menu_items .flavors .rubs li span div :nth-child(1) {
+  margin-left: 0.2rem;
+}
+
+.menu-container .menu_items .flavors .sauces li img,
+.menu-container .menu_items .flavors .rubs li img {
+  width: 2rem;
+  height: auto;
 }
 
 .store-container {
