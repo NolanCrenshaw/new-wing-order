@@ -1,7 +1,7 @@
 // Variable Declarations
 $_red: #f53d30;
 $_gray: rgb(119, 118, 118);
-$_content_min-height: 75.6vh;
+$_content_min-height: 90.6vh;
 
 // Default CSS settings
 * {
@@ -33,7 +33,7 @@ a {
 }
 
 #root {
-  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
+  background-color: white;
   background-size: cover;
   background-position: center;
   overflow-x: hidden;

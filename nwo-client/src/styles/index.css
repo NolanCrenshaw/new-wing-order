@@ -35,7 +35,7 @@ a {
 }
 
 #root {
-  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a1.jpg");
+  background-color: white;
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
@@ -177,20 +177,46 @@ a {
 .main-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75.6vh;
-  -ms-grid-columns: 0.1fr 1.5fr 3fr;
-      grid-template-columns: 0.1fr 1.5fr 3fr;
-  -ms-grid-rows: 0.2fr 4fr 0.2fr;
-      grid-template-rows: 0.2fr 4fr 0.2fr;
+  min-height: 90.6vh;
+  -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
+      grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+  -ms-grid-rows: 3rem 90.6vh 5rem 70vh 8rem;
+      grid-template-rows: 3rem 90.6vh 5rem 70vh 8rem;
+}
+
+.main-container .splash-container {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a6.jpg");
+  background-size: calc(100vw + 100rem);
+  background-position-y: 80%;
+  background-position-x: 40%;
 }
 
 .main-container .location-container {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 2;
+  -ms-grid-row: 4;
   -ms-grid-row-span: 1;
-  grid-row: 2/3;
+  grid-row: 4/5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,10 +292,47 @@ a {
   width: 100%;
 }
 
+.main-container .truck_drawing-container {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+  margin: 8rem;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .truck_drawing-container span {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.main-container .truck_drawing-container img {
+  padding: 4rem;
+  height: 100%;
+  width: 100%;
+}
+
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75.6vh;
+  min-height: 90.6vh;
   background-color: #4b4747;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -513,7 +576,7 @@ a {
 .store-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75.6vh;
+  min-height: 90.6vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -524,7 +587,7 @@ a {
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75.6vh;
+  min-height: 90.6vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -536,7 +599,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 75.6vh;
+  min-height: 90.6vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -547,7 +610,7 @@ a {
 }
 
 .awards-container img {
-  height: 75.6vh;
+  height: 90.6vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -555,7 +618,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75.6vh;
+  min-height: 90.6vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
