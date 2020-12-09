@@ -19,6 +19,8 @@
     }
   }
   .contact-bar {
+    grid-column: 2/3;
+    grid-row: 1/2;
     width: 85%;
     margin: auto;
     min-height: 8vh;
@@ -29,7 +31,8 @@
 
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
       list-style: none;
 
       li {
@@ -68,6 +71,8 @@
   }
 
   nav {
+    grid-column: 2/3;
+    grid-row: 2/3;
     width: 85%;
     margin: 0 auto;
     min-height: 10.4vh;
