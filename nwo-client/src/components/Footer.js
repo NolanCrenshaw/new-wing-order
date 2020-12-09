@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer-container">
-      <nav>
+      {/* <nav>
         <span>info@newwingorder.com | 901.747.8893 </span>
         <ul>
           <li>
@@ -28,7 +28,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <div className="footer-credits">
         <a href="https://icons8.com/icon/QV5JEtrTP6nH/fire">
           Fire icon by Icons8

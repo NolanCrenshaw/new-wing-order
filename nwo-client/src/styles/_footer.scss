@@ -1,55 +1,6 @@
 .footer-container {
   background: radial-gradient(#313131, #131313);
 
-  nav {
-    width: 85%;
-    margin: auto;
-    min-height: 14vh;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    ul {
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-
-      li {
-        height: 4rem;
-        width: 4rem;
-        display: flex;
-        margin: 0.5rem;
-        border-radius: 20%;
-
-        a {
-          background-color: rgb(200, 200, 200);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 8px;
-
-          img {
-            height: 90%;
-            width: 100%;
-            border-radius: 8px;
-          }
-        }
-        a:hover {
-          transition: all 0.8s;
-          background: white;
-          background-size: 150%;
-          border-radius: 1rem;
-        }
-      }
-    }
-    span {
-      color: $_gray;
-      font-size: 2.5rem;
-      padding-right: 2.5rem;
-    }
-  }
-
   .footer-credits {
     width: 90%;
     height: 90%;
@@ -59,6 +10,7 @@
     a {
       font-size: 1.5rem;
       color: $_gray;
+      margin-right: 2rem;
     }
   }
 }
