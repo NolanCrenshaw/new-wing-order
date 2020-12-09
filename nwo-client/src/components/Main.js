@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import Geocode from "react-geocode";
 
+import Store from "./Store";
+
 const Main = () => {
   // State Hooks
   const [location, setLocation] = useState(null);
@@ -30,6 +32,7 @@ const Main = () => {
 
   return (
     <div className="main-container">
+      <div className="splash-container"></div>
       <div className="location-container">
         <div id="header-box">
           <span>{truckStatus}</span>
@@ -53,6 +56,13 @@ const Main = () => {
             <span>Loading</span>
           )}
         </div>
+      </div>
+      <div className="truck_drawing-container">
+        <span>Where is the Truck Now?</span>
+        <img
+          alt="truck_drawing"
+          src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/nwo_png_truck_drawing.png"
+        />
       </div>
     </div>
   );
