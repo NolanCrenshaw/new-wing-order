@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoaded(true);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return <div className="app">{loaded ? <Landing /> : <Loading />}</div>;

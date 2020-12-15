@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Navbar from "./Navbar";
 import Main from "./Main";
@@ -12,7 +13,11 @@ import Footer from "./Footer";
 
 const Landing = () => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <Router>
         <Navbar />
         <Switch>
@@ -25,7 +30,7 @@ const Landing = () => {
         </Switch>
         <Footer />
       </Router>
-    </div>
+    </motion.div>
   );
 };
 

@@ -43,6 +43,25 @@ a {
   scrollbar-width: none;
 }
 
+.loading-container {
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading-container img {
+  height: 100vh;
+  max-width: 100vw;
+}
+
 .navbar-container {
   width: 100%;
   margin: auto;
@@ -66,7 +85,7 @@ a {
   width: 100%;
   min-height: 5vh;
   padding: 1rem;
-  border-bottom: 2px solid #777676;
+  border-bottom: 0.02rem solid #777676;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
