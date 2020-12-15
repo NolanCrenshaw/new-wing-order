@@ -33,6 +33,7 @@ a {
 }
 
 #root {
+  width: 100%;
   background-color: white;
   background-size: cover;
   background-position: center;
@@ -44,6 +45,7 @@ a {
 @import "../../node_modules/include-media/dist/include-media.scss";
 
 // Module Imports
+@import "loading";
 @import "navbar";
 @import "header";
 @import "main";

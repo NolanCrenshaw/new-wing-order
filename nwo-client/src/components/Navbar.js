@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <div id="logo-box">
+      {/* <div id="logo-box">
         <img
           src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Head+Logo_Full+Color_White.png"
           alt="Logo Image"
@@ -17,7 +17,7 @@ const Navbar = () => {
           src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Ver+Text+Logo_White.png"
           alt="Logo Text"
         />
-      </div>
+      </div> */}
       <div className="contact-bar">
         <span>info@newwingorder.com | 901.747.8893 </span>
         <ul>
