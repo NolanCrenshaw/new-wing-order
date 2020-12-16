@@ -11,8 +11,8 @@ const Landing = () => {
       <div className="splash-container">
         <motion.div
           id="full_body_logo"
-          initial={{ opacity: 0, scale: 8, rotate: 90 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 8, rotate: 180 }}
+          animate={{ opacity: 1, scale: 1, rotate: [-10, 10, -10, 10, 0] }}
           transition={{ duration: 2 }}
         >
           <img
@@ -20,7 +20,7 @@ const Landing = () => {
             style={{ zIndex: 4 }}
           />
         </motion.div>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0, rotate: 190 }}
           animate={{ opacity: 1, scale: 1, rotate: -190, x: 300, y: 300 }}
           transition={{
@@ -79,7 +79,7 @@ const Landing = () => {
           }}
         >
           <Star />
-        </motion.div>
+        </motion.div> */}
       </div>
       <Location />
     </div>
