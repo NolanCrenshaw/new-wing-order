@@ -1,7 +1,7 @@
 // Variable Declarations
 $_red: #f53d30;
 $_gray: rgb(119, 118, 118);
-$_content_min-height: 90.6vh;
+$_content_min-height: 80.6vh;
 
 // Default CSS settings
 * {
@@ -45,10 +45,10 @@ a {
 @import "../../node_modules/include-media/dist/include-media.scss";
 
 // Module Imports
-@import "loading";
+@import "infobar";
 @import "navbar";
-@import "header";
-@import "main";
+@import "landing";
+@import "location";
 @import "menu";
 @import "store";
 @import "catering";
