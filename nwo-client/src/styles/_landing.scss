@@ -14,6 +14,7 @@
 
     // position: relative;
     // overflow: hidden;
+    pointer-events: none;
 
     display: flex;
     justify-content: center;
@@ -25,7 +26,15 @@
     // background-position-x: 40%;
 
     #full_body_logo {
-      height: 130%;
+      max-height: 80vh;
+      position: absolute;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 100vh;
+      }
     }
   }
 }

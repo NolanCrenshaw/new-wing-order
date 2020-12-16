@@ -234,6 +234,7 @@ a {
   grid-row: 2/3;
   height: 83vh;
   width: 100%;
+  pointer-events: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,7 +247,21 @@ a {
 }
 
 .landing-container .splash-container #full_body_logo {
-  height: 130%;
+  max-height: 80vh;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-container .splash-container #full_body_logo img {
+  height: 100vh;
 }
 
 .location-container {
