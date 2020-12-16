@@ -1,10 +1,10 @@
 .landing-container {
-  position: relative;
-
-  display: grid;
-
   min-height: $_content_min-height;
   grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+  position: relative;
+
+  // overflow: hidden;
+  display: grid;
 
   .splash-container {
     grid-column: 1/5;
@@ -20,11 +20,6 @@
     justify-content: center;
     align-items: center;
 
-    // background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/a6.jpg");
-    // background-size: calc(100vw + 100rem);
-    // background-position-y: 80%;
-    // background-position-x: 40%;
-
     #full_body_logo {
       max-height: 80vh;
       position: absolute;
@@ -34,6 +29,23 @@
       align-items: center;
       img {
         height: 100vh;
+      }
+    }
+
+    #splash_box {
+      height: 100%;
+      width: 100%;
+
+      background-color: black;
+      background-size: cover;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        min-width: 60%;
       }
     }
   }

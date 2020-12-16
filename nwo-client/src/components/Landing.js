@@ -1,85 +1,57 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 import Location from "./Location";
 import Star from "./svg_library/Star";
 import Store from "./Store";
 
 const Landing = () => {
+  const logoControl = useAnimation();
+  const splashControl = useAnimation();
+
+  const animationSequence = async () => {
+    await logoControl.start({
+      opacity: 1,
+      scale: 1.5,
+      rotate: 0,
+      transition: { duration: 2 },
+    });
+    await logoControl.start({
+      opacity: 0,
+      x: -1500,
+      transition: { duration: 1.5, delay: 0.5 },
+    });
+    // await splashControl.start({
+    //   opacity: 1,
+    //   transition: { duration: 1 },
+    // });
+  };
+
+  useEffect(() => {
+    animationSequence();
+  }, []);
+
   return (
     <div className="landing-container">
       <div className="splash-container">
         <motion.div
           id="full_body_logo"
-          initial={{ opacity: 0, scale: 8, rotate: 180 }}
-          animate={{ opacity: 1, scale: 1, rotate: [-10, 10, -10, 10, 0] }}
-          transition={{ duration: 2 }}
+          initial={{ opacity: 0, scale: 8, rotate: 90 }}
+          animate={logoControl}
         >
           <img
             src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Body+Full+Logo_Full+Color.png"
             style={{ zIndex: 4 }}
           />
         </motion.div>
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0, rotate: 190 }}
-          animate={{ opacity: 1, scale: 1, rotate: -190, x: 300, y: 300 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: 1,
-            repeatType: "reverse",
-          }}
-        >
-          <Star />
-        </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0, rotate: 200 }}
-          animate={{ opacity: 1, scale: 1, rotate: -200, x: -300, y: -300 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: 1,
-            repeatType: "reverse",
-          }}
+          id="splash_box"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 3 }}
         >
-          <Star />
+          <img src="./images/truck_slice_01.jpg" />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0, rotate: -300 }}
-          animate={{ opacity: 1, scale: 1, rotate: 300, x: 100, y: -300 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: 1,
-            repeatType: "reverse",
-          }}
-        >
-          <Star />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0, rotate: 500 }}
-          animate={{ opacity: 1, scale: 1, rotate: -500, x: -200, y: 250 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: 1,
-            repeatType: "reverse",
-          }}
-        >
-          <Star />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0, rotate: -250 }}
-          animate={{ opacity: 1, scale: 1, rotate: 250, x: 100, y: 100 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: 1,
-            repeatType: "reverse",
-          }}
-        >
-          <Star />
-        </motion.div> */}
       </div>
       <Location />
     </div>

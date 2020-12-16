@@ -173,7 +173,7 @@ a {
   font-size: 2rem;
   padding: 0 2rem;
   border: 0.2rem solid rgba(0, 0, 0, 0);
-  border-radius: 10rem;
+  border-radius: 300%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -192,8 +192,8 @@ a {
   height: 3rem;
   border: 0.2rem solid black;
   border-radius: 1rem;
-  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #777676;
-          box-shadow: 0.5rem 0.5rem 0.5rem #777676;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.5rem #777676;
+          box-shadow: 0.2rem 0.2rem 0.5rem #777676;
   color: white;
 }
 
@@ -214,12 +214,12 @@ a {
 }
 
 .landing-container {
-  position: relative;
-  display: -ms-grid;
-  display: grid;
   min-height: 80.6vh;
   -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
       grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
 }
 
 .landing-container .splash-container {
@@ -261,6 +261,27 @@ a {
   height: 100vh;
 }
 
+.landing-container .splash-container #splash_box {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  background-size: cover;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-container .splash-container #splash_box img {
+  min-width: 60%;
+}
+
 .location-container {
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
@@ -270,6 +291,7 @@ a {
   grid-row: 4/5;
   min-height: 80vh;
   overflow: hidden;
+  background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -283,7 +305,7 @@ a {
 
 .location-container .map-container {
   height: 90%;
-  min-width: 40%;
+  min-width: 45%;
   margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -300,9 +322,8 @@ a {
           align-items: center;
   overflow: hidden;
   background-color: #777676;
+  border: 4px solid white;
   border-radius: 2rem;
-  -webkit-box-shadow: 1rem 1rem 20px #222222;
-          box-shadow: 1rem 1rem 20px #222222;
 }
 
 .location-container .map-container #header-box {
@@ -358,13 +379,10 @@ a {
   width: 100%;
 }
 
-.truck_drawing-container {
-  margin: 8rem;
-  justify-self: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  position: relative;
-  overflow: hidden;
+.location-container .schedule-box {
+  height: 90%;
+  min-width: 45%;
+  margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -378,17 +396,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.truck_drawing-container span {
-  font-size: 4rem;
-  font-weight: 600;
-}
-
-.truck_drawing-container img {
-  padding: 4rem;
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
+  background-color: #777676;
+  border: 4px solid white;
+  border-radius: 2rem;
 }
 
 .menu-container {
