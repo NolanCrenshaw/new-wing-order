@@ -1,0 +1,55 @@
+.infobar-container {
+  width: 100%;
+  height: 10vh;
+  margin: auto;
+  padding: 1rem;
+
+  // background: radial-gradient(#313131, #131313);
+  background-color: #131313;
+
+  border-bottom: 0.02rem solid $_gray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  ul {
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    li {
+      height: 4rem;
+      width: 4rem;
+      display: flex;
+      margin: 0.5rem;
+      border-radius: 20%;
+
+      a {
+        background-color: rgb(200, 200, 200);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        img {
+          height: 90%;
+          width: 100%;
+          border-radius: 8px;
+        }
+      }
+      a:hover {
+        transition: all 0.8s;
+        background: white;
+        background-size: 150%;
+        border-radius: 1rem;
+      }
+    }
+  }
+  span {
+    color: $_gray;
+    font-size: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

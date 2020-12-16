@@ -1,37 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import Navbar from "./Navbar";
-import Main from "./Main";
-import Menu from "./Menu";
-import Store from "./Store";
-import Catering from "./Catering";
-import Awards from "./Awards";
-import Contact from "./Contact";
-import Footer from "./Footer";
+import Location from "./Location";
 
 const Landing = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/menu" component={Menu} />
-          <Route path="/store" component={Store} />
-          <Route path="/catering" component={Catering} />
-          <Route path="/awards" component={Awards} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
-        <Footer />
-      </Router>
-    </motion.div>
+    <div className="landing-container">
+      <div className="splash-container">
+        <motion.img
+          id="full_body_logo"
+          initial={{ opacity: 0, scale: 5, y: 0, rotate: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 50, rotate: 0 }}
+          transition={{ duration: 2 }}
+          src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Body+Full+Logo_Full+Color.png"
+        />
+      </div>
+      <Location />
+    </div>
   );
 };
-
 export default Landing;

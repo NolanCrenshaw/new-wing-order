@@ -1,69 +1,21 @@
 .navbar-container {
+  grid-column: 1/5;
   width: 100%;
+  height: 7vh;
   margin: auto;
+  position: sticky;
 
-  background: radial-gradient(#313131, #131313);
+  // background: radial-gradient(#313131, #131313);
+  // background-color: #131313;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .contact-bar {
-    width: 100%;
-    min-height: 5vh;
-    padding: 1rem;
-
-    border-bottom: 0.02rem solid $_gray;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    ul {
-      margin-right: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-
-      li {
-        height: 4rem;
-        width: 4rem;
-        display: flex;
-        margin: 0.5rem;
-        border-radius: 20%;
-
-        a {
-          background-color: rgb(200, 200, 200);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 8px;
-
-          img {
-            height: 90%;
-            width: 100%;
-            border-radius: 8px;
-          }
-        }
-        a:hover {
-          transition: all 0.8s;
-          background: white;
-          background-size: 150%;
-          border-radius: 1rem;
-        }
-      }
-    }
-    span {
-      color: $_gray;
-      font-size: 2.5rem;
-      padding-right: 2.5rem;
-    }
-  }
-
   nav {
     width: 90%;
     margin: 1rem auto;
-    min-height: 5vh;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -76,10 +28,11 @@
 
       a {
         color: $_gray;
+        font-weight: 800;
         font-size: 2rem;
         padding: 0 2rem;
         border: 0.2rem solid rgba(0, 0, 0, 0);
-        border-radius: 2rem;
+        border-radius: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -87,10 +40,11 @@
 
       a:hover {
         transition: all 0.5s;
-        background: #5e5e5e;
-        height: 1.5rem;
+        background-color: $_red;
+        height: 3rem;
         border: 0.2rem solid black;
-        border-radius: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0.5rem 0.5rem 0.5rem $_gray;
         color: white;
       }
 
