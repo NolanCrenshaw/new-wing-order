@@ -2,12 +2,9 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 import Location from "./Location";
-import Star from "./svg_library/Star";
-import Store from "./Store";
 
 const Landing = () => {
   const logoControl = useAnimation();
-  const splashControl = useAnimation();
 
   const animationSequence = async () => {
     await logoControl.start({
@@ -21,10 +18,6 @@ const Landing = () => {
       x: -1500,
       transition: { duration: 1.5, delay: 0.5 },
     });
-    // await splashControl.start({
-    //   opacity: 1,
-    //   transition: { duration: 1 },
-    // });
   };
 
   useEffect(() => {

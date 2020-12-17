@@ -2,6 +2,6 @@
   display: grid;
   min-height: $_content_min-height;
   background-color: white;
-  grid-template-columns: 0.2fr 1.5fr 3fr;
+  grid-template-columns: 0.2fr 3fr 0.2fr;
   grid-template-rows: 0.5fr 4fr 0.5fr;
 }

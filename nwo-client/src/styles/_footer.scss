@@ -1,5 +1,8 @@
 .footer-container {
   background: radial-gradient(#313131, #131313);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .footer-credits {
     width: 90%;
@@ -12,5 +15,10 @@
       color: $_gray;
       margin-right: 2rem;
     }
+  }
+
+  #adminLink {
+    color: white;
+    font-size: 1.5rem;
   }
 }

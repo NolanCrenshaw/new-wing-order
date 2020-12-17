@@ -214,7 +214,7 @@ a {
 }
 
 .landing-container {
-  min-height: 80.6vh;
+  min-height: 75vh;
   -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
       grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
   position: relative;
@@ -405,7 +405,7 @@ a {
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 80.6vh;
+  min-height: 75vh;
   background-color: #4b4747;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -649,21 +649,31 @@ a {
 .store-container {
   display: -ms-grid;
   display: grid;
-  min-height: 80.6vh;
+  min-height: 75vh;
   background-color: white;
-  -ms-grid-columns: 0.2fr 1.5fr 3fr;
-      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-columns: 0.2fr 3fr 0.2fr;
+      grid-template-columns: 0.2fr 3fr 0.2fr;
   -ms-grid-rows: 0.5fr 4fr 0.5fr;
       grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
+.store-container img {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  height: 100%;
 }
 
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 80.6vh;
+  min-height: 75vh;
   background-color: white;
-  -ms-grid-columns: 0.2fr 1.5fr 3fr;
-      grid-template-columns: 0.2fr 1.5fr 3fr;
+  -ms-grid-columns: 0.2fr 3fr 0.2fr;
+      grid-template-columns: 0.2fr 3fr 0.2fr;
   -ms-grid-rows: 0.5fr 4fr 0.5fr;
       grid-template-rows: 0.5fr 4fr 0.5fr;
 }
@@ -672,7 +682,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 80.6vh;
+  min-height: 75vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -683,7 +693,7 @@ a {
 }
 
 .awards-container img {
-  height: 80.6vh;
+  height: 75vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -691,7 +701,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 80.6vh;
+  min-height: 75vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -699,8 +709,28 @@ a {
       grid-template-rows: 0.5fr 4fr 0.5fr;
 }
 
+.admin-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 75vh;
+  background-color: white;
+  -ms-grid-columns: 0.2fr 3fr 0.2fr;
+      grid-template-columns: 0.2fr 3fr 0.2fr;
+  -ms-grid-rows: 0.5fr 4fr 0.5fr;
+      grid-template-rows: 0.5fr 4fr 0.5fr;
+}
+
 .footer-container {
   background: radial-gradient(#313131, #131313);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .footer-container .footer-credits {
@@ -716,5 +746,10 @@ a {
   font-size: 1.5rem;
   color: #777676;
   margin-right: 2rem;
+}
+
+.footer-container #adminLink {
+  color: white;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=index.css.map */

@@ -11,6 +11,7 @@ import Catering from "./Catering";
 import Awards from "./Awards";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import Admin from "./Admin";
 
 const Main = () => {
   return (
@@ -29,6 +30,7 @@ const Main = () => {
           <Route path="/catering" component={Catering} />
           <Route path="/awards" component={Awards} />
           <Route path="/contact" component={Contact} />
+          <Route exact path="/admin" component={Admin} />
         </Switch>
         <Footer />
       </Router>

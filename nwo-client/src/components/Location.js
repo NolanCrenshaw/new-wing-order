@@ -54,7 +54,9 @@ const Location = () => {
           )}
         </div>
       </div>
-      <div className="schedule-box"></div>
+      <div className="schedule-box">
+        <img src="./images/truck_svg-removebg-preview.png" />
+      </div>
     </div>
   );
 };
