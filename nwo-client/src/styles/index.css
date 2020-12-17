@@ -716,8 +716,70 @@ a {
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
-  -ms-grid-rows: 0.5fr 4fr 0.5fr;
-      grid-template-rows: 0.5fr 4fr 0.5fr;
+  -ms-grid-rows: 0.5fr 1fr 5fr 0.5fr;
+      grid-template-rows: 0.5fr 1fr 5fr 0.5fr;
+}
+
+.admin-container nav {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  background-color: #777676;
+  border-radius: 8px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-container nav li {
+  margin: 0 1.5rem;
+  padding: 1rem 2rem;
+  list-style: none;
+  font-weight: 600;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.admin-container nav li:hover {
+  color: white;
+  background-color: black;
+}
+
+.admin-container nav h2 {
+  margin: 0 4rem;
+  border-bottom: 5px solid black;
+}
+
+.admin-container nav h3 {
+  position: absolute;
+  right: 5rem;
+  color: white;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.admin-container section {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  padding: 3rem;
+  margin-top: 3rem;
+  border: 3px solid black;
+  border-radius: 8px;
 }
 
 .footer-container {
