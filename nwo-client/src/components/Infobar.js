@@ -3,12 +3,7 @@ import { motion } from "framer-motion";
 
 const Infobar = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2, delay: 3 }}
-      className="infobar-container"
-    >
+    <div className="infobar-container">
       <span>info@newwingorder.com | 901.747.8893 </span>
       <ul>
         <motion.li whileHover={{ scale: 1.2 }}>
@@ -32,7 +27,7 @@ const Infobar = () => {
           </a>
         </motion.li>
       </ul>
-    </motion.div>
+    </div>
   );
 };
 

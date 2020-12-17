@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [dropMenu, setDropMenu] = useState(false);
@@ -8,12 +7,7 @@ const Navbar = () => {
   const handleHamburger = () => setDropMenu(!dropMenu);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2, delay: 3 }}
-      className="navbar-container"
-    >
+    <div className="navbar-container">
       <nav>
         <div
           id="link-box"
@@ -31,7 +25,7 @@ const Navbar = () => {
         </div>
         {/* <button onClick={handleHamburger} /> */}
       </nav>
-    </motion.div>
+    </div>
   );
 };
 export default Navbar;
