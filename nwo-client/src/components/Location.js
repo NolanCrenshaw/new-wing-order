@@ -7,7 +7,7 @@ const Location = () => {
   const [location, setLocation] = useState(null);
   const [locationName, setLocationName] = useState("Memphis, TN");
   const [address, setAddress] = useState("Central BBQ");
-  const [truckStatus, setTruckStatus] = useState("");
+  const [truckStatus, setTruckStatus] = useState("Today's Service!");
 
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
@@ -25,7 +25,7 @@ const Location = () => {
   };
 
   useEffect(() => {
-    // interpretLocation();
+    interpretLocation();
   }, []);
 
   return (
@@ -38,7 +38,7 @@ const Location = () => {
         </div>
         <div id="map-box">
           {location ? (
-            <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
+            <MapContainer center={location} zoom={15} scrollWheelZoom={false}>
               <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -54,12 +54,8 @@ const Location = () => {
           )}
         </div>
       </div>
-      <div className="truck_drawing-container">
-        <span>Where is the Truck Now?</span>
-        <img
-          alt="truck_drawing"
-          src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/nwo_png_truck_drawing.png"
-        />
+      <div className="schedule-box">
+        <img src="./images/truck_svg-removebg-preview.png" />
       </div>
     </div>
   );

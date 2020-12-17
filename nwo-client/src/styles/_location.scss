@@ -4,6 +4,7 @@
   min-height: 80vh;
 
   overflow: hidden;
+  background-color: black;
 
   display: flex;
   justify-content: space-evenly;
@@ -11,7 +12,7 @@
 
   .map-container {
     height: 90%;
-    min-width: 40%;
+    min-width: 45%;
     margin: 2rem;
     // padding: 2rem;
 
@@ -22,14 +23,16 @@
 
     overflow: hidden;
     background-color: $_gray;
+    border: 4px solid white;
     border-radius: 2rem;
-    box-shadow: 1rem 1rem 20px rgb(34, 34, 34);
 
     #header-box {
       height: 20%;
       min-height: 9rem;
       width: 100%;
+
       background-color: rgb(218, 218, 218);
+
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -64,28 +67,18 @@
       }
     }
   }
-}
+  .schedule-box {
+    height: 90%;
+    min-width: 45%;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.truck_drawing-container {
-  margin: 8rem;
-
-  justify-self: center;
-  align-self: center;
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: 4rem;
-    font-weight: 600;
-  }
-  img {
-    padding: 4rem;
-    height: 100%;
-    width: 100%;
+    overflow: hidden;
+    background-color: $_gray;
+    border: 4px solid white;
+    border-radius: 2rem;
   }
 }

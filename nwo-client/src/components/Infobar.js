@@ -1,32 +1,38 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Infobar = () => {
   return (
-    <div className="infobar-container">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2, delay: 3 }}
+      className="infobar-container"
+    >
       <span>info@newwingorder.com | 901.747.8893 </span>
       <ul>
-        <li>
+        <motion.li whileHover={{ scale: 1.2 }}>
           <a href="https://www.facebook.com/NewWingOrder/">
             <img src="https://img.icons8.com/material-outlined/48/000000/facebook.png" />
           </a>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.2 }}>
           <a href="https://www.instagram.com/newwingorder/">
             <img src="https://img.icons8.com/material-outlined/48/000000/instagram-new--v1.png" />
           </a>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.2 }}>
           <a href="https://twitter.com/newwingorder">
             <img src="https://img.icons8.com/material-outlined/48/000000/twitter.png" />
           </a>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.2 }}>
           <a href="https://www.youtube.com/channel/UCsJxqotVF1LuhOGeC5YfKpw">
             <img src="https://img.icons8.com/material-outlined/48/000000/youtube--v1.png" />
           </a>
-        </li>
+        </motion.li>
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

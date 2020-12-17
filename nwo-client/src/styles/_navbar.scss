@@ -1,12 +1,10 @@
 .navbar-container {
-  grid-column: 1/5;
   width: 100%;
   height: 7vh;
+  min-height: 45px;
   margin: auto;
-  position: sticky;
 
-  // background: radial-gradient(#313131, #131313);
-  // background-color: #131313;
+  background-color: #131313;
 
   display: flex;
   flex-direction: column;
@@ -28,11 +26,11 @@
 
       a {
         color: $_gray;
-        font-weight: 800;
+        font-weight: 600;
         font-size: 2rem;
         padding: 0 2rem;
         border: 0.2rem solid rgba(0, 0, 0, 0);
-        border-radius: 10rem;
+        border-radius: 300%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -44,7 +42,7 @@
         height: 3rem;
         border: 0.2rem solid black;
         border-radius: 1rem;
-        box-shadow: 0.5rem 0.5rem 0.5rem $_gray;
+        box-shadow: 0.2rem 0.2rem 0.5rem $_gray;
         color: white;
       }
 

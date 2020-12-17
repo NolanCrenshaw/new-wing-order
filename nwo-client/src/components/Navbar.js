@@ -11,7 +11,7 @@ const Navbar = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2, delay: 2 }}
+      transition={{ duration: 2, delay: 3 }}
       className="navbar-container"
     >
       <nav>
