@@ -17,13 +17,9 @@ const Navbar = () => {
           className={`${dropMenu ? "opened-menu" : "closed-menu"}`}
         >
           <Link to="/">Home</Link>
-          <span>|</span>
           <Link to="/menu">Menu</Link>
-          <span>|</span>
           <Link to="/store">Store</Link>
-          <span>|</span>
           <Link to="/catering">Catering</Link>
-          <span>|</span>
           <Link to="/awards">Awards</Link>
         </div>
         {/* <button onClick={handleHamburger} /> */}
