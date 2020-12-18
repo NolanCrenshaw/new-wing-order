@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Infobar from "./Infobar";
+
 const Navbar = () => {
   const [dropMenu, setDropMenu] = useState(false);
 
@@ -8,6 +10,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
+      <Infobar />
       <nav>
         <div
           id="link-box"

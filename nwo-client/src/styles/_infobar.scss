@@ -4,13 +4,30 @@
   margin: auto;
   padding: 1rem;
 
-  // background: radial-gradient(#313131, #131313);
-  background-color: #131313;
-
-  border-bottom: 0.02rem solid $_gray;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  .infobar_logo-container {
+    position: absolute;
+    left: -4rem;
+    top: -5rem;
+    padding: 6.5rem;
+
+    // border: 6px solid black;
+    // border-radius: 90%;
+
+    #infobar_logo {
+      height: 20vh;
+    }
+  }
+
+  span {
+    padding-right: 2.5rem;
+
+    color: $_gray;
+    font-size: 2rem;
+  }
 
   ul {
     margin-right: 3rem;
@@ -27,10 +44,10 @@
       border-radius: 20%;
 
       a {
-        background-color: rgb(200, 200, 200);
         display: flex;
         justify-content: center;
         align-items: center;
+
         border-radius: 8px;
 
         img {
@@ -46,10 +63,5 @@
         border-radius: 1rem;
       }
     }
-  }
-  span {
-    color: $_gray;
-    font-size: 2.5rem;
-    padding-right: 2.5rem;
   }
 }

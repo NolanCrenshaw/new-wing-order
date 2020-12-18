@@ -21,7 +21,6 @@ const Main = () => {
       transition={{ duration: 1, delay: 3 }}
     >
       <Router>
-        <Infobar />
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
