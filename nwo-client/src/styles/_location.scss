@@ -1,16 +1,18 @@
 .location-container {
   min-height: $_content_min-height;
   min-width: 65%;
+  margin: 1rem;
+  padding: 2rem;
 
   overflow: hidden;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 8vh 1fr 2vh;
 
   .map-container {
-    height: 90%;
-    min-width: 48%;
+    grid-column: 1/2;
+    grid-row: 2/3;
 
     display: flex;
     flex-direction: column;
@@ -19,7 +21,7 @@
 
     overflow: hidden;
     background-color: $_gray;
-    border: 4px solid white;
+    border: 4px solid $_gray;
     border-radius: 2rem 0 0 2rem;
 
     #header-box {
@@ -27,7 +29,7 @@
       min-height: 9rem;
       width: 100%;
 
-      background-color: rgb(218, 218, 218);
+      background-color: white;
 
       display: flex;
       flex-direction: column;
@@ -50,8 +52,7 @@
       }
     }
     #map-box {
-      max-height: 80%;
-      height: 26.2rem;
+      height: 80%;
       width: 100%;
 
       display: flex;
@@ -66,8 +67,8 @@
     }
   }
   .schedule-box {
-    height: 36rem;
-    min-width: 48%;
+    grid-column: 2/3;
+    grid-row: 2/3;
 
     display: flex;
     flex-direction: column;
@@ -76,7 +77,9 @@
 
     overflow: hidden;
     background-color: black;
-    border: 4px solid white;
+    border-right: 4px solid $_gray;
+    border-top: 4px solid $_gray;
+    border-bottom: 4px solid $_gray;
     border-radius: 0 2rem 2rem 0;
   }
 }

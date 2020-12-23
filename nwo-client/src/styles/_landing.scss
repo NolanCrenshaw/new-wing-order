@@ -22,11 +22,26 @@
     #splash_logo {
       height: 95%;
       width: 30%;
+      position: relative;
+
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      h1 {
+        height: 10%;
+        width: 100%;
+
+        color: white;
+        font-size: 5rem;
+        font-family: "Pragati Narrow", sans-serif;
+        font-style: italic;
+        text-align: center;
+        z-index: 2;
+      }
       img {
-        height: 100%;
+        height: 75%;
         transform: rotate(-15deg);
       }
     }
