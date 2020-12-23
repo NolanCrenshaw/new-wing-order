@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import Infobar from "./Infobar";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Menu from "./Menu";
@@ -18,7 +17,8 @@ const Main = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 3 }}
+      transition={{ duration: 1 }}
+      className="main-container"
     >
       <Router>
         <Navbar />

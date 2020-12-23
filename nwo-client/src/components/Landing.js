@@ -7,11 +7,10 @@ const Landing = () => {
     <div className="landing-container">
       <div className="splash-container">
         <h1>Best Wings in Memphis</h1>
-        <div id="splash_box">
+        <div id="splash_picture">
           <img src="./images/truck_slice_01.jpg" />
         </div>
       </div>
-      <Location />
     </div>
   );
 };

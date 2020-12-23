@@ -35,22 +35,29 @@ a {
 }
 
 #root {
-  width: 100%;
-  background-color: white;
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
   scrollbar-width: none;
 }
 
-.app {
-  position: relative;
+.loading-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.app #full_body_logo {
+.loading-container #full_body_logo {
   height: 100vh;
   width: 100%;
-  position: absolute;
   pointer-events: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,13 +70,22 @@ a {
           align-items: center;
 }
 
-.app #full_body_logo img {
+.loading-container #full_body_logo img {
   height: 85%;
+}
+
+.main-container {
+  min-height: 100vh;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 18vh auto 10vh;
+      grid-template-rows: 18vh auto 10vh;
 }
 
 .infobar-container {
   width: 100%;
-  height: 10vh;
+  min-height: 8vh;
   margin: auto;
   padding: 1rem;
   display: -webkit-box;
@@ -151,8 +167,9 @@ a {
 }
 
 .navbar-container {
-  width: 100%;
-  height: 20vh;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
   min-height: 45px;
   margin: auto;
   display: -webkit-box;
@@ -249,12 +266,14 @@ a {
 }
 
 .landing-container {
-  min-height: 75vh;
-  -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
-      grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+  min-height: 72vh;
   position: relative;
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
+      grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+  -ms-grid-rows: 2vh 68vh 2vh;
+      grid-template-rows: 2vh 68vh 2vh;
 }
 
 .landing-container .splash-container {
@@ -264,9 +283,9 @@ a {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  height: 83vh;
   width: 100%;
   pointer-events: none;
+  background-color: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,14 +307,14 @@ a {
   margin-bottom: 2rem;
 }
 
-.landing-container .splash-container #splash_box {
+.landing-container .splash-container #splash_picture {
   height: 60%;
   width: 80%;
   overflow: hidden;
   background-color: black;
   background-size: cover;
   border: 4px solid black;
-  border-radius: 20px;
+  border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -307,7 +326,7 @@ a {
           align-items: center;
 }
 
-.landing-container .splash-container #splash_box img {
+.landing-container .splash-container #splash_picture img {
   min-width: 60%;
 }
 
@@ -433,7 +452,7 @@ a {
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: #4b4747;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -677,7 +696,7 @@ a {
 .store-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -698,7 +717,7 @@ a {
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -710,7 +729,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -721,7 +740,7 @@ a {
 }
 
 .awards-container img {
-  height: 75vh;
+  height: 72vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -729,7 +748,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -740,7 +759,7 @@ a {
 .admin-container {
   display: -ms-grid;
   display: grid;
-  min-height: 75vh;
+  min-height: 72vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -811,6 +830,7 @@ a {
 }
 
 .footer-container {
+  height: 10vh;
   background: radial-gradient(#313131, #131313);
   display: -webkit-box;
   display: -ms-flexbox;

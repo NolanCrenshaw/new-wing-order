@@ -1,10 +1,13 @@
-.app {
-  position: relative;
+.loading-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   #full_body_logo {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    position: absolute;
     pointer-events: none;
     display: flex;
     justify-content: center;
