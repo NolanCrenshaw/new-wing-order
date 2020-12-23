@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 const Infobar = () => {
   return (
     <div className="infobar-container">
+      <div className="infobar_logo-container">
+        <img
+          id="infobar_logo"
+          alt="logo"
+          src="./images/text_logo_white.png"
+        ></img>
+      </div>
       <span>info@newwingorder.com | 901.747.8893 </span>
       <ul>
         <motion.li whileHover={{ scale: 1.2 }}>

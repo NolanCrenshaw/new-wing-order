@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Infobar from "./Infobar";
+
 const Navbar = () => {
   const [dropMenu, setDropMenu] = useState(false);
 
@@ -8,19 +10,16 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
+      <Infobar />
       <nav>
         <div
           id="link-box"
           className={`${dropMenu ? "opened-menu" : "closed-menu"}`}
         >
           <Link to="/">Home</Link>
-          <span>|</span>
           <Link to="/menu">Menu</Link>
-          <span>|</span>
           <Link to="/store">Store</Link>
-          <span>|</span>
           <Link to="/catering">Catering</Link>
-          <span>|</span>
           <Link to="/awards">Awards</Link>
         </div>
         {/* <button onClick={handleHamburger} /> */}

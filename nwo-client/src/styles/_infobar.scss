@@ -1,16 +1,29 @@
 .infobar-container {
   width: 100%;
-  height: 10vh;
+  min-height: 8vh;
   margin: auto;
   padding: 1rem;
 
-  // background: radial-gradient(#313131, #131313);
-  background-color: #131313;
-
-  border-bottom: 0.02rem solid $_gray;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  .infobar_logo-container {
+    position: absolute;
+    left: 4rem;
+    top: 1.5rem;
+
+    #infobar_logo {
+      height: 15vh;
+    }
+  }
+
+  span {
+    padding-right: 2.5rem;
+
+    color: $_gray;
+    font-size: 2rem;
+  }
 
   ul {
     margin-right: 3rem;
@@ -27,11 +40,12 @@
       border-radius: 20%;
 
       a {
-        background-color: rgb(200, 200, 200);
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
+
+        background-color: $_gray;
+        border-radius: 4px;
 
         img {
           height: 90%;
@@ -43,13 +57,7 @@
         transition: all 0.8s;
         background: white;
         background-size: 150%;
-        border-radius: 1rem;
       }
     }
-  }
-  span {
-    color: $_gray;
-    font-size: 2.5rem;
-    padding-right: 2.5rem;
   }
 }
