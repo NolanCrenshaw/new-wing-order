@@ -25,7 +25,7 @@ const Location = () => {
   };
 
   useEffect(() => {
-    // interpretLocation();
+    interpretLocation();
   }, []);
 
   return (
@@ -54,9 +54,7 @@ const Location = () => {
           )}
         </div>
       </div>
-      <div className="schedule-box">
-        <img src="./images/truck_svg-removebg-preview.png" />
-      </div>
+      <div className="schedule-box"></div>
     </div>
   );
 };

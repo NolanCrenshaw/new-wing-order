@@ -1,13 +1,39 @@
 .store-container {
-  display: grid;
   min-height: $_content_min-height;
-  background-color: white;
-  grid-template-columns: 0.2fr 3fr 0.2fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
 
-  img {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  div {
+    height: 80%;
+    width: 45%;
+
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 1rem 1rem 3rem $_gray;
+    background-color: $_gray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      margin-bottom: 2rem;
+      color: white;
+    }
+    a {
+      height: 20rem;
+      width: auto;
+      text-decoration: none;
+      color: white;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+      }
+    }
   }
 }
