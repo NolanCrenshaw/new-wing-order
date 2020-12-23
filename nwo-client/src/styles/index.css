@@ -56,7 +56,7 @@ a {
 }
 
 .loading-container #full_body_logo {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   pointer-events: none;
   display: -webkit-box;
@@ -171,6 +171,7 @@ a {
   -ms-grid-row-span: 1;
   grid-row: 1/2;
   min-height: 45px;
+  width: 100%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -285,7 +286,6 @@ a {
   grid-row: 2/3;
   width: 100%;
   pointer-events: none;
-  background-color: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -453,7 +453,6 @@ a {
   display: -ms-grid;
   display: grid;
   min-height: 72vh;
-  background-color: #4b4747;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
   -ms-grid-rows: 0.1fr 4fr 0.1fr;
