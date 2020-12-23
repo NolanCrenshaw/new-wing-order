@@ -56,7 +56,7 @@ a {
 }
 
 .loading-container #full_body_logo {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   pointer-events: none;
   display: -webkit-box;
