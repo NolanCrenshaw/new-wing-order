@@ -8,7 +8,7 @@ const Infobar = () => {
         <img
           id="infobar_logo"
           alt="logo"
-          src="./images/head_logo_color.png"
+          src="./images/text_logo_white.png"
         ></img>
       </div>
       <span>info@newwingorder.com | 901.747.8893 </span>

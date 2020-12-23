@@ -4,7 +4,7 @@
   width: 100%;
   margin: auto;
 
-  // background-color: #131313;
+  background-color: black;
 
   display: flex;
   flex-direction: column;
@@ -45,12 +45,9 @@
 
       a:hover {
         transition: all 0.5s;
-        background-color: $_red;
-        height: 3rem;
-        border: 0.2rem solid black;
+        background-color: white;
         border-radius: 1rem;
-        box-shadow: 0.2rem 0.2rem 0.5rem $_gray;
-        color: white;
+        color: black;
       }
 
       span {
