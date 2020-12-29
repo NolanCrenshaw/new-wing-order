@@ -11,7 +11,7 @@ const Landing = () => {
           <h1>Best Wings in Memphis</h1>
           <img alt="splash logo" src="./images/head_white.png" />
         </div>
-        <Location />s{" "}
+        <Location />
       </div>
     </div>
   );

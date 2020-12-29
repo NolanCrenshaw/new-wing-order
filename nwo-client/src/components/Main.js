@@ -21,7 +21,8 @@ const Main = () => {
       className="main-container"
     >
       <Router>
-        <Navbar />
+        <Landing />
+        {/* <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/menu" component={Menu} />
@@ -31,7 +32,7 @@ const Main = () => {
           <Route path="/contact" component={Contact} />
           <Route exact path="/admin" component={Admin} />
         </Switch>
-        <Footer />
+        <Footer /> */}
       </Router>
     </motion.div>
   );

@@ -4,18 +4,27 @@ import Main from "./components/Main";
 import Loading from "./components/Loading";
 
 const App = () => {
-  const [loaded, setLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const loadDelay = () => {
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 3750);
+  };
 
   useEffect(() => {
-    const loadDelay = async () => {
-      await setTimeout(() => {
-        setLoaded(true);
-      }, 3750);
-    };
     loadDelay();
   }, []);
 
-  return <>{loaded ? <Main /> : <Loading />}</>;
+  // With Intro Animation
+  // return <>{isLoaded ? <Main /> : <Loading />}</>;
+
+  // Standard Page Render
+  return (
+    <>
+      <Main />
+    </>
+  );
 };
 
 export default App;
