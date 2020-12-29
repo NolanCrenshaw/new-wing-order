@@ -71,7 +71,7 @@ const Menu = () => {
         <h2>Menu</h2>
         <ul>
           {menuItems.map((item, i) => (
-            <li>
+            <li key={i}>
               <div className="item_text">
                 <span>{item.name}</span>
                 <p>{item.description}</p>
@@ -129,14 +129,17 @@ const Menu = () => {
             <h2>Signature Sauces</h2>
             <ul>
               {sauces.map((item, i) => (
-                <li>
+                <li key={i}>
                   <span>
                     {item.name}
                     <div>
                       <Repeater numTimes={item.heat}>
                         {(i) => (
                           <div key={i}>
-                            <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
+                            <img
+                              alt="fire icon"
+                              src="https://img.icons8.com/emoji/48/000000/fire.png"
+                            />
                           </div>
                         )}
                       </Repeater>
@@ -151,14 +154,17 @@ const Menu = () => {
             <h2>Dry Seasonings</h2>
             <ul>
               {rubs.map((item, i) => (
-                <li>
+                <li key={i}>
                   <span>
                     {item.name}
                     <div>
                       <Repeater numTimes={item.heat}>
                         {(i) => (
                           <div key={i}>
-                            <img src="https://img.icons8.com/emoji/48/000000/fire.png" />
+                            <img
+                              alt="fire icon"
+                              src="https://img.icons8.com/emoji/48/000000/fire.png"
+                            />
                           </div>
                         )}
                       </Repeater>
