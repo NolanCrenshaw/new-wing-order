@@ -5,11 +5,7 @@ const Infobar = () => {
   return (
     <div className="infobar-container">
       <div className="infobar_logo-container">
-        <img
-          id="infobar_logo"
-          alt="logo"
-          src="./images/text_logo_white.png"
-        ></img>
+        <img id="infobar_logo" alt="logo" src="./images/truck_svg.png" />
       </div>
       <span>info@newwingorder.com | 901.747.8893 </span>
       <ul>

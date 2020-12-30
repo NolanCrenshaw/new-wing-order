@@ -71,19 +71,28 @@ a {
 }
 
 .loading-container #full_body_logo img {
-  height: 85%;
+  height: 80%;
 }
 
 .main-container {
   min-height: 100vh;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 18vh auto 10vh;
-      grid-template-rows: 18vh auto 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .infobar-container {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
   width: 100%;
   min-height: 8vh;
   margin: auto;
@@ -101,8 +110,8 @@ a {
 
 .infobar-container .infobar_logo-container {
   position: absolute;
-  left: 4rem;
-  top: 1.5rem;
+  left: 3rem;
+  top: 1rem;
 }
 
 .infobar-container .infobar_logo-container #infobar_logo {
@@ -111,7 +120,7 @@ a {
 
 .infobar-container span {
   padding-right: 2.5rem;
-  color: #777676;
+  color: #464646;
   font-size: 2rem;
 }
 
@@ -149,7 +158,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #777676;
+  background-color: white;
   border-radius: 4px;
 }
 
@@ -167,30 +176,27 @@ a {
 }
 
 .navbar-container {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  min-height: 45px;
+  min-height: 10vh;
   width: 100%;
-  margin: auto;
-  background-color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5vw 1fr 1fr 5vw;
+      grid-template-columns: 5vw 1fr 1fr 5vw;
+  -ms-grid-rows: 8vh 8vh;
+      grid-template-rows: 8vh 8vh;
 }
 
 .navbar-container nav {
-  width: 90%;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  width: 100%;
   margin: 1rem auto;
   padding: 0;
   display: -webkit-box;
@@ -223,7 +229,7 @@ a {
   margin: 0 2rem;
   cursor: pointer;
   color: black;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 600;
   border-radius: 5px;
   background-color: white;
@@ -245,7 +251,7 @@ a {
 }
 
 .navbar-container nav #link-box span {
-  color: #777676;
+  color: #464646;
   font-size: 2.5rem;
   padding: 0 2.5rem;
 }
@@ -261,26 +267,34 @@ a {
 }
 
 .landing-container {
-  min-height: 72vh;
+  min-height: 100vh;
   position: relative;
-  background-color: black;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 0.1fr 2fr 2fr 0.1fr;
-      grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
-  -ms-grid-rows: 2vh 70vh;
-      grid-template-rows: 2vh 70vh;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .landing-container .splash-container {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-column: 1/5;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
+  min-height: 100vh;
   width: 100%;
+  position: relative;
+  top: 4vh;
   pointer-events: none;
+  background-image: url("../img/wings_01_bg.jpg");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,14 +304,33 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.landing-container .splash-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../img/brush_stroke_bg.jpg");
+  background-size: 120%;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
 }
 
 .landing-container .splash-container #splash_logo {
   height: 95%;
   width: 30%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -306,8 +339,19 @@ a {
           align-items: center;
 }
 
+.landing-container .splash-container #splash_logo h1 {
+  height: 10%;
+  width: 100%;
+  color: white;
+  font-size: 5rem;
+  font-family: "Pragati Narrow", sans-serif;
+  font-style: italic;
+  text-align: center;
+  z-index: 2;
+}
+
 .landing-container .splash-container #splash_logo img {
-  height: 100%;
+  height: 75%;
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
 }
@@ -364,23 +408,26 @@ a {
 }
 
 .location-container {
-  min-height: 72vh;
+  min-height: 82vh;
   min-width: 65%;
+  margin: 1rem;
+  padding: 2rem;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 8vh 1fr 2vh;
+      grid-template-rows: 8vh 1fr 2vh;
 }
 
 .location-container .map-container {
-  height: 90%;
-  min-width: 48%;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -395,8 +442,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  background-color: #777676;
-  border: 4px solid white;
+  background-color: #464646;
+  border: 4px solid #464646;
   border-radius: 2rem 0 0 2rem;
 }
 
@@ -404,7 +451,7 @@ a {
   height: 20%;
   min-height: 9rem;
   width: 100%;
-  background-color: #dadada;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,8 +483,7 @@ a {
 }
 
 .location-container .map-container #map-box {
-  max-height: 80%;
-  height: 26.2rem;
+  height: 80%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -455,8 +501,12 @@ a {
 }
 
 .location-container .schedule-box {
-  height: 36rem;
-  min-width: 48%;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -472,14 +522,16 @@ a {
           align-items: center;
   overflow: hidden;
   background-color: black;
-  border: 4px solid white;
+  border-right: 4px solid #464646;
+  border-top: 4px solid #464646;
+  border-bottom: 4px solid #464646;
   border-radius: 0 2rem 2rem 0;
 }
 
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: black;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -492,7 +544,7 @@ a {
   font-weight: 900;
   font-size: 4rem;
   font-style: italic;
-  color: #777676;
+  color: #464646;
 }
 
 .menu-container .menu_items {
@@ -503,7 +555,7 @@ a {
   -ms-grid-row-span: 1;
   grid-row: 2/3;
   background-color: white;
-  border: 1px solid #777676;
+  border: 1px solid #464646;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 20px;
           box-shadow: 5px 5px 20px;
@@ -521,8 +573,8 @@ a {
   -ms-grid-columns: 4fr 1fr;
       grid-template-columns: 4fr 1fr;
   border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 10px #777676;
-          box-shadow: 2px 2px 10px #777676;
+  -webkit-box-shadow: 2px 2px 10px #464646;
+          box-shadow: 2px 2px 10px #464646;
   list-style: none;
 }
 
@@ -588,8 +640,8 @@ a {
   -ms-grid-columns: 4fr 1fr;
       grid-template-columns: 4fr 1fr;
   border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 10px #777676;
-          box-shadow: 2px 2px 10px #777676;
+  -webkit-box-shadow: 2px 2px 10px #464646;
+          box-shadow: 2px 2px 10px #464646;
 }
 
 .menu-container .menu_items .wings .wing_option p {
@@ -648,7 +700,7 @@ a {
 }
 
 .menu-container .menu_items .flavors-divider {
-  border: 2px solid #777676;
+  border: 2px solid #464646;
   border-radius: 100%;
 }
 
@@ -721,7 +773,7 @@ a {
 }
 
 .store-container {
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -739,9 +791,9 @@ a {
   width: 45%;
   border: 1px solid white;
   border-radius: 8px;
-  -webkit-box-shadow: 1rem 1rem 3rem #777676;
-          box-shadow: 1rem 1rem 3rem #777676;
-  background-color: #777676;
+  -webkit-box-shadow: 1rem 1rem 3rem #464646;
+          box-shadow: 1rem 1rem 3rem #464646;
+  background-color: #464646;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -778,7 +830,7 @@ a {
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -790,7 +842,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -801,7 +853,7 @@ a {
 }
 
 .awards-container img {
-  height: 72vh;
+  height: 82vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -809,7 +861,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -820,7 +872,7 @@ a {
 .admin-container {
   display: -ms-grid;
   display: grid;
-  min-height: 72vh;
+  min-height: 82vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -835,7 +887,7 @@ a {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  background-color: #777676;
+  background-color: #464646;
   border-radius: 8px;
   position: relative;
   display: -webkit-box;
@@ -915,7 +967,7 @@ a {
 
 .footer-container .footer-credits a {
   font-size: 1.5rem;
-  color: #777676;
+  color: #464646;
   margin-right: 2rem;
 }
 

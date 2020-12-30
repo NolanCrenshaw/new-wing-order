@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import Navbar from "./Navbar";
 import Landing from "./Landing";
+import Location from "./Location";
 import Menu from "./Menu";
 import Store from "./Store";
 import Catering from "./Catering";
@@ -21,7 +22,9 @@ const Main = () => {
       className="main-container"
     >
       <Router>
-        <Navbar />
+        <Landing />
+        <Location />
+        {/* <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/menu" component={Menu} />
@@ -31,7 +34,7 @@ const Main = () => {
           <Route path="/contact" component={Contact} />
           <Route exact path="/admin" component={Admin} />
         </Switch>
-        <Footer />
+        <Footer /> */}
       </Router>
     </motion.div>
   );

@@ -1,18 +1,18 @@
 .navbar-container {
-  grid-row: 1/2;
-  min-height: 45px;
+  min-height: 10vh;
   width: 100%;
-  margin: auto;
+  position: absolute;
+  top: 0;
+  z-index: 10;
 
-  background-color: black;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 5vw 1fr 1fr 5vw;
+  grid-template-rows: 8vh 8vh;
 
   nav {
-    width: 90%;
+    grid-column: 2/4;
+    grid-row: 2/3;
+    width: 100%;
     margin: 1rem auto;
     padding: 0;
     display: flex;
@@ -32,7 +32,7 @@
 
         cursor: pointer;
         color: black;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 600;
         border-radius: 5px;
         background-color: white;
