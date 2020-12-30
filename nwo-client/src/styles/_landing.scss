@@ -1,8 +1,10 @@
 .landing-container {
-  min-height: 120vh;
+  min-height: 140vh;
   width: 100%;
   max-width: 1600px;
   position: relative;
+
+  // background-color: salmon;
 
   display: grid;
   grid-template-columns: 5vw 1fr 1fr 5vw;
@@ -42,6 +44,32 @@
         rgba(200, 0, 0, 0.5) 0%,
         rgba(255, 255, 255, 0.5) 100%
       );
+    }
+    #elipse03 {
+      height: 50rem;
+      width: 50rem;
+      position: absolute;
+      bottom: -70%;
+      left: -8%;
+
+      border-radius: 50%;
+      background: linear-gradient(
+        rgba(0, 174, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
+
+      #elipse04 {
+        height: 4rem;
+        width: 4rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background-color: yellow;
+        backdrop-filter: blur(20px);
+      }
     }
   }
 
@@ -171,12 +199,21 @@
       right: -2%;
     }
   }
-
+  .little-truck-backdrop {
+    height: 20rem;
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    background-image: url("../img/backdrop_trees.png");
+    background-size: cover;
+    border-bottom: 1px solid $_gray;
+  }
   #little_truck {
     height: 15rem;
     width: auto;
     position: absolute;
-    bottom: -15%;
+    bottom: -1%;
     right: 10%;
   }
 

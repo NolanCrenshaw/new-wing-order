@@ -18,11 +18,14 @@ const Landing = () => {
     <div className="landing-container">
       <Navbar />
       <div className="landing-bg">
-        <div
-          id="elipse01"
-          style={{ transform: `translateY(${offsetY * 0.25}px)` }}
-        />
+        <div id="elipse01" />
         <div id="elipse02" />
+        <div
+          id="elipse03"
+          style={{ transform: `translateX(${offsetY * 0.2}px)` }}
+        >
+          <div id="elipse04" />
+        </div>
       </div>
       <div className="landing-textbox">
         <h1>Memphis' Best Food Truck</h1>
@@ -68,6 +71,7 @@ const Landing = () => {
           src="./images/full_bird_logo.png"
         />
       </div>
+      <div className="little-truck-backdrop" />
       <img
         id="little_truck"
         alt="little truck"

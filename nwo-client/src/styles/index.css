@@ -279,7 +279,7 @@ a {
 }
 
 .landing-container {
-  min-height: 120vh;
+  min-height: 140vh;
   width: 100%;
   max-width: 1600px;
   position: relative;
@@ -321,6 +321,31 @@ a {
   border-radius: 50%;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 0, 0, 0.5)), to(rgba(255, 255, 255, 0.5)));
   background: linear-gradient(rgba(200, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+}
+
+.landing-container .landing-bg #elipse03 {
+  height: 50rem;
+  width: 50rem;
+  position: absolute;
+  bottom: -70%;
+  left: -8%;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 174, 255, 0.5)), color-stop(50%, rgba(255, 255, 255, 0.5)), to(white));
+  background: linear-gradient(rgba(0, 174, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 50%, white 100%);
+}
+
+.landing-container .landing-bg #elipse03 #elipse04 {
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: yellow;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 
 .landing-container .landing-textbox {
@@ -493,11 +518,22 @@ a {
   right: -2%;
 }
 
+.landing-container .little-truck-backdrop {
+  height: 20rem;
+  width: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  background-image: url("../img/backdrop_trees.png");
+  background-size: cover;
+  border-bottom: 1px solid #323232;
+}
+
 .landing-container #little_truck {
   height: 15rem;
   width: auto;
   position: absolute;
-  bottom: -15%;
+  bottom: -1%;
   right: 10%;
 }
 
@@ -505,16 +541,17 @@ a {
   min-height: 100vh;
   width: 100%;
   max-width: 1600px;
-  margin: 8rem 3rem;
   padding: 2rem;
   z-index: 1;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), color-stop(20%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0.5) 100%);
   overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5vw 1fr 1fr 5vw;
       grid-template-columns: 5vw 1fr 1fr 5vw;
-  -ms-grid-rows: 12vh 1fr 5vh;
-      grid-template-rows: 12vh 1fr 5vh;
+  -ms-grid-rows: 5vh 1fr 5vh;
+      grid-template-rows: 5vh 1fr 5vh;
 }
 
 .location-container .map-container {
