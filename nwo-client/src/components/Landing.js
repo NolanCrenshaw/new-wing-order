@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import Navbar from "./Navbar";
 
@@ -17,10 +18,62 @@ const Landing = () => {
     <div className="landing-container">
       <Navbar />
       <div className="landing-bg">
-        <div id="elipse01" />
+        <div
+          id="elipse01"
+          style={{ transform: `translateY(${offsetY * 0.25}px)` }}
+        />
         <div id="elipse02" />
       </div>
-      <div className="landing-textbox"></div>
+      <div className="landing-textbox">
+        <h1>Memphis' Best Food Truck</h1>
+        <h3>Award-Winning Wings & Southern Grub</h3>
+      </div>
+      <div className="landing-socialbox">
+        <motion.div whileHover={{ scale: 1.2 }} className="bookTruck-button">
+          Book The Truck!
+        </motion.div>
+        <ul>
+          <div className="socialbox-divider" />
+          <motion.li whileHover={{ scale: 1.2 }}>
+            <a href="https://www.facebook.com/NewWingOrder/">
+              <img src="https://img.icons8.com/material-outlined/48/000000/facebook.png" />
+            </a>
+          </motion.li>
+          <motion.li whileHover={{ scale: 1.2 }}>
+            <a href="https://www.instagram.com/newwingorder/">
+              <img src="https://img.icons8.com/material-outlined/48/000000/instagram-new--v1.png" />
+            </a>
+          </motion.li>
+          <motion.li whileHover={{ scale: 1.2 }}>
+            <a href="https://twitter.com/newwingorder">
+              <img src="https://img.icons8.com/material-outlined/48/000000/twitter.png" />
+            </a>
+          </motion.li>
+          <motion.li whileHover={{ scale: 1.2 }}>
+            <a href="https://www.youtube.com/channel/UCsJxqotVF1LuhOGeC5YfKpw">
+              <img src="https://img.icons8.com/material-outlined/48/000000/youtube--v1.png" />
+            </a>
+          </motion.li>
+          <div className="socialbox-divider" />
+        </ul>
+        <span>info@newwingorder.com | 901.747.8893 </span>
+      </div>
+      <div
+        className="bird-container"
+        style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+      >
+        <img
+          id="full_bird_logo"
+          alt="bird logo"
+          src="./images/full_bird_logo.png"
+        />
+      </div>
+      <img
+        id="little_truck"
+        alt="little truck"
+        src="./images/truck_svg-removebg-preview.png"
+        style={{ transform: `translateX(-${offsetY * 1}px)` }}
+      />
       {/* <div className="brush_wing--bg"></div> */}
     </div>
   );

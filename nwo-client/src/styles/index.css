@@ -84,6 +84,12 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .infobar-container {
@@ -230,7 +236,7 @@ a {
   height: 4.5rem;
   width: 16rem;
   padding: 1rem;
-  margin: 0 3rem;
+  margin: 0 2.5rem;
   cursor: pointer;
   color: black;
   font-size: 2rem;
@@ -273,8 +279,9 @@ a {
 }
 
 .landing-container {
-  min-height: 100vh;
+  min-height: 120vh;
   width: 100%;
+  max-width: 1600px;
   position: relative;
   display: -ms-grid;
   display: grid;
@@ -285,8 +292,13 @@ a {
 }
 
 .landing-container .landing-bg {
+  height: 100vh;
+  width: 100%;
   z-index: 0;
   pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .landing-container .landing-bg #elipse01 {
@@ -296,8 +308,8 @@ a {
   bottom: -50%;
   right: -10%;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(150, 0, 0, 0.5)), to(rgba(255, 255, 255, 0.5)));
-  background: linear-gradient(rgba(150, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 0, 0, 0.5)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(rgba(200, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
 }
 
 .landing-container .landing-bg #elipse02 {
@@ -307,26 +319,81 @@ a {
   top: -20%;
   left: -10%;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(150, 0, 0, 0.5)), to(rgba(255, 255, 255, 0.5)));
-  background: linear-gradient(rgba(150, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 0, 0, 0.5)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(rgba(200, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
 }
 
-.landing-container .brush_wing--bg {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-column: 1/5;
+.landing-container .landing-textbox {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  height: 100%;
-  width: 100%;
-  max-width: 1440px;
-  position: absolute;
+  width: 90%;
+  margin-top: 2rem;
+  padding: 5rem;
+  z-index: 1;
   pointer-events: none;
-  background-image: url("../img/wings_01_bg.jpg");
-  background-size: 80%;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+
+.landing-container .landing-textbox h1 {
+  width: 550px;
+  color: #323232;
+  font-size: 7rem;
+  font-style: italic;
+}
+
+.landing-container .landing-textbox h3 {
+  width: 370px;
+  margin-top: 3rem;
+  color: #323232;
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.landing-container .landing-socialbox {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  height: 45%;
+  width: 500px;
+  justify-self: flex-start;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-container .landing-socialbox .bookTruck-button {
+  height: 5.5rem;
+  width: 22rem;
+  margin-bottom: 5rem;
+  background-color: #ffb002;
+  border: 4px solid #c89600;
+  border-radius: 8px;
+  -webkit-box-shadow: 1rem 1rem 2rem #323232;
+          box-shadow: 1rem 1rem 2rem #323232;
+  color: #323232;
+  font-size: 2rem;
+  font-weight: 600;
+  font-style: italic;
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,38 +405,122 @@ a {
           align-items: center;
 }
 
-.landing-container .brush_wing--bg::before {
-  content: "";
-  position: absolute;
+.landing-container .landing-socialbox ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  list-style: none;
+}
+
+.landing-container .landing-socialbox ul li {
+  height: 4rem;
+  width: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+.landing-container .landing-socialbox ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.landing-container .landing-socialbox ul li a img {
+  height: 90%;
   width: 100%;
+  border-radius: 8px;
+}
+
+.landing-container .landing-socialbox ul li a:hover {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  background: white;
+  background-size: 150%;
+}
+
+.landing-container .landing-socialbox ul .socialbox-divider {
+  width: 8rem;
+  height: 0;
+  margin: 0 1rem;
+  border: 1px solid #323232;
+  border-radius: 50%;
+}
+
+.landing-container .landing-socialbox span {
+  margin-top: 1rem;
+  color: #323232;
+  font-size: 2rem;
+}
+
+.landing-container .bird-container {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
   height: 100%;
-  top: 0;
-  right: 0;
-  background-image: url("../img/brush_stroke_bg.jpg");
-  background-size: 110%;
-  background-position: center;
-  background-repeat: no-repeat;
-  mix-blend-mode: screen;
+  max-height: 780px;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.landing-container .bird-container #full_bird_logo {
+  height: 100rem;
+  width: auto;
+  position: absolute;
+  bottom: -50%;
+  right: -2%;
+}
+
+.landing-container #little_truck {
+  height: 15rem;
+  width: auto;
+  position: absolute;
+  bottom: -15%;
+  right: 10%;
 }
 
 .location-container {
-  min-height: 88vh;
-  min-width: 65%;
-  margin: 1rem;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  margin: 8rem 3rem;
   padding: 2rem;
+  z-index: 1;
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 8vh 1fr 2vh;
-      grid-template-rows: 8vh 1fr 2vh;
+  -ms-grid-columns: 5vw 1fr 1fr 5vw;
+      grid-template-columns: 5vw 1fr 1fr 5vw;
+  -ms-grid-rows: 12vh 1fr 5vh;
+      grid-template-rows: 12vh 1fr 5vh;
 }
 
 .location-container .map-container {
-  -ms-grid-column: 1;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 1;
-  grid-column: 1/2;
+  grid-column: 2/3;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
@@ -388,8 +539,8 @@ a {
           align-items: center;
   overflow: hidden;
   background-color: #323232;
-  border: 4px solid #323232;
-  border-radius: 2rem 0 0 2rem;
+  border: 10px solid #323232;
+  border-radius: 4rem 0 0 4rem;
 }
 
 .location-container .map-container #header-box {
@@ -446,9 +597,9 @@ a {
 }
 
 .location-container .schedule-box {
-  -ms-grid-column: 2;
+  -ms-grid-column: 3;
   -ms-grid-column-span: 1;
-  grid-column: 2/3;
+  grid-column: 3/4;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
@@ -466,11 +617,11 @@ a {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  background-color: black;
-  border-right: 4px solid #323232;
-  border-top: 4px solid #323232;
-  border-bottom: 4px solid #323232;
-  border-radius: 0 2rem 2rem 0;
+  background-color: #323232;
+  border-right: 10px solid #323232;
+  border-top: 10px solid #323232;
+  border-bottom: 10px solid #323232;
+  border-radius: 0 4rem 4rem 0;
 }
 
 .menu-container {
