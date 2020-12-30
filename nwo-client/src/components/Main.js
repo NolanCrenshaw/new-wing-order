@@ -23,7 +23,7 @@ const Main = () => {
     >
       <Router>
         <Landing />
-        <Location />
+        {/* <Location /> */}
         {/* <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />

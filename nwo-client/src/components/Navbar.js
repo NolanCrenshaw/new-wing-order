@@ -6,7 +6,6 @@ import Infobar from "./Infobar";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <Infobar />
       <nav>
         <div id="link-box">
           <Link to="/">Home</Link>
