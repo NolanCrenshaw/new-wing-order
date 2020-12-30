@@ -1,109 +1,252 @@
 .landing-container {
-  min-height: 100vh;
+  min-height: 140vh;
+  width: 100%;
+  max-width: 1600px;
   position: relative;
 
-  background-color: white;
+  // background-color: salmon;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 5vw 1fr 1fr 5vw;
+  grid-template-rows: 12vh 88vh;
 
-  .splash-container {
-    min-height: 100vh;
+  .landing-bg {
+    height: 100vh;
     width: 100%;
-
-    position: relative;
-    top: 4vh;
+    z-index: 0;
     pointer-events: none;
-    background-image: url("../img/wings_01_bg.jpg");
-    background-size: 90%;
-    background-repeat: no-repeat;
-    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &::before {
-      content: "";
+    #elipse01 {
+      height: 80rem;
+      width: 80rem;
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: url("../img/brush_stroke_bg.jpg");
-      background-size: 120%;
-      background-position: center;
-      background-repeat: no-repeat;
-      mix-blend-mode: screen;
+      bottom: -50%;
+      right: -10%;
+
+      border-radius: 50%;
+      background: linear-gradient(
+        rgba(200, 0, 0, 0.5) 0%,
+        rgba(255, 255, 255, 0.5) 100%
+      );
     }
+    #elipse02 {
+      height: 50rem;
+      width: 50rem;
+      position: absolute;
+      top: -20%;
+      left: -10%;
 
-    #splash_logo {
-      height: 95%;
-      width: 30%;
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      h1 {
-        height: 10%;
-        width: 100%;
-
-        color: white;
-        font-size: 5rem;
-        font-family: "Pragati Narrow", sans-serif;
-        font-style: italic;
-        text-align: center;
-        z-index: 2;
-      }
-      img {
-        height: 75%;
-        transform: rotate(-15deg);
-      }
+      border-radius: 50%;
+      background: linear-gradient(
+        rgba(200, 0, 0, 0.5) 0%,
+        rgba(255, 255, 255, 0.5) 100%
+      );
     }
+    #elipse03 {
+      height: 50rem;
+      width: 50rem;
+      position: absolute;
+      bottom: -70%;
+      left: -8%;
 
-    #splash_picture {
-      height: 95%;
-      width: 65%;
+      border-radius: 50%;
+      background: linear-gradient(
+        rgba(0, 174, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
 
-      overflow: hidden;
-      background-color: black;
-      background-size: cover;
-      border: 4px solid black;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      h1 {
-        margin-bottom: 3rem;
-        color: white;
-        font-size: 5rem;
-        font-family: "Pragati Narrow", sans-serif;
-        font-style: italic;
-        text-align: center;
-      }
-
-      div {
-        height: 70%;
-
-        border-radius: 5px;
-        overflow: hidden;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          min-height: 100%;
-          width: 100%;
-        }
+      #elipse04 {
+        height: 4rem;
+        width: 4rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background-color: yellow;
+        backdrop-filter: blur(20px);
       }
     }
   }
+
+  .landing-textbox {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    width: 90%;
+    margin-top: 2rem;
+    padding: 5rem;
+    z-index: 1;
+    pointer-events: none;
+
+    h1 {
+      width: 550px;
+      color: $_gray;
+      font-size: 7rem;
+      font-style: italic;
+    }
+    h3 {
+      width: 370px;
+      margin-top: 3rem;
+      color: $_gray;
+      font-size: 3rem;
+      font-style: italic;
+    }
+  }
+
+  .landing-socialbox {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 45%;
+    width: 500px;
+    justify-self: flex-start;
+    align-self: flex-end;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .bookTruck-button {
+      height: 5.5rem;
+      width: 22rem;
+      margin-bottom: 5rem;
+
+      background-color: rgb(255, 176, 2);
+      border: 4px solid rgb(200, 150, 0);
+      border-radius: 8px;
+      box-shadow: 1rem 1rem 2rem $_gray;
+      color: $_gray;
+      font-size: 2rem;
+      font-weight: 600;
+      font-style: italic;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      list-style: none;
+
+      li {
+        height: 4rem;
+        width: 4rem;
+        display: flex;
+        margin: 0.5rem;
+        border-radius: 20%;
+        cursor: pointer;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: white;
+          border-radius: 4px;
+
+          img {
+            height: 90%;
+            width: 100%;
+            border-radius: 8px;
+          }
+        }
+        a:hover {
+          transition: all 0.8s;
+          background: white;
+          background-size: 150%;
+        }
+      }
+      .socialbox-divider {
+        width: 8rem;
+        height: 0;
+        margin: 0 1rem;
+
+        border: 1px solid $_gray;
+        border-radius: 50%;
+      }
+    }
+    span {
+      margin-top: 1rem;
+      color: $_gray;
+      font-size: 2rem;
+    }
+  }
+
+  .bird-container {
+    grid-column: 1/5;
+    grid-row: 2/3;
+    height: 100%;
+    max-height: 780px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+
+    #full_bird_logo {
+      height: 100rem;
+      width: auto;
+      position: absolute;
+      bottom: -50%;
+      right: -2%;
+    }
+  }
+  .little-truck-backdrop {
+    height: 20rem;
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    background-image: url("../img/backdrop_trees.png");
+    background-size: cover;
+    border-bottom: 1px solid $_gray;
+  }
+  #little_truck {
+    height: 15rem;
+    width: auto;
+    position: absolute;
+    bottom: -1%;
+    right: 10%;
+  }
+
+  // .brush_wing--bg {
+  //   grid-column: 1/5;
+  //   grid-row: 2/3;
+  //   height: 100%;
+  //   width: 100%;
+  //   max-width: 1440px;
+
+  //   position: absolute;
+  //   pointer-events: none;
+  //   background-image: url("../img/wings_01_bg.jpg");
+  //   background-size: 80%;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     width: 100%;
+  //     height: 100%;
+  //     top: 0;
+  //     right: 0;
+  //     background-image: url("../img/brush_stroke_bg.jpg");
+  //     background-size: 110%;
+  //     background-position: center;
+  //     background-repeat: no-repeat;
+  //     mix-blend-mode: screen;
+  //   }
+  // }
 }

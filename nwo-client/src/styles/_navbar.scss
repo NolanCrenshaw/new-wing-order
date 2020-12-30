@@ -1,17 +1,17 @@
 .navbar-container {
-  min-height: 10vh;
+  grid-column: 1/5;
+  grid-row: 1/2;
+  min-height: 12vh;
   width: 100%;
-  position: absolute;
-  top: 0;
   z-index: 10;
 
   display: grid;
   grid-template-columns: 5vw 1fr 1fr 5vw;
-  grid-template-rows: 8vh 8vh;
+  grid-template-rows: 12vh;
 
   nav {
     grid-column: 2/4;
-    grid-row: 2/3;
+    grid-row: 1/2;
     width: 100%;
     margin: 1rem auto;
     padding: 0;
@@ -25,17 +25,17 @@
       align-items: center;
 
       a {
-        height: 4rem;
-        width: 13rem;
+        height: 4.5rem;
+        width: 16rem;
         padding: 1rem;
-        margin: 0 2rem;
+        margin: 0 2.5rem;
 
         cursor: pointer;
         color: black;
         font-size: 2rem;
         font-weight: 600;
-        border-radius: 5px;
-        background-color: white;
+        border-radius: 8px;
+        // background-color: white;
 
         display: flex;
         justify-content: center;
@@ -43,8 +43,9 @@
 
         &:hover {
           color: white;
-          border: 1px solid white;
-          background-color: black;
+          background-color: $_gray;
+          transition: all;
+          transition-duration: 0.8s;
         }
       }
 

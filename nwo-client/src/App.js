@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Loading from "./components/Loading";
 
 const App = () => {
+  // State
   const [isLoaded, setIsLoaded] = useState(false);
 
   const loadDelay = () => {
@@ -13,7 +14,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    loadDelay();
+    // loadDelay();
   }, []);
 
   // With Intro Animation
