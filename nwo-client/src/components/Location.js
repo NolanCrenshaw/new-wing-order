@@ -13,17 +13,6 @@ const defaultEvent = {
   start_time: null,
   end_time: null,
 };
-const dateOptions = {
-  weekday: "short",
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-  timezone: "UTC",
-  hour12: "false",
-  hour: "2-digit",
-  minute: "2-digit",
-  timeZoneName: "short",
-};
 
 const Location = () => {
   // State
