@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
 
   .brush_wing--bg {
@@ -23,10 +24,11 @@
 
     position: absolute;
     pointer-events: none;
-    // background-image: url("../img/wings_01_bg.jpg");
+    background-image: url("../img/wings_01_bg.jpg");
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 0;
 
     display: flex;
     justify-content: center;
@@ -39,7 +41,7 @@
       height: 100%;
       top: 0;
       right: 0;
-      // background-image: url("../img/brush_stroke_bg.jpg");
+      background-image: url("../img/brush_stroke_bg.jpg");
       background-size: 110%;
       background-position: center;
       background-repeat: no-repeat;
