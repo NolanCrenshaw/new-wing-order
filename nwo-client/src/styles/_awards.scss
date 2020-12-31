@@ -1,12 +1,12 @@
 .awards-container {
   display: flex;
-  min-height: $_content_min-height;
+  min-height: 100vh;
   background-color: white;
   justify-content: flex-start;
   align-items: center;
 
   img {
-    height: $_content_min-height;
+    height: 100vh;
     grid-template-columns: 2/3;
   }
 }

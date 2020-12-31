@@ -663,7 +663,7 @@ a {
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: black;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -904,8 +904,49 @@ a {
   height: auto;
 }
 
+.quickmenu-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.quickmenu-container .brush_wing--bg {
+  min-height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  position: absolute;
+  pointer-events: none;
+  background-image: url("../img/wings_01_bg.jpg");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickmenu-container .brush_wing--bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-image: url("../img/brush_stroke_bg.jpg");
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+}
+
 .store-container {
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -962,7 +1003,7 @@ a {
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -974,7 +1015,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -985,7 +1026,7 @@ a {
 }
 
 .awards-container img {
-  height: 88vh;
+  height: 100vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -993,7 +1034,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -1004,7 +1045,7 @@ a {
 .admin-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
