@@ -1,5 +1,6 @@
 .footer-container {
   height: 10vh;
+  width: 100%;
   background: radial-gradient(#313131, #131313);
   display: flex;
   justify-content: center;
@@ -13,7 +14,7 @@
 
     a {
       font-size: 1.5rem;
-      color: $_gray;
+      color: white;
       margin-right: 2rem;
     }
   }

@@ -29,7 +29,7 @@ const Location = () => {
   }, []);
 
   return (
-    <div className="location-container">
+    <div className="location-container" id="location">
       <div className="map-container">
         <div id="header-box">
           <span>{truckStatus}</span>
@@ -50,7 +50,7 @@ const Location = () => {
               </Marker>
             </MapContainer>
           ) : (
-            <span>Loading</span>
+            <span>Loading...</span>
           )}
         </div>
       </div>

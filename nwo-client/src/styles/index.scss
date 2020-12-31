@@ -6,7 +6,6 @@ $breakpoints: (
 );
 $_red: #f53d30;
 $_gray: rgb(50, 50, 50);
-$_content_min-height: 88vh;
 
 // Default CSS settings
 * {
@@ -55,6 +54,7 @@ a {
 @import "landing";
 @import "location";
 @import "menu";
+@import "quickmenu";
 @import "store";
 @import "catering";
 @import "awards";

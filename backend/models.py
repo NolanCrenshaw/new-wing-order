@@ -34,6 +34,8 @@ class Event(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     address = db.Column(db.String(100), nullable=False)
+    geo_lat = db.Column(db.Integer, nullable=False)
+    geo_lng = db.Column(db.Integer, nullable=False)
     location_name = db.Column(db.String(40), nullable=False)
     start_time = db.Column(db.DateTime(timezone=True), nullable=False)
     end_time = db.Column(db.DateTime(timezone=True), nullable=False)

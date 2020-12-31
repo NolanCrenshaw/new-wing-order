@@ -624,13 +624,28 @@ a {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  border-radius: 0 0 2rem 2rem;
   background-color: salmon;
 }
 
 .location-container .map-container #map-box .leaflet-container {
   min-height: 100%;
   width: 100%;
+}
+
+.location-container .map-container #map-box span {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3rem;
+  font-style: italic;
 }
 
 .location-container .schedule-box {
@@ -664,7 +679,7 @@ a {
 .menu-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: black;
   -ms-grid-columns: 0.2fr 1fr 0.2fr;
       grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -905,8 +920,71 @@ a {
   height: auto;
 }
 
+.quickmenu-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickmenu-container #expand_button {
+  height: 10rem;
+  width: 30rem;
+  background-color: rebeccapurple;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickmenu-container .brush_wing--bg {
+  min-height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  position: absolute;
+  pointer-events: none;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickmenu-container .brush_wing--bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+}
+
 .store-container {
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -963,7 +1041,7 @@ a {
 .catering-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -975,7 +1053,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -986,7 +1064,7 @@ a {
 }
 
 .awards-container img {
-  height: 88vh;
+  height: 100vh;
   -ms-grid-columns: 2/3;
       grid-template-columns: 2/3;
 }
@@ -994,7 +1072,7 @@ a {
 .contact-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 1.5fr 3fr;
       grid-template-columns: 0.2fr 1.5fr 3fr;
@@ -1005,7 +1083,7 @@ a {
 .admin-container {
   display: -ms-grid;
   display: grid;
-  min-height: 88vh;
+  min-height: 100vh;
   background-color: white;
   -ms-grid-columns: 0.2fr 3fr 0.2fr;
       grid-template-columns: 0.2fr 3fr 0.2fr;
@@ -1077,6 +1155,7 @@ a {
 
 .footer-container {
   height: 10vh;
+  width: 100%;
   background: radial-gradient(#313131, #131313);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1100,7 +1179,7 @@ a {
 
 .footer-container .footer-credits a {
   font-size: 1.5rem;
-  color: #323232;
+  color: white;
   margin-right: 2rem;
 }
 

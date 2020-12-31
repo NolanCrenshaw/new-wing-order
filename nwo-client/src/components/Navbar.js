@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 import Infobar from "./Infobar";
 
@@ -8,11 +9,19 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav>
         <div id="link-box">
-          <Link to="/menu">Menu</Link>
-          <Link to="/store">Store</Link>
+          <HashLink smooth to="#quickmenu">
+            Menu
+          </HashLink>
+          <HashLink smooth to="#store">
+            Store
+          </HashLink>
           <Link to="/catering">Catering</Link>
-          <Link to="/awards">Awards</Link>
-          <Link to="/contact">Contact us</Link>
+          <HashLink smooth to="#awards">
+            Awards
+          </HashLink>
+          <HashLink smooth to="#contact">
+            Contact us
+          </HashLink>
         </div>
       </nav>
     </div>

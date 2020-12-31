@@ -15,7 +15,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="landing-container">
+    <div className="landing-container" id="landing">
       <Navbar />
       <div className="landing-bg">
         <div id="elipse01" />
@@ -78,7 +78,6 @@ const Landing = () => {
         src="./images/truck_svg-removebg-preview.png"
         style={{ transform: `translateX(-${offsetY * 1}px)` }}
       />
-      {/* <div className="brush_wing--bg"></div> */}
     </div>
   );
 };
