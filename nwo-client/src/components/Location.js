@@ -2,22 +2,35 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 // import Geocode from "react-geocode";
 
+import EventCard from "./cards/EventCard";
+
 const defaultEvent = {
   id: 0,
-  address: "default",
+  address: "Central BBQ address",
   geo_lat: 0,
   geo_lng: 0,
-  location_name: "default",
+  location_name: "Memphis, TN",
   start_time: null,
   end_time: null,
+};
+const dateOptions = {
+  weekday: "short",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timezone: "UTC",
+  hour12: "false",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZoneName: "short",
 };
 
 const Location = () => {
   // State
   const [events, setEvents] = useState([defaultEvent]);
   const [location, setLocation] = useState([0, 0]);
-  const [locationName, setLocationName] = useState("Memphis, TN");
-  const [address, setAddress] = useState("Central BBQ");
+  const [locationName, setLocationName] = useState("default locationName");
+  const [address, setAddress] = useState("default address");
   const [truckStatus, setTruckStatus] = useState("Today's Service!");
 
   // Geocode
@@ -67,10 +80,7 @@ const Location = () => {
       </div>
       <div className="schedule-box">
         {events.map((event) => (
-          <div className="event-container" key={event.id}>
-            <h2>{event.address}</h2>
-            <h3>{event.location_name}</h3>
-          </div>
+          <EventCard event={event} />
         ))}
       </div>
     </div>
