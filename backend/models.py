@@ -47,6 +47,8 @@ class Event(db.Model):
         return {
             "id": self.id,
             "address": self.address,
+            "geo_lat": self.geo_lat,
+            "geo_lng": self.geo_lng,
             "location_name": self.location_name,
             "start_time": self.start_time,
             "end_time": self.end_time,

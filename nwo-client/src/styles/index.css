@@ -405,7 +405,7 @@ a {
           align-items: center;
 }
 
-.landing-container .landing-socialbox .bookTruck-button {
+.landing-container .landing-socialbox .social_top-button {
   height: 5.5rem;
   width: 22rem;
   margin-bottom: 5rem;
@@ -428,6 +428,13 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.landing-container .landing-socialbox .social_top-button a {
+  height: 5.5rem;
+  width: 22rem;
+  color: #323232;
+  text-decoration: none;
 }
 
 .landing-container .landing-socialbox ul {
