@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Location from "./Location";
 import Menu from "./Menu";
+import QuickMenu from "./QuickMenu";
 import Store from "./Store";
 import Catering from "./Catering";
 import Awards from "./Awards";
@@ -24,6 +25,7 @@ const Main = () => {
       <Router>
         <Landing />
         <Location />
+        <QuickMenu />
         {/* <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />

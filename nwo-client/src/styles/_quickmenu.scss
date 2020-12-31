@@ -1,0 +1,35 @@
+.quickmenu-container {
+  .brush_wing--bg {
+    grid-column: 1/5;
+    grid-row: 2/3;
+    height: 100%;
+    width: 100%;
+    max-width: 1440px;
+
+    position: absolute;
+    pointer-events: none;
+    background-image: url("../img/wings_01_bg.jpg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-image: url("../img/brush_stroke_bg.jpg");
+      background-size: 110%;
+      background-position: center;
+      background-repeat: no-repeat;
+      mix-blend-mode: screen;
+    }
+  }
+  }
+}

@@ -624,7 +624,6 @@ a {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  border-radius: 0 0 2rem 2rem;
   background-color: salmon;
 }
 
