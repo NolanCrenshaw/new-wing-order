@@ -63,12 +63,20 @@
 
       display: flex;
       justify-content: flex-end;
-      // border-radius: 0 0 2rem 2rem;
       background-color: salmon;
 
       .leaflet-container {
         min-height: 100%;
         width: 100%;
+      }
+      span {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-style: italic;
       }
     }
   }

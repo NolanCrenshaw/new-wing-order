@@ -632,6 +632,22 @@ a {
   width: 100%;
 }
 
+.location-container .map-container #map-box span {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3rem;
+  font-style: italic;
+}
+
 .location-container .schedule-box {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
@@ -908,6 +924,30 @@ a {
   min-height: 100vh;
   width: 100%;
   max-width: 1600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickmenu-container #expand_button {
+  height: 10rem;
+  width: 30rem;
+  background-color: rebeccapurple;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .quickmenu-container .brush_wing--bg {
@@ -916,7 +956,6 @@ a {
   max-width: 1440px;
   position: absolute;
   pointer-events: none;
-  background-image: url("../img/wings_01_bg.jpg");
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -938,7 +977,6 @@ a {
   height: 100%;
   top: 0;
   right: 0;
-  background-image: url("../img/brush_stroke_bg.jpg");
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1117,6 +1155,7 @@ a {
 
 .footer-container {
   height: 10vh;
+  width: 100%;
   background: radial-gradient(#313131, #131313);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1140,7 +1179,7 @@ a {
 
 .footer-container .footer-credits a {
   font-size: 1.5rem;
-  color: #323232;
+  color: white;
   margin-right: 2rem;
 }
 

@@ -1,8 +1,10 @@
+from ..models import db, Event
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_googlemaps import get_address, get_coordinates
 
+API_KEY = process.env.REACT_API_KEY
 
-from ..models import db, Event
 
 event = Blueprint("events", __name__)
 
@@ -24,9 +26,12 @@ def get_events():
 def create_event():
     try:
         event_object = request.get_json()
+        geocode = get_coordinates(API_KEY, event_object["address"])
         event = Event(
             address=event_object["address"],
             location_name=event_object["locationName"],
+            geo_lat=geocode["lat"],
+            geo_lng=geocode["lng"],
             start_time=event_object["startTime"],
             end_time=event_object["endTime"],
         )

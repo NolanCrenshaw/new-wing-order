@@ -50,7 +50,7 @@ const Location = () => {
               </Marker>
             </MapContainer>
           ) : (
-            <span>Loading</span>
+            <span>Loading...</span>
           )}
         </div>
       </div>

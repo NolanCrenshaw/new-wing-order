@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -15,6 +15,9 @@ import Footer from "./Footer";
 import Admin from "./Admin";
 
 const Main = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const handleExpand = () => setIsExpanded(!isExpanded);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -25,18 +28,9 @@ const Main = () => {
       <Router>
         <Landing />
         <Location />
-        <QuickMenu />
-        {/*
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/menu" component={Menu} />
-          <Route path="/store" component={Store} />
-          <Route path="/catering" component={Catering} />
-          <Route path="/awards" component={Awards} />
-          <Route path="/contact" component={Contact} />
-          <Route exact path="/admin" component={Admin} />
-        </Switch>
-         */}
+        <QuickMenu expand={handleExpand} />
+        {isExpanded ? <Menu /> : <div className="closed-menu" />}
+
         <Footer />
       </Router>
     </motion.div>
