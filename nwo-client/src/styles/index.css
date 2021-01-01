@@ -41,6 +41,35 @@ a {
   scrollbar-width: none;
 }
 
+.event-card {
+  height: 10px;
+  width: 95%;
+  margin-top: 5rem;
+  color: white;
+  border-radius: 35%;
+  background-color: rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.5), 0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.5), 0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.event-card h2 {
+  font-size: 3rem;
+}
+
+.event-card h3 {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
 .loading-container {
   min-height: 100vh;
   min-width: 100vw;
@@ -405,7 +434,7 @@ a {
           align-items: center;
 }
 
-.landing-container .landing-socialbox .bookTruck-button {
+.landing-container .landing-socialbox .social_top-button {
   height: 5.5rem;
   width: 22rem;
   margin-bottom: 5rem;
@@ -428,6 +457,13 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.landing-container .landing-socialbox .social_top-button a {
+  height: 5.5rem;
+  width: 22rem;
+  color: #323232;
+  text-decoration: none;
 }
 
 .landing-container .landing-socialbox ul {
@@ -662,9 +698,9 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -948,6 +984,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 
 .quickmenu-container .brush_wing--bg {
@@ -956,9 +993,11 @@ a {
   max-width: 1440px;
   position: absolute;
   pointer-events: none;
+  background-image: url("../img/wings_01_bg.jpg");
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -977,6 +1016,7 @@ a {
   height: 100%;
   top: 0;
   right: 0;
+  background-image: url("../img/brush_stroke_bg.jpg");
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;

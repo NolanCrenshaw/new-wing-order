@@ -30,7 +30,8 @@ const Main = () => {
         <Location />
         <QuickMenu expand={handleExpand} />
         {isExpanded ? <Menu /> : <div className="closed-menu" />}
-
+        <Awards />
+        <Contact />
         <Footer />
       </Router>
     </motion.div>
