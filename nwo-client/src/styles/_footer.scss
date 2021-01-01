@@ -19,8 +19,13 @@
     }
   }
 
-  #adminLink {
+  button {
+    text-decoration: none;
+    background: transparent;
+    border: none;
     color: white;
     font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
   }
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
 
-import { Repeater } from "./utils";
+import MenuItemCard from "./cards/MenuItemCard";
+import SauceCard from "./cards/SauceCard";
 
 const Menu = () => {
   // State
@@ -72,14 +73,7 @@ const Menu = () => {
         <ul>
           {menuItems.map((item, i) => (
             <li key={i}>
-              <div className="item_text">
-                <span>{item.name}</span>
-                <p>{item.description}</p>
-              </div>
-              <div className="item_price">
-                <span>$</span>
-                <div>{item.price}</div>
-              </div>
+              <MenuItemCard item={item} />
             </li>
           ))}
         </ul>
@@ -130,21 +124,7 @@ const Menu = () => {
             <ul>
               {sauces.map((item, i) => (
                 <li key={i}>
-                  <span>
-                    {item.name}
-                    <div>
-                      <Repeater numTimes={item.heat}>
-                        {(i) => (
-                          <div key={i}>
-                            <img
-                              alt="fire icon"
-                              src="https://img.icons8.com/emoji/48/000000/fire.png"
-                            />
-                          </div>
-                        )}
-                      </Repeater>
-                    </div>
-                  </span>
+                  <SauceCard item={item} />
                 </li>
               ))}
             </ul>
@@ -155,21 +135,7 @@ const Menu = () => {
             <ul>
               {rubs.map((item, i) => (
                 <li key={i}>
-                  <span>
-                    {item.name}
-                    <div>
-                      <Repeater numTimes={item.heat}>
-                        {(i) => (
-                          <div key={i}>
-                            <img
-                              alt="fire icon"
-                              src="https://img.icons8.com/emoji/48/000000/fire.png"
-                            />
-                          </div>
-                        )}
-                      </Repeater>
-                    </div>
-                  </span>
+                  <SauceCard item={item} />
                 </li>
               ))}
             </ul>
