@@ -38,6 +38,22 @@ const Admin = () => {
   };
 
   // Fetch Functions
+  const getEvents = async () => {
+    const res = await fetch(`${BASE_URL}/api/events/`, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      // -- TODO Handling
+      console.log("getEvents res failure");
+    } else {
+      const json = await res.json();
+      setEvents(json.events);
+    }
+  };
   const getMenuItems = async () => {
     const res = await fetch(`${BASE_URL}/api/menu_items/`, {
       method: "GET",
@@ -106,6 +122,7 @@ const Admin = () => {
 
   // Fetch Control
   useEffect(() => {
+    getEvents();
     getMenuItems();
     getSauces();
     getRubs();

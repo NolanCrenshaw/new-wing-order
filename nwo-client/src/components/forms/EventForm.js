@@ -35,13 +35,15 @@ const EventForm = () => {
   const submitEvent = async (e) => {
     e.preventDefault();
 
+    // await interpretLocation();
+
     const event_obj = {
       location: location,
       address: address,
       startTime: startTime,
       endTime: endTime,
-      geoLat: geoLat,
-      geoLng: geoLng,
+      // geoLat: geoLat,
+      // geoLng: geoLng,
     };
 
     const res = await fetch(`${BASE_URL}/api/events/`, {
@@ -52,9 +54,9 @@ const EventForm = () => {
     });
     if (!res.ok) {
       // -- TODO -- handling
-      console.log("submitEvent res failure");
+      console.log("submitEvent res failure", res);
     } else {
-      console.log("submitEvent res success");
+      console.log("submitEvent res success", res);
     }
   };
 

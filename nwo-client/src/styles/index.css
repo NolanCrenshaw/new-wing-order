@@ -44,7 +44,7 @@ a {
 .event-card {
   height: 10px;
   width: 95%;
-  margin-top: 5rem;
+  margin-top: 9rem;
   color: white;
   border-radius: 35%;
   background-color: rgba(255, 0, 0, 0.5);
@@ -61,15 +61,29 @@ a {
           align-items: flex-end;
 }
 
-.event-card h2 {
+.event-card .event-card_textbox {
+  width: 50%;
+}
+
+.event-card .event-card_textbox h2 {
   margin-bottom: 0.2rem;
   font-size: 3rem;
 }
 
-.event-card h3 {
+.event-card .event-card_textbox h3 {
   margin-bottom: 0.2rem;
   margin-left: 1rem;
   font-size: 2rem;
+}
+
+.event-card .event-card_timebox {
+  height: 20rem;
+  width: 50%;
+  background-color: green;
+}
+
+.event-card .event-card_timebox span {
+  color: white;
 }
 
 .menuItem-card {
@@ -1333,6 +1347,19 @@ a {
   background-color: white;
   border: 3px solid black;
   border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .admin-container section .admin_list_title {
@@ -1343,6 +1370,7 @@ a {
 }
 
 .admin-container section ul {
+  height: auto;
   list-style: none;
 }
 
