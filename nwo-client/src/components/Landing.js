@@ -33,14 +33,11 @@ const Landing = () => {
         <h3>Award-Winning Wings & Southern Grub</h3>
       </div>
       <div className="landing-socialbox">
-        <motion.HashLink
-          whileHover={{ scale: 1.2 }}
-          className="social_top-button"
-          smooth
-          to="#location"
-        >
-          Find the Truck!
-        </motion.HashLink>
+        <HashLink smooth to="#location">
+          <motion.button whileHover={{ scale: 1.2 }}>
+            Find the Truck!
+          </motion.button>
+        </HashLink>
         <ul>
           <div className="socialbox-divider" />
           <motion.li whileHover={{ scale: 1.2 }}>
