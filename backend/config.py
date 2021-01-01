@@ -11,6 +11,7 @@ class Config:
     # Key Variables
     SECRET_KEY = os.environ.get("SECRET_KEY")
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
+    GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
     # Security Variables
     CORS_HEADER = "Content-type"
