@@ -9,6 +9,8 @@ const EventForm = () => {
   const [address, setAddress] = useState("");
   const [startTime, setStartTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
+  const [geoLat, setGeoLat] = useState(0);
+  const [geoLng, setGeoLng] = useState(0);
 
   // Input Handlers
   const updateLocation = (e) => setLocation(e.target.value);
@@ -21,7 +23,8 @@ const EventForm = () => {
     await Geocode.fromAddress(`${address}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        setLocation([lat, lng]);
+        setGeoLat(lat);
+        setGeoLng(lng);
       },
       (error) => {
         console.error(error);
@@ -37,6 +40,8 @@ const EventForm = () => {
       address: address,
       startTime: startTime,
       endTime: endTime,
+      geoLat: geoLat,
+      geoLng: geoLng,
     };
 
     const res = await fetch(`${BASE_URL}/api/events/`, {
