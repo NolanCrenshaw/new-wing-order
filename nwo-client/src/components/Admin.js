@@ -6,6 +6,8 @@ import EventCard from "./cards/EventCard";
 import MenuItemCard from "./cards/MenuItemCard";
 import SauceCard from "./cards/SauceCard";
 
+import EventForm from "./forms/EventForm";
+
 const defaultEvent = {
   id: 0,
   address: "Central BBQ address",
@@ -135,6 +137,7 @@ const Admin = () => {
       </nav>
       <section className={eventClass}>
         <h2 className="admin_list_title">Events</h2>
+        <EventForm />
         {events.map((event) => (
           <EventCard event={event} />
         ))}
