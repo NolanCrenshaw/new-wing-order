@@ -3,14 +3,16 @@ import { BASE_URL } from "../../config";
 import DateTimePicker from "react-datetime-picker";
 import Geocode from "react-geocode";
 
+import FloatToString from "../utils";
+
 const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
   const [startTime, setStartTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
-  const [geoLat, setGeoLat] = useState(0);
-  const [geoLng, setGeoLng] = useState(0);
+  const [geoLat, setGeoLat] = useState("");
+  const [geoLng, setGeoLng] = useState("");
 
   // Input Handlers
   const updateLocation = (e) => setLocation(e.target.value);
@@ -23,8 +25,10 @@ const EventForm = () => {
     await Geocode.fromAddress(`${address}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        setGeoLat(lat);
-        setGeoLng(lng);
+        latString = FloatToString(lat);
+        lngString = FloatToString(lng);
+        setGeoLat(latString);
+        setGeoLng(lngString);
       },
       (error) => {
         console.error(error);
@@ -42,8 +46,8 @@ const EventForm = () => {
       address: address,
       startTime: startTime,
       endTime: endTime,
-      // geoLat: geoLat,
-      // geoLng: geoLng,
+      geoLat: geoLat,
+      geoLng: geoLng,
     };
 
     const res = await fetch(`${BASE_URL}/api/events/`, {
