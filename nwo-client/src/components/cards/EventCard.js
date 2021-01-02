@@ -27,6 +27,8 @@ const EventCard = ({ event }) => {
     console.log("Event Times are not null");
     const start = event.start_time;
     const end = event.end_time;
+    console.log("Start: ", start);
+    console.log("End: ", end);
 
     setEventDate(start.toLocaleString("en-US", dateOptions).split(/[\,,\s]/));
     setStartTime(start.toLocaleTimeString("en-US").split(/[:,\s]/));
@@ -34,8 +36,9 @@ const EventCard = ({ event }) => {
   };
 
   useEffect(() => {
+    console.log(event);
     convertEventTimeData();
-  }, []);
+  }, [event]);
 
   return (
     <div className="event-card" key={event.id}>

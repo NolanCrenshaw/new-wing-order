@@ -70,7 +70,7 @@ const EventForm = () => {
       // -- TODO -- handling
       console.log("submitEvent res failure", res);
     } else {
-      console.log("submitEvent res success", res);
+      stateRestore();
     }
   };
 

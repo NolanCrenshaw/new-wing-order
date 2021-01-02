@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
 import ReactModal from "react-modal";
 
 import Modal from "./Modal";
 import Landing from "./Landing";
 import Location from "./Location";
-import Menu from "./Menu";
 import QuickMenu from "./QuickMenu";
 import Store from "./Store";
 import Catering from "./Catering";
@@ -43,8 +42,6 @@ const Main = () => {
   const [modalContent, setModalContent] = useState("blank");
 
   // Expand State
-  const [isExpanded, setIsExpanded] = useState(false);
-  const handleExpand = () => setIsExpanded(!isExpanded);
 
   const handleModal = (component) => {
     if (modalIsOpen) {
@@ -52,7 +49,6 @@ const Main = () => {
       setModalContent("modal_blank");
     } else {
       setModalIsOpen(true);
-      console.log(`${component}`);
       setModalContent(`${component}`);
     }
   };
@@ -78,7 +74,6 @@ const Main = () => {
         <Landing />
         <Location />
         <QuickMenu modalControl={handleModal} />
-        {isExpanded ? <Menu /> : <div className="closed-menu" />}
         <Awards />
         <Contact />
         <Footer modalControl={handleModal} />

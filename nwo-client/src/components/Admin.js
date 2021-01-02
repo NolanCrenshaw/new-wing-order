@@ -11,11 +11,11 @@ import EventForm from "./forms/EventForm";
 const defaultEvent = {
   id: 0,
   address: "Central BBQ address",
-  geo_lat: 0,
-  geo_lng: 0,
+  geo_lat: "",
+  geo_lng: "",
   location_name: "Memphis, TN",
-  start_time: null,
-  end_time: null,
+  start_time: new Date(),
+  end_time: new Date(),
 };
 
 const Admin = () => {
