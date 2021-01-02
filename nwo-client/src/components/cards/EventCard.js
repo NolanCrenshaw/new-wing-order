@@ -15,8 +15,8 @@ const dateOptions = {
 const EventCard = ({ event }) => {
   // State
   const [eventDate, setEventDate] = useState(new Date());
-  const [eventStartTime, setEventStartTime] = useState([]);
-  const [eventEndTime, setEventEndTime] = useState([]);
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   // Time & Date Handling
   const convertEventTimeData = () => {
@@ -29,8 +29,8 @@ const EventCard = ({ event }) => {
     const end = event.end_time;
 
     setEventDate(start.toLocaleString("en-US", dateOptions).split(/[\,,\s]/));
-    setEventStartTime(start.toLocaleTimeString("en-US").split(/[:,\s]/));
-    setEventEndTime(end.toLocaleTimeString("en-US").split(/[:,\s]/));
+    setStartTime(start.toLocaleTimeString("en-US").split(/[:,\s]/));
+    setEndTime(end.toLocaleTimeString("en-US").split(/[:,\s]/));
   };
 
   useEffect(() => {
@@ -44,7 +44,8 @@ const EventCard = ({ event }) => {
         <h3>{event.address}</h3>
       </div>
       <div className="event-card_timebox">
-        <span>{eventStartTime}</span>
+        <span>{startTime}</span>
+        <span>{endTime}</span>
       </div>
     </div>
   );
