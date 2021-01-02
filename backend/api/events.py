@@ -1,7 +1,8 @@
 from ..models import db, Event
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from flask_googlemaps import get_address, get_coordinates
+
+from ..models import db, Event
 
 
 event = Blueprint("events", __name__)
@@ -20,19 +21,21 @@ def get_events():
 
 
 @event.route("/", methods=["POST"])
-@jwt_required
+# @jwt_required
 def create_event():
     try:
         event_object = request.get_json()
-        geocode = get_coordinates(GOOGLE_API_KEY, event_object["address"])
+        print("event object: ", event_object)
         event = Event(
             address=event_object["address"],
-            location_name=event_object["locationName"],
-            geo_lat=geocode["lat"],
-            geo_lng=geocode["lng"],
+            location_name=event_object["location"],
+            # geo_lat=event_object["geoLat"],
+            # geo_lng=event_object["geoLng"],
             start_time=event_object["startTime"],
             end_time=event_object["endTime"],
         )
+        db.session.add(event)
+        db.session.commit()
         return jsonify(message="Event POST Request Successful"), 200
     except Exception:
         return jsonify(message="Event POST Request Failure"), 400
