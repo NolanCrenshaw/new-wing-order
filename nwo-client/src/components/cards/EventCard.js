@@ -25,8 +25,8 @@ const EventCard = ({ event }) => {
       return;
     }
     console.log("Event Times are not null");
-    const start = new Date(event.start_time);
-    const end = new Date(event.end_time);
+    const start = event.start_time;
+    const end = event.end_time;
 
     setEventDate(start.toLocaleString("en-US", dateOptions).split(/[\,,\s]/));
     setEventStartTime(start.toLocaleTimeString("en-US").split(/[:,\s]/));
@@ -39,8 +39,13 @@ const EventCard = ({ event }) => {
 
   return (
     <div className="event-card" key={event.id}>
-      <h2>{event.location_name}</h2>
-      <h3>{event.address}</h3>
+      <div className="event-card_textbox">
+        <h2>{event.location_name}</h2>
+        <h3>{event.address}</h3>
+      </div>
+      <div className="event-card_timebox">
+        <span>{eventStartTime}</span>
+      </div>
     </div>
   );
 };

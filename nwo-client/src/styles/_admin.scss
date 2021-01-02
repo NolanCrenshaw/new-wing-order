@@ -1,13 +1,16 @@
 .admin-container {
-  display: grid;
-  min-height: 100vh;
-  background-color: white;
-  grid-template-columns: 0.2fr 3fr 0.2fr;
-  grid-template-rows: 0.5fr 1fr 5fr 0.5fr;
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   nav {
-    grid-column: 2/3;
-    grid-row: 2/3;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem;
 
     background-color: $_gray;
     border-radius: 8px;
@@ -34,10 +37,10 @@
     }
     h2 {
       margin: 0 4rem;
+      color: white;
       border-bottom: 5px solid black;
     }
     h3 {
-      position: absolute;
       right: 5rem;
       color: white;
       font-size: 2rem;
@@ -45,13 +48,42 @@
     }
   }
 
-  section {
-    grid-column: 2/3;
-    grid-row: 3/4;
-    padding: 3rem;
-    margin-top: 3rem;
+  .hidden {
+    display: none;
+  }
 
+  section {
+    min-height: 10rem;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+
+    background-color: white;
     border: 3px solid black;
     border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .admin_list_title {
+      width: 10rem;
+      margin-bottom: 2rem;
+      color: white;
+      border-bottom: 5px solid rgb(255, 217, 0);
+    }
+    ul {
+      height: auto;
+      list-style: none;
+    }
+  }
+  .admin_event {
+    color: white;
+    background-color: $_gray;
+  }
+  .admin_menu {
+  }
+  .admin_sauce {
   }
 }

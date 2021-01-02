@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ modalControl }) => {
   return (
     <div className="footer-container">
       <div className="footer-credits">
@@ -21,9 +21,7 @@ const Footer = () => {
           Twitter icon by Icons8
         </a>
       </div>
-      <Link id="adminLink" to="/admin">
-        Admin
-      </Link>
+      <button onClick={() => modalControl("admin")}>Admin</button>
     </div>
   );
 };
