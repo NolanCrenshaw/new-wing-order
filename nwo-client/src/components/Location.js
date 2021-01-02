@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL } from "../config";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-// import Geocode from "react-geocode";
 
 import EventCard from "./cards/EventCard";
 
 const defaultEvent = {
   id: 0,
   address: "Central BBQ address",
-  geo_lat: 0,
-  geo_lng: 0,
+  geo_lat: "",
+  geo_lng: "",
   location_name: "Memphis, TN",
-  start_time: null,
-  end_time: null,
+  start_time: "",
+  end_time: "",
 };
 
 const Location = () => {
@@ -22,23 +22,25 @@ const Location = () => {
   const [address, setAddress] = useState("default address");
   const [truckStatus, setTruckStatus] = useState("Today's Service!");
 
-  // Geocode
-  // Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
-  // Geocode.setLanguage("en");
-  // const interpretLocation = async () => {
-  //   await Geocode.fromAddress(`${address}`).then(
-  //     (response) => {
-  //       const { lat, lng } = response.results[0].geometry.location;
-  //       setLocation([lat, lng]);
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // };
+  const getEvents = async () => {
+    const res = await fetch(`${BASE_URL}/api/events/`, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      // -- TODO Handling
+      console.log("getEvents res failure");
+    } else {
+      const json = await res.json();
+      setEvents(json.events);
+    }
+  };
 
   useEffect(() => {
-    // interpretLocation();
+    getEvents();
   }, []);
 
   return (

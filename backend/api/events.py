@@ -29,8 +29,8 @@ def create_event():
         event = Event(
             address=event_object["address"],
             location_name=event_object["location"],
-            # geo_lat=event_object["geoLat"],
-            # geo_lng=event_object["geoLng"],
+            geo_lat=event_object["geoLat"],
+            geo_lng=event_object["geoLng"],
             start_time=event_object["startTime"],
             end_time=event_object["endTime"],
         )

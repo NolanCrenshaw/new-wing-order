@@ -3,7 +3,7 @@ import { BASE_URL } from "../../config";
 import DateTimePicker from "react-datetime-picker";
 import Geocode from "react-geocode";
 
-import FloatToString from "../utils";
+import { FloatToString } from "../utils";
 
 const EventForm = () => {
   // State
@@ -18,28 +18,40 @@ const EventForm = () => {
   const updateLocation = (e) => setLocation(e.target.value);
   const updateAddress = (e) => setAddress(e.target.value);
 
+  // Restore Default States
+  const stateRestore = () => {
+    setLocation("");
+    setAddress("");
+    setStartTime(new Date());
+    setEndTime(new Date());
+    setGeoLat("");
+    setGeoLng("");
+  };
+
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
   Geocode.setLanguage("en");
   const interpretLocation = async () => {
     await Geocode.fromAddress(`${address}`).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        latString = FloatToString(lat);
-        lngString = FloatToString(lng);
+      (res) => {
+        const { lat, lng } = res.results[0].geometry.location;
+        const latString = FloatToString(lat);
+        const lngString = FloatToString(lng);
         setGeoLat(latString);
         setGeoLng(lngString);
       },
-      (error) => {
-        console.error(error);
+      (err) => {
+        console.error(err);
       }
     );
   };
 
   const submitEvent = async (e) => {
     e.preventDefault();
-
-    // await interpretLocation();
+    await interpretLocation();
+    await setTimeout(() => {
+      console.log("pause");
+    }, 500);
 
     const event_obj = {
       location: location,
@@ -60,7 +72,7 @@ const EventForm = () => {
       // -- TODO -- handling
       console.log("submitEvent res failure", res);
     } else {
-      console.log("submitEvent res success", res);
+      stateRestore();
     }
   };
 
