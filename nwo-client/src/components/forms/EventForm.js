@@ -48,8 +48,10 @@ const EventForm = () => {
 
   const submitEvent = async (e) => {
     e.preventDefault();
-
     await interpretLocation();
+    await setTimeout(() => {
+      console.log("pause");
+    }, 500);
 
     const event_obj = {
       location: location,
