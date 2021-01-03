@@ -14,39 +14,35 @@ const dateOptions = {
 
 const EventCard = ({ event }) => {
   // State
-  const [eventDate, setEventDate] = useState(new Date());
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [eventDate, setEventDate] = useState([]);
+  const [startTime, setStartTime] = useState([]);
+  const [endTime, setEndTime] = useState([]);
 
   // Time & Date Handling
   const convertEventTimeData = () => {
-    if (event.start_time || event.end_time === null) {
-      console.log("One or more Event Time is null");
-      return;
-    }
-    console.log("Event Times are not null");
-    const start = event.start_time;
-    const end = event.end_time;
-    console.log("Start: ", start);
-    console.log("End: ", end);
-
-    setEventDate(start.toLocaleString("en-US", dateOptions).split(/[\,,\s]/));
-    setStartTime(start.toLocaleTimeString("en-US").split(/[:,\s]/));
-    setEndTime(end.toLocaleTimeString("en-US").split(/[:,\s]/));
+    const startDateTime = new Date(event.start_time);
+    const endDateTime = new Date(event.end_time);
+    const start = startDateTime
+      .toLocaleString("en-US", dateOptions)
+      .split(/[\,,\s]/);
+    const end = endDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
+    setEventDate(`${start[0]}, ${start[2]} ${start[3]}`);
+    setStartTime(`${start[7]}:${start[8]}`);
+    setEndTime(`${end[0]}:${end[1]} ${end[3]}`);
   };
 
   useEffect(() => {
-    console.log(event);
     convertEventTimeData();
   }, [event]);
 
   return (
-    <div className="event-card" key={event.id}>
+    <div className="event-card">
       <div className="event-card_textbox">
         <h2>{event.location_name}</h2>
         <h3>{event.address}</h3>
       </div>
       <div className="event-card_timebox">
+        <span>{eventDate}</span>
         <span>{startTime}</span>
         <span>{endTime}</span>
       </div>
