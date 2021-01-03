@@ -26,7 +26,7 @@ const EventCard = ({ event }) => {
       .toLocaleString("en-US", dateOptions)
       .split(/[\,,\s]/);
     const end = endDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
-    setEventDate(`${start[0]}, ${start[2]} ${start[3]}`);
+    setEventDate([`${start[0]}`, `${start[2]}`, `${start[3]}`]);
     setStartTime(`${start[7]}:${start[8]}`);
     setEndTime(`${end[0]}:${end[1]} ${end[3]}`);
   };
@@ -37,12 +37,18 @@ const EventCard = ({ event }) => {
 
   return (
     <div className="event-card">
+      <div className="event-card_datebox">
+        <span>{eventDate[0]}</span>
+        <div>
+          <span>{eventDate[1]}</span>
+          <span>{eventDate[2]}</span>
+        </div>
+      </div>
       <div className="event-card_textbox">
         <h2>{event.location_name}</h2>
         <h3>{event.address}</h3>
       </div>
       <div className="event-card_timebox">
-        <span>{eventDate}</span>
         <span>{startTime}</span>
         <span>{endTime}</span>
       </div>
