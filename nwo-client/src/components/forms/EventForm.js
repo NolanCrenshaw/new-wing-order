@@ -11,8 +11,8 @@ const EventForm = () => {
   const [address, setAddress] = useState("");
   const [startTime, setStartTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
-  const [geoLat, setGeoLat] = useState("");
-  const [geoLng, setGeoLng] = useState("");
+  // const [geoLat, setGeoLat] = useState("");
+  // const [geoLng, setGeoLng] = useState("");
 
   // Input Handlers
   const updateLocation = (e) => setLocation(e.target.value);
@@ -24,42 +24,42 @@ const EventForm = () => {
     setAddress("");
     setStartTime(new Date());
     setEndTime(new Date());
-    setGeoLat("");
-    setGeoLng("");
+    // setGeoLat("");
+    // setGeoLng("");
   };
 
-  // Geocode
-  Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
-  Geocode.setLanguage("en");
-  const interpretLocation = async () => {
-    await Geocode.fromAddress(`${address}`).then(
-      (res) => {
-        const { lat, lng } = res.results[0].geometry.location;
-        const latString = FloatToString(lat);
-        const lngString = FloatToString(lng);
-        setGeoLat(latString);
-        setGeoLng(lngString);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-  };
+  // // Geocode
+  // Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
+  // Geocode.setLanguage("en");
+  // const interpretLocation = async () => {
+  //   await Geocode.fromAddress(`${address}`).then(
+  //     (res) => {
+  //       const { lat, lng } = res.results[0].geometry.location;
+  //       const latString = FloatToString(lat);
+  //       const lngString = FloatToString(lng);
+  //       setGeoLat(latString);
+  //       setGeoLng(lngString);
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //     }
+  //   );
+  // };
 
   const submitEvent = async (e) => {
     e.preventDefault();
-    await interpretLocation();
-    await setTimeout(() => {
-      console.log("pause");
-    }, 500);
+    // await interpretLocation();
+    // await setTimeout(() => {
+    //   console.log("pause");
+    // }, 500);
 
     const event_obj = {
       location: location,
       address: address,
       startTime: startTime,
       endTime: endTime,
-      geoLat: geoLat,
-      geoLng: geoLng,
+      // geoLat: geoLat,
+      // geoLng: geoLng,
     };
 
     const res = await fetch(`${BASE_URL}/api/events/`, {
