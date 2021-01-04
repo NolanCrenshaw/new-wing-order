@@ -9,10 +9,10 @@ auth = Blueprint("auth", __name__)
 
 
 # Password Functions
-def set_password(password):
-    hashed_password = bcrypt.hashpw(
-        password.encode("utf-*"), bcrypt.gensalt())
-    return hashed_password
+# def set_password(password):
+#     hashed_password = bcrypt.hashpw(
+#         password.encode("utf-*"), bcrypt.gensalt())
+#     return hashed_password
 
 
 def verify_password(password, hashed_password):
@@ -23,12 +23,12 @@ def verify_password(password, hashed_password):
 
 
 # CORS Preflight Header Handling
-def cors_preflight_res():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
+# def cors_preflight_res():
+#     response = make_response()
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     response.headers.add("Access-Control-Allow-Headers", "*")
+#     response.headers.add("Access-Control-Allow-Methods", "*")
+#     return response
 
 
 # CORS JSON Response Header Handling
