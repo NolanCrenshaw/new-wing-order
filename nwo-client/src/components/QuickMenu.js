@@ -5,7 +5,7 @@ const QuickMenu = ({ modalControl }) => {
   return (
     <div className="quickmenu-container" id="quickmenu">
       <div className="brush_wing--bg" />
-      <div className="quickmenu_wings scrim">
+      <div className="quickmenu_wings">
         <h1>Wings</h1>
         <p>
           Wings are available Traditional or Boneless, and come seasoned or
@@ -17,7 +17,7 @@ const QuickMenu = ({ modalControl }) => {
           <h3>Eighteen Piece - $21</h3>
         </ul>
       </div>
-      <div className="quickmenu_other scrim">
+      <div className="quickmenu_other">
         <h1>Other Favorites</h1>
         <ul>
           <h3>Hot Wing Nachos</h3>

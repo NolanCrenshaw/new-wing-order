@@ -77,7 +77,7 @@ const EventForm = () => {
   };
 
   return (
-    <div className="event-form">
+    <div className="event_form-container">
       <h2>Create New Event</h2>
       <div className="form-inputs">
         <ul>
