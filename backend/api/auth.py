@@ -23,12 +23,12 @@ def verify_password(password, hashed_password):
 
 
 # CORS Preflight Header Handling
-# def cors_preflight_res():
-#     response = make_response()
-#     response.headers.add("Access-Control-Allow-Origin", "*")
-#     response.headers.add("Access-Control-Allow-Headers", "*")
-#     response.headers.add("Access-Control-Allow-Methods", "*")
-#     return response
+def cors_preflight_res():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Allow-Methods", "*")
+    return response
 
 
 # CORS JSON Response Header Handling
@@ -38,12 +38,16 @@ def verify_password(password, hashed_password):
 
 
 # Routes
-@auth.route("/login", methods=["POST"])
+@auth.route("/login", methods=["POST", "OPTIONS"])
 def login():
     data = request.get_json()
 
-    # Request Handling
+    # CORS Preflight Handling
+    if request.method == "OPTIONS":
+        return cors_preflight_res()
+
     elif request.method == "POST":
+        # Request Handling
         try:
             username = data["username"]
             password = data["password"]
@@ -73,5 +77,3 @@ def login():
 
         except Exception:
             return jsonify(message="Log In Failed"), 400
-    else:
-        return jsonify(message="Request Method Not Recognized"), 400

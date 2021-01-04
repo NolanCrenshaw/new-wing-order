@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BASE_URL} from '../../config';
+import { BASE_URL } from "../../config";
 
 const LoginForm = () => {
   // State
@@ -11,25 +11,28 @@ const LoginForm = () => {
   const handlePassword = (e) => setPassword(e.target.value);
 
   // Function
-  const logInUser = (e) => {
+  const logInUser = async (e) => {
     e.preventDefault();
     const res = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: `${email}`, password: `${password}` }),
-  });
-  if (!res.ok) {
+      body: JSON.stringify({
+        username: `${username}`,
+        password: `${password}`,
+      }),
+    });
+    if (!res.ok) {
       // -- TODO -- Validation
       console.log("login res failure");
-  } else {
+    } else {
       // <"auth_token"> Storage
-      const json = await res.json()
+      const json = await res.json();
       if (json.auth_token !== undefined) {
-          window.localStorage.setItem('auth_token', json.auth_token);
-          window.location.reload();
+        window.localStorage.setItem("auth_token", json.auth_token);
+        window.location.reload();
       }
-  }
+    }
   };
 
   return (
