@@ -32,19 +32,16 @@ def verify_password(password, hashed_password):
 
 
 # CORS JSON Response Header Handling
-def corsify_res(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
+# def corsify_res(response):
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     return response
 
 
 # Routes
-@auth.route("/login", methods=["POST", "OPTIONS"])
+@auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
 
-    # CORS Preflight Handling
-    if request.method == "OPTIONS":
-        return cors_preflight_res()
     # Request Handling
     elif request.method == "POST":
         try:
@@ -72,7 +69,7 @@ def login():
                 auth_token = create_access_token(
                     identity={"username": admin.username}
                 )
-            return corsify_res(jsonify(auth_token=auth_token)), 200
+            return jsonify(auth_token=auth_token), 200
 
         except Exception:
             return jsonify(message="Log In Failed"), 400
