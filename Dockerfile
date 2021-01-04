@@ -10,15 +10,15 @@ RUN ["pip", "install", "-r", "requirements.txt"]
 
 
 # Build our React App
-RUN ["npm", "install", "--prefix", "client"]
+RUN ["npm", "install", "--prefix", "nwo-client"]
 # ~~ REQUIRES SETTING ~~
-ENV REACT_APP_BASE_URL=https://{...}/herokuapp.com
-RUN ["npm", "run", "build", "--prefix", "client"]
+ENV REACT_APP_BASE_URL=https://newwingorder.herokuapp.com
+RUN ["npm", "run", "build", "--prefix", "nwo-client"]
 
 # Move our react build for Flask to serve
 # Use cp here because we're copying files inside our working directory, not from
 # our host machine.
-RUN ["cp", "-r", "client/build", "backend/static"]
+RUN ["cp", "-r", "nwo-client/build", "backend/static"]
 RUN ["cp", "-r", "backend/static/static/js", "backend/static"]
 RUN ["cp", "-r", "backend/static/static/css", "backend/static"]
 
