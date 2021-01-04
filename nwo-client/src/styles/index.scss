@@ -35,7 +35,11 @@ li {
 a {
   text-decoration: none;
 }
-
+.scrim {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15rem rgba(0, 0, 0, 0.5);
+}
 #root {
   background-size: cover;
   background-position: center;
