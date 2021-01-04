@@ -3,6 +3,91 @@
   min-height: 100vh;
   width: 100%;
   background-color: $_gray;
-  grid-template-columns: 0.2fr 1.5fr 3fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-columns: 0.2fr 2fr 2fr 0.2fr;
+  grid-template-rows: 0.1fr 2.5fr 4fr 0.5fr;
+
+  .contact_socialbox {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    height: 100%;
+    width: 500px;
+    justify-self: center;
+    align-self: center;
+    z-index: 2;
+
+    border-radius: 12px;
+    background-color: $_gray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: white;
+    }
+
+    ul {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      list-style: none;
+
+      li {
+        height: 4rem;
+        width: 4rem;
+        display: flex;
+        margin: 0.5rem;
+        border-radius: 20%;
+        cursor: pointer;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: $_gray;
+          border-radius: 4px;
+
+          img {
+            height: 90%;
+            width: 100%;
+            border-radius: 8px;
+          }
+        }
+        a:hover {
+          transition: all 0.8s;
+          background: white;
+          background-size: 150%;
+        }
+      }
+      .socialbox-divider {
+        width: 8rem;
+        height: 0;
+        margin: 0 1rem;
+
+        border: 1px solid white;
+        border-radius: 50%;
+      }
+    }
+    span {
+      margin-top: 1rem;
+      color: white;
+      font-size: 2rem;
+    }
+  }
+  .contact_formbox {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    height: 100%;
+    width: 60%;
+    justify-self: flex-end;
+    margin-right: 2rem;
+
+    // border: 4px solid white;
+    border-radius: 12px;
+    // background-color: white;
+  }
 }
