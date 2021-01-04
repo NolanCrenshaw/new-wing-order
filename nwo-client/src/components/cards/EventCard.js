@@ -22,12 +22,13 @@ const EventCard = ({ event }) => {
   const convertEventTimeData = () => {
     const startDateTime = new Date(event.start_time);
     const endDateTime = new Date(event.end_time);
-    const start = startDateTime
+    const date = startDateTime
       .toLocaleString("en-US", dateOptions)
       .split(/[\,,\s]/);
+    const start = startDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
     const end = endDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
-    setEventDate([`${start[0]}`, `${start[2]}`, `${start[3]}`]);
-    setStartTime(`${start[7]}:${start[8]}`);
+    setEventDate([`${date[0]}`, `${date[2]}`, `${date[3]}`]);
+    setStartTime(`${start[0]}:${start[1]} ${start[3]}`);
     setEndTime(`${end[0]}:${end[1]} ${end[3]}`);
   };
 
@@ -49,8 +50,14 @@ const EventCard = ({ event }) => {
         <h3>{event.address}</h3>
       </div>
       <div className="event-card_timebox">
-        <span>{startTime}</span>
-        <span>{endTime}</span>
+        <div>
+          <span>Starts: </span>
+          <span>Ends: </span>
+        </div>
+        <div>
+          <span>{startTime}</span>
+          <span>{endTime}</span>
+        </div>
       </div>
     </div>
   );
