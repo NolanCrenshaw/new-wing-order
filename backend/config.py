@@ -14,5 +14,4 @@ class Config:
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
     # Security Variables
-    CORS_HEADER = "Content-type"
     JWT_ACCESS_TOKEN_EXPIRES = relativedelta(hours=1)

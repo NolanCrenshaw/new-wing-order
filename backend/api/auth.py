@@ -9,10 +9,10 @@ auth = Blueprint("auth", __name__)
 
 
 # Password Functions
-def set_password(password):
-    hashed_password = bcrypt.hashpw(
-        password.encode("utf-*"), bcrypt.gensalt())
-    return hashed_password
+# def set_password(password):
+#     hashed_password = bcrypt.hashpw(
+#         password.encode("utf-*"), bcrypt.gensalt())
+#     return hashed_password
 
 
 def verify_password(password, hashed_password):
@@ -32,9 +32,9 @@ def cors_preflight_res():
 
 
 # CORS JSON Response Header Handling
-def corsify_res(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
+# def corsify_res(response):
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     return response
 
 
 # Routes
@@ -45,8 +45,9 @@ def login():
     # CORS Preflight Handling
     if request.method == "OPTIONS":
         return cors_preflight_res()
-    # Request Handling
+
     elif request.method == "POST":
+        # Request Handling
         try:
             username = data["username"]
             password = data["password"]
@@ -72,9 +73,7 @@ def login():
                 auth_token = create_access_token(
                     identity={"username": admin.username}
                 )
-            return corsify_res(jsonify(auth_token=auth_token)), 200
+            return jsonify(auth_token=auth_token), 200
 
         except Exception:
             return jsonify(message="Log In Failed"), 400
-    else:
-        return jsonify(message="Request Method Not Recognized"), 400
