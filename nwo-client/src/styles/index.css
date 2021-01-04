@@ -1650,7 +1650,57 @@ a {
   width: 60%;
   justify-self: flex-end;
   margin-right: 2rem;
-  border-radius: 12px;
+}
+
+.contact-container .contact_infobox {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+  padding: 2rem;
+  margin-left: 2rem;
+  justify-self: flex-start;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.contact-container .contact_infobox h2 {
+  margin-bottom: 3rem;
+}
+
+.contact-container .contact_infobox h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.contact-container .contact_infobox p {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.contact-container .contact_infobox div {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-bottom: 1px solid white;
+  border-radius: 50%;
 }
 
 .admin-container {

@@ -38,6 +38,24 @@ const Contact = () => {
       <div className="contact_formbox">
         <ContactForm />
       </div>
+      <div className="contact_infobox">
+        <h2>How Can We Help?</h2>
+        <h4>We Cater</h4>
+        <p>
+          With New Wing Order catering, the award-winning wings come to you! We
+          cater business events, private events, weddings, parties, reunions,
+          sporting events, and more. Full service options are available. Contact
+          us to discuss catering options and book us today!
+        </p>
+        <div />
+        <h4>Have the Truck Come to You</h4>
+        <p>
+          New Wing Order provides food truck and catering services to the
+          greater Memphis area. This page is updated weekly with our service
+          schedule. Not seeing a location close enough? Book us!
+        </p>
+        <div />
+      </div>
     </div>
   );
 };
