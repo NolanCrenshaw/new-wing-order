@@ -26,12 +26,17 @@ const ContactForm = () => {
     setMessage("");
   };
 
-  const submit = async (e) => {
+  const clearHandle = (e) => {
+    e.preventDefault();
+    clearForm();
+  };
+
+  const submitHandle = async (e) => {
     e.preventDefault();
 
-    console.log("User ID: ", userID);
-    console.log("SERVICE: ", ejsSERVICE);
-    console.log("TEMPLATE: ", ejsTEMPLATE);
+    // console.log("User ID: ", userID);
+    // console.log("SERVICE: ", ejsSERVICE);
+    // console.log("TEMPLATE: ", ejsTEMPLATE);
 
     const res = await emailjs.sendForm(
       ejsSERVICE,
@@ -51,7 +56,7 @@ const ContactForm = () => {
 
   return (
     <div className="contact_form-container">
-      <form className="contact_form" onSubmit={(e) => submit(e)}>
+      <form className="contact_form" onSubmit={(e) => submitHandle(e)}>
         <div>
           <input
             id="contact_firstname"
@@ -89,7 +94,7 @@ const ContactForm = () => {
           <motion.button whileHover={{ scale: 1.2 }} type="submit" value="Send">
             Submit
           </motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={clearForm}>
+          <motion.button whileHover={{ scale: 1.2 }} onClick={clearHandle}>
             Clear Form
           </motion.button>
         </div>
