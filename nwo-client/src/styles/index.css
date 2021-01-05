@@ -480,6 +480,12 @@ a {
   cursor: pointer;
 }
 
+.login_form-container {
+  height: 40rem;
+  width: 20rem;
+  background-color: salmon;
+}
+
 .loading-container {
   min-height: 100vh;
   min-width: 100vw;
@@ -979,7 +985,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 2%;
-  background-image: url("../img/backdrop_trees.png");
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
   background-size: cover;
   border-bottom: 1px solid #323232;
 }
@@ -1305,7 +1311,7 @@ a {
   max-width: 1440px;
   position: absolute;
   pointer-events: none;
-  background-image: url("../img/wings_01_bg.jpg");
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/wings_01_bg.jpg");
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1330,7 +1336,7 @@ a {
   height: 100%;
   top: 0;
   right: 0;
-  background-image: url("../img/brush_stroke_bg.jpg");
+  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/brush_stroke_bg.jpgg");
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;

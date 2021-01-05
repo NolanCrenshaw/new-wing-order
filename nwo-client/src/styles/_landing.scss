@@ -4,8 +4,6 @@
   max-width: 1600px;
   position: relative;
 
-  // background-color: salmon;
-
   display: grid;
   grid-template-columns: 5vw 1fr 1fr 5vw;
   grid-template-rows: 12vh 88vh;
@@ -216,7 +214,7 @@
     position: absolute;
     bottom: 0;
     left: 2%;
-    background-image: url("../img/backdrop_trees.png");
+    background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
     background-size: cover;
     border-bottom: 1px solid $_gray;
   }

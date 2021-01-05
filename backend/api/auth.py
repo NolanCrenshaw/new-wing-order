@@ -9,10 +9,10 @@ auth = Blueprint("auth", __name__)
 
 
 # Password Functions
-# def set_password(password):
-#     hashed_password = bcrypt.hashpw(
-#         password.encode("utf-*"), bcrypt.gensalt())
-#     return hashed_password
+def set_password(password):
+    hashed_password = bcrypt.hashpw(
+        password.encode("utf-*"), bcrypt.gensalt())
+    return hashed_password
 
 
 def verify_password(password, hashed_password):
