@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-  const userID = process.env.REACT_APP_EMAILJS_USER_ID;
-  const ejsSERVICE = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-  const ejsTEMPLATE = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const userID = service_lhf30sn;
+  const ejsSERVICE = template_9w63ozc;
+  const ejsTEMPLATE = user_fVDXJMkss2Ld9dJxhizZZ;
   // State
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -33,11 +33,6 @@ const ContactForm = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
-
-    // console.log("User ID: ", userID);
-    // console.log("SERVICE: ", ejsSERVICE);
-    // console.log("TEMPLATE: ", ejsTEMPLATE);
-
     const res = await emailjs.sendForm(
       ejsSERVICE,
       ejsTEMPLATE,
@@ -47,11 +42,8 @@ const ContactForm = () => {
     if (!res.ok) {
       console.log("Contact Form EmailJS res failure: ", res.text);
     } else {
-      console.log("Contact Form EmailJS res success: ", res.text);
+      clearForm();
     }
-
-    console.log("Submit Pressed");
-    clearForm();
   };
 
   return (
@@ -94,7 +86,10 @@ const ContactForm = () => {
           <motion.button whileHover={{ scale: 1.2 }} type="submit" value="Send">
             Submit
           </motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={clearHandle}>
+          <motion.button
+            whileHover={{ scale: 1.2 }}
+            onClick={(e) => clearHandle(e)}
+          >
             Clear Form
           </motion.button>
         </div>
