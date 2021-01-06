@@ -71,14 +71,14 @@ const Landing = () => {
         <img
           id="full_bird_logo"
           alt="bird logo"
-          src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"
+          src="./images/full_bird_logo.png"
         />
       </div>
       <div className="little-truck-backdrop" />
       <img
         id="little_truck"
         alt="little truck"
-        src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/little_truck.png"
+        src="./images/truck_svg-removebg-preview.png"
         style={{ transform: `translateX(-${offsetY * 1}px)` }}
       />
     </div>
