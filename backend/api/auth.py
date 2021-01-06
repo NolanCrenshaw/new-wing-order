@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response
 from flask_jwt_extended import create_access_token
+from flask_cors import cross_origin
 import bcrypt
 
 
@@ -23,12 +24,13 @@ def verify_password(password, hashed_password):
 
 
 # CORS Preflight Header Handling
-def cors_preflight_res():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
+# def cors_preflight_res():
+#     response = make_response()
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     response.headers.add("Access-Control-Allow-Headers", "*")
+#     response.headers.add("Access-Control-Allow-Methods", "*")
+#     print("RESPONSE HEADERS: ", response.headers)
+#     return response
 
 
 # CORS JSON Response Header Handling
@@ -39,14 +41,15 @@ def cors_preflight_res():
 
 # Routes
 @auth.route("/login", methods=["POST", "OPTIONS"])
+@cross_origin(methods=["*"])
 def login():
     data = request.get_json()
 
     # CORS Preflight Handling
-    if request.method == "OPTIONS":
-        return cors_preflight_res()
+    # if request.method == "OPTIONS":
+    #     return cors_preflight_res()
 
-    elif request.method == "POST":
+    if request.method == "POST":
         # Request Handling
         try:
             username = data["username"]
