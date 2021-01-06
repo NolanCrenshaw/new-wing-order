@@ -8,6 +8,10 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
 
+    # Cors
+    CORS_HEADER = 'Content-Type'
+    CORS_RESOURCES = {r"*": {"origins": "*"}}
+
     # Key Variables
     SECRET_KEY = os.environ.get("SECRET_KEY")
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
