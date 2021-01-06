@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-  const userID = process.env.REACT_APP_EMAILJS_USER_ID;
-  const ejsSERVICE = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-  const ejsTEMPLATE = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const userID = `${process.env.REACT_APP_EMAILJS_USER_ID}`;
+  const ejsSERVICE = `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`;
+  const ejsTEMPLATE = `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`;
   // State
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -33,11 +33,6 @@ const ContactForm = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
-
-    // console.log("User ID: ", userID);
-    // console.log("SERVICE: ", ejsSERVICE);
-    // console.log("TEMPLATE: ", ejsTEMPLATE);
-
     const res = await emailjs.sendForm(
       ejsSERVICE,
       ejsTEMPLATE,
