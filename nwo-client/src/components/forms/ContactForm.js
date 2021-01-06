@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-  const userID = service_lhf30sn;
-  const ejsSERVICE = template_9w63ozc;
-  const ejsTEMPLATE = user_fVDXJMkss2Ld9dJxhizZZ;
+  const userID = `${process.env.REACT_APP_EMAILJS_USER_ID}`;
+  const ejsSERVICE = `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`;
+  const ejsTEMPLATE = `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`;
   // State
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -42,8 +42,11 @@ const ContactForm = () => {
     if (!res.ok) {
       console.log("Contact Form EmailJS res failure: ", res.text);
     } else {
-      clearForm();
+      console.log("Contact Form EmailJS res success: ", res.text);
     }
+
+    console.log("Submit Pressed");
+    clearForm();
   };
 
   return (
@@ -86,10 +89,7 @@ const ContactForm = () => {
           <motion.button whileHover={{ scale: 1.2 }} type="submit" value="Send">
             Submit
           </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.2 }}
-            onClick={(e) => clearHandle(e)}
-          >
+          <motion.button whileHover={{ scale: 1.2 }} onClick={clearHandle}>
             Clear Form
           </motion.button>
         </div>
