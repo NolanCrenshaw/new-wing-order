@@ -13,7 +13,7 @@ const LoginForm = () => {
   // Function
   const logInUser = async (e) => {
     e.preventDefault();
-    const res = await fetch(`${BASE_URL}/auth/login`, {
+    const res = await fetch(`${BASE_URL}/api/auth/login`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
@@ -23,14 +23,13 @@ const LoginForm = () => {
       }),
     });
     if (!res.ok) {
-      // -- TODO -- Validation
+      // -- TODO -- Error Handling
       console.log("login res failure");
     } else {
       // <"auth_token"> Storage
       const json = await res.json();
       if (json.auth_token !== undefined) {
         window.localStorage.setItem("auth_token", json.auth_token);
-        window.location.reload();
       }
     }
   };
