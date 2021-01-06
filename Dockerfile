@@ -19,8 +19,8 @@ RUN ["npm", "run", "build", "--prefix", "nwo-client"]
 # Use cp here because we're copying files inside our working directory, not from
 # our host machine.
 RUN ["cp", "-r", "nwo-client/build", "backend/static"]
-
-COPY --from=build-stage /react-app/build/* app/static/
+RUN ["cp", "-r", "backend/static/static/js", "backend/static"]
+RUN ["cp", "-r", "backend/static/static/css", "backend/static"]
 
 # Setup Flask environment
 ENV FLASK_APP=backend
