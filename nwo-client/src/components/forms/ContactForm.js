@@ -39,14 +39,13 @@ const ContactForm = () => {
       e.target,
       userID
     );
-    if (!res.ok) {
-      console.log("Contact Form EmailJS res failure: ", res.text);
+    if (res.text !== "OK") {
+      // -- TODO -- Error Handling
+      // console.log("Contact Form EmailJS res failure: ", res.text);
     } else {
-      console.log("Contact Form EmailJS res success: ", res.text);
+      console.log("Contact Form success");
+      clearForm();
     }
-
-    console.log("Submit Pressed");
-    clearForm();
   };
 
   return (
