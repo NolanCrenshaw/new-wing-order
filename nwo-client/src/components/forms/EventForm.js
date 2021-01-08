@@ -10,8 +10,8 @@ const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
-  const [startTime, setStartTime] = useState(new Date());
-  const [endTime, setEndTime] = useState(new Date());
+  const [startTime, setStartTime] = useState(DateTime.local());
+  const [endTime, setEndTime] = useState(DateTime.local());
   // const [geoLat, setGeoLat] = useState("");
   // const [geoLng, setGeoLng] = useState("");
 
