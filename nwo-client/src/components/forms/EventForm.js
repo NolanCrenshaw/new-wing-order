@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 import { DateTime } from "luxon";
+import DayPicker from "react-day-picker";
+import TimeKeeper from "react-timekeeper";
 // import DateTimePicker from "react-datetime-picker";
 // import Geocode from "react-geocode";
 
@@ -10,6 +12,7 @@ const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
+  const [dateChoice, setDateChoice] = useState(DateTime.local());
   const [startTime, setStartTime] = useState(DateTime.local());
   const [endTime, setEndTime] = useState(DateTime.local());
   // const [geoLat, setGeoLat] = useState("");
@@ -98,13 +101,27 @@ const EventForm = () => {
           />
         </ul>
         <div className="event-datebox">
-          <div>
-            <label>Start Time</label>
-            {/* <DateTimePicker onChange={setStartTime} value={startTime} /> */}
+          <label>Select Date</label>
+          <DayPicker onDayClick={setDateChoice} selectedDays={dateChoice} />
+        </div>
+        <div className="event-timebox">
+          <div className="event-timebox_timepick-container">
+            <label>Select Start Time</label>
+            <TimeKeeper
+              time={startTime}
+              onChange={(t) => setStartTime(t.formatted12)}
+              coarseMinutes={15}
+              forceCoarseMinutes
+            />
           </div>
-          <div>
-            <label>End Time</label>
-            {/* <DateTimePicker onChange={setEndTime} value={endTime} /> */}
+          <div className="event-timebox_timepick-container">
+            <label>Select End Time</label>
+            <TimeKeeper
+              time={endTime}
+              onChange={(t) => setEndTime(t.formatted12)}
+              coarseMinutes={15}
+              forceCoarseMinutes
+            />
           </div>
         </div>
       </div>
