@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLoggedIn }) => {
   // State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -24,12 +24,13 @@ const LoginForm = () => {
     });
     if (!res.ok) {
       // -- TODO -- Error Handling
-      console.log("login res failure");
+      console.log("login res failure", res.status);
     } else {
       // <"auth_token"> Storage
       const json = await res.json();
       if (json.auth_token !== undefined) {
         window.localStorage.setItem("auth_token", json.auth_token);
+        setIsLoggedIn(true);
       }
     }
   };

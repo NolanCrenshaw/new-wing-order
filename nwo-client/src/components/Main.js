@@ -16,7 +16,7 @@ import Footer from "./Footer";
 const modalStyles = {
   content: {
     width: "80%",
-    height: "90%",
+    height: "100%",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -26,8 +26,7 @@ const modalStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
-    backgroundColor: "gray",
-    borderRadius: "20px",
+    backgroundColor: "white",
     border: "none",
     boxShadow:
       "0 3rem 5rem rgba(0,0,0,0.5), 5rem 5rem 25rem rgba(0,0,0,0.2), inset 1rem 1rem 1rem rgba(255,255,255,0.2)",
