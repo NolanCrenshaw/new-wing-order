@@ -52,16 +52,32 @@ const EventForm = () => {
 
   const submitEvent = async (e) => {
     e.preventDefault();
-    // await interpretLocation();
-    // await setTimeout(() => {
-    //   console.log("pause");
-    // }, 500);
+
+    const destructuredStartTime = startTime.split(":");
+    const destructuredEndTime = startTime.split(":");
+    const start = DateTime.local();
+    const end = DateTime.local();
+
+    start.set({
+      year: dateChoice.year,
+      month: dateChoice.month,
+      day: dateChoice.day,
+      hour: destructuredStartTime[0],
+      minute: destructuredStartTime[1],
+    });
+    end.set({
+      year: dateChoice.year,
+      month: dateChoice.month,
+      day: dateChoice.day,
+      hour: destructuredEndTime[0],
+      minute: destructuredEndTime[1],
+    });
 
     const event_obj = {
       location: location,
       address: address,
-      startTime: startTime,
-      endTime: endTime,
+      startTime: start,
+      endTime: end,
       // geoLat: geoLat,
       // geoLng: geoLng,
     };
@@ -109,7 +125,7 @@ const EventForm = () => {
             <label>Select Start Time</label>
             <TimeKeeper
               time={startTime}
-              onChange={(t) => setStartTime(t.formatted12)}
+              onChange={(t) => setStartTime(t.formatted24)}
               coarseMinutes={15}
               forceCoarseMinutes
             />
@@ -118,7 +134,7 @@ const EventForm = () => {
             <label>Select End Time</label>
             <TimeKeeper
               time={endTime}
-              onChange={(t) => setEndTime(t.formatted12)}
+              onChange={(t) => setEndTime(t.formatted24)}
               coarseMinutes={15}
               forceCoarseMinutes
             />
