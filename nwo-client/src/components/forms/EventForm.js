@@ -58,26 +58,27 @@ const EventForm = () => {
     const start = DateTime.local();
     const end = DateTime.local();
 
-    start.set({
-      year: dateChoice.year,
-      month: dateChoice.month,
-      day: dateChoice.day,
-      hour: destructuredStartTime[0],
-      minute: destructuredStartTime[1],
-    });
-    end.set({
-      year: dateChoice.year,
-      month: dateChoice.month,
-      day: dateChoice.day,
-      hour: destructuredEndTime[0],
-      minute: destructuredEndTime[1],
-    });
-
     const event_obj = {
       location: location,
       address: address,
-      startTime: start,
-      endTime: end,
+      startTime: start
+        .set({
+          year: dateChoice.year,
+          month: dateChoice.month,
+          day: dateChoice.day,
+          hour: destructuredStartTime[0],
+          minute: destructuredStartTime[1],
+        })
+        .toISO(),
+      endTime: end
+        .set({
+          year: dateChoice.year,
+          month: dateChoice.month,
+          day: dateChoice.day,
+          hour: destructuredEndTime[0],
+          minute: destructuredEndTime[1],
+        })
+        .toISO(),
       // geoLat: geoLat,
       // geoLng: geoLng,
     };

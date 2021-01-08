@@ -1,40 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 
-// const dateOptions = {
-//   weekday: "short",
-//   year: "numeric",
-//   month: "short",
-//   day: "numeric",
-//   timezone: "UTC",
-//   hour12: "false",
-//   hour: "2-digit",
-//   minute: "2-digit",
-//   timeZoneName: "short",
-// };
+const dateOptions = {
+  weekday: "short",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timezone: "UTC",
+  hour12: "false",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZoneName: "short",
+};
 
 const EventCard = ({ event }) => {
   // State
-  const [eventDate, setEventDate] = useState([]);
-  const [startTime, setStartTime] = useState([]);
-  const [endTime, setEndTime] = useState([]);
+  const [date, setDate] = useState([]);
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   // Time & Date Handling
   const convertEventTimeData = () => {
-    const startDateTime = DateTime.local(event.start_time);
-    const endDateTime = DateTime.local(event.end_time);
+    const startDT = DateTime.fromISO(event.start_time);
+    const endDT = DateTime.fromISO(event.end_time);
 
-    console.log("Start Time: ", startDateTime);
-    console.log("End Time: ", endDateTime);
-
-    // const date = startDateTime
-    //   .toLocaleString("en-US", dateOptions)
-    //   .split(/[\,,\s]/);
-    // const start = startDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
-    // const end = endDateTime.toLocaleTimeString("en-US").split(/[:,\s]/);
-    // setEventDate([`${date[0]}`, `${date[2]}`, `${date[3]}`]);
-    // setStartTime(`${start[0]}:${start[1]} ${start[3]}`);
-    // setEndTime(`${end[0]}:${end[1]} ${end[3]}`);
+    setDate([startDT.monthShort, startDT.day, startDT.weekdayShort]);
+    setStart(startDT.toLocaleString(DateTime.TIME_SIMPLE));
+    setEnd(endDT.toLocaleString(DateTime.TIME_SIMPLE));
   };
 
   useEffect(() => {
@@ -44,10 +36,10 @@ const EventCard = ({ event }) => {
   return (
     <div className="event-card">
       <div className="event-card_datebox">
-        <span>{eventDate[0]}</span>
+        <span>{date[2]}</span>
         <div>
-          <span>{eventDate[1]}</span>
-          <span>{eventDate[2]}</span>
+          <span>{date[0]}</span>
+          <span>{date[1]}</span>
         </div>
       </div>
       <div className="event-card_textbox">
@@ -60,8 +52,8 @@ const EventCard = ({ event }) => {
           <span>Ends: </span>
         </div>
         <div>
-          <span>{startTime}</span>
-          <span>{endTime}</span>
+          <span>{start}</span>
+          <span>{end}</span>
         </div>
       </div>
     </div>
