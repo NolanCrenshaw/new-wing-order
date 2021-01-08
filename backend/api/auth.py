@@ -49,21 +49,21 @@ def login():
 
             # Empty Value Validation
             if not username:
-                return jsonify(message="Username Required"), 400
+                return jsonify(message="Username Required"), 401
             elif not password:
-                return jsonify(message="Password Required"), 400
+                return jsonify(message="Password Required"), 401
 
             # Query Admin Obj
             admin = Admin.query.filter_by(username=username).first()
 
             # Empty Query Return Validation
             if not admin:
-                return jsonify(message="Username Not Valid"), 400
+                return jsonify(message="Username Not Valid"), 401
 
             # Correct Password Validation
             verified = verify_password(password, admin.hashed_password)
             if not verified:
-                return jsonify(message="Incorrect Password"), 403
+                return jsonify(message="Incorrect Password"), 401
             else:
                 auth_token = create_access_token(
                     identity={"username": admin.username}
