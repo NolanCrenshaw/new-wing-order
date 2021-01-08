@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
-import DateTimePicker from "react-datetime-picker";
-import Geocode from "react-geocode";
+import { DateTime } from "luxon";
+// import DateTimePicker from "react-datetime-picker";
+// import Geocode from "react-geocode";
 
-import { FloatToString } from "../utils";
+// import { FloatToString } from "../utils";
 
 const EventForm = () => {
   // State
@@ -22,8 +23,8 @@ const EventForm = () => {
   const stateRestore = () => {
     setLocation("");
     setAddress("");
-    setStartTime(new Date());
-    setEndTime(new Date());
+    setStartTime(DateTime.local());
+    setEndTime(DateTime.local());
     // setGeoLat("");
     // setGeoLng("");
   };
@@ -99,11 +100,11 @@ const EventForm = () => {
         <div className="event-datebox">
           <div>
             <label>Start Time</label>
-            <DateTimePicker onChange={setStartTime} value={startTime} />
+            {/* <DateTimePicker onChange={setStartTime} value={startTime} /> */}
           </div>
           <div>
             <label>End Time</label>
-            <DateTimePicker onChange={setEndTime} value={endTime} />
+            {/* <DateTimePicker onChange={setEndTime} value={endTime} /> */}
           </div>
         </div>
       </div>
