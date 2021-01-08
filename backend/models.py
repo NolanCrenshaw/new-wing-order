@@ -37,8 +37,8 @@ class Event(db.Model):
     # geo_lat = db.Column(db.String(20), nullable=False)
     # geo_lng = db.Column(db.String(20), nullable=False)
     location_name = db.Column(db.String(40), nullable=False)
-    start_time = db.Column(db.DateTime(timezone=True), nullable=False)
-    end_time = db.Column(db.DateTime(timezone=True), nullable=False)
+    start_time = db.Column(db.String, nullable=False)
+    end_time = db.Column(db.String, nullable=False)
     date_added = db.Column(
         db.DateTime(timezone=True), nullable=False, default=datetime.utcnow
     )

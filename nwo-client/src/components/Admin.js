@@ -8,16 +8,6 @@ import SauceCard from "./cards/SauceCard";
 
 import EventForm from "./forms/EventForm";
 
-const defaultEvent = {
-  id: 0,
-  address: "Central BBQ address",
-  geo_lat: "",
-  geo_lng: "",
-  location_name: "Memphis, TN",
-  start_time: new Date(),
-  end_time: new Date(),
-};
-
 const Admin = () => {
   // Controls State
   const [user, setUser] = useState("default");
@@ -27,7 +17,7 @@ const Admin = () => {
   const [sauceClass, setSauceClass] = useState("");
 
   // Fetched State
-  const [events, setEvents] = useState([defaultEvent]);
+  const [events, setEvents] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
   const [sauces, setSauces] = useState([]);
   const [rubs, setRubs] = useState([]);

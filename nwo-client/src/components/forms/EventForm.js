@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
-import DateTimePicker from "react-datetime-picker";
-import Geocode from "react-geocode";
+import { DateTime } from "luxon";
+import DayPicker from "react-day-picker";
+import TimeKeeper from "react-timekeeper";
+// import DateTimePicker from "react-datetime-picker";
+// import Geocode from "react-geocode";
 
-import { FloatToString } from "../utils";
+// import { FloatToString } from "../utils";
 
 const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
-  const [startTime, setStartTime] = useState(new Date());
-  const [endTime, setEndTime] = useState(new Date());
+  const [dateChoice, setDateChoice] = useState(DateTime.local());
+  const [startTime, setStartTime] = useState(DateTime.local());
+  const [endTime, setEndTime] = useState(DateTime.local());
   // const [geoLat, setGeoLat] = useState("");
   // const [geoLng, setGeoLng] = useState("");
 
@@ -22,8 +26,8 @@ const EventForm = () => {
   const stateRestore = () => {
     setLocation("");
     setAddress("");
-    setStartTime(new Date());
-    setEndTime(new Date());
+    setStartTime(DateTime.local());
+    setEndTime(DateTime.local());
     // setGeoLat("");
     // setGeoLng("");
   };
@@ -48,16 +52,33 @@ const EventForm = () => {
 
   const submitEvent = async (e) => {
     e.preventDefault();
-    // await interpretLocation();
-    // await setTimeout(() => {
-    //   console.log("pause");
-    // }, 500);
+
+    const destructuredStartTime = startTime.split(":");
+    const destructuredEndTime = startTime.split(":");
+    const start = DateTime.local();
+    const end = DateTime.local();
 
     const event_obj = {
       location: location,
       address: address,
-      startTime: startTime,
-      endTime: endTime,
+      startTime: start
+        .set({
+          year: dateChoice.year,
+          month: dateChoice.month,
+          day: dateChoice.day,
+          hour: destructuredStartTime[0],
+          minute: destructuredStartTime[1],
+        })
+        .toISO(),
+      endTime: end
+        .set({
+          year: dateChoice.year,
+          month: dateChoice.month,
+          day: dateChoice.day,
+          hour: destructuredEndTime[0],
+          minute: destructuredEndTime[1],
+        })
+        .toISO(),
       // geoLat: geoLat,
       // geoLng: geoLng,
     };
@@ -97,13 +118,27 @@ const EventForm = () => {
           />
         </ul>
         <div className="event-datebox">
-          <div>
-            <label>Start Time</label>
-            <DateTimePicker onChange={setStartTime} value={startTime} />
+          <label>Select Date</label>
+          <DayPicker onDayClick={setDateChoice} selectedDays={dateChoice} />
+        </div>
+        <div className="event-timebox">
+          <div className="event-timebox_timepick-container">
+            <label>Select Start Time</label>
+            <TimeKeeper
+              time={startTime}
+              onChange={(t) => setStartTime(t.formatted24)}
+              coarseMinutes={15}
+              forceCoarseMinutes
+            />
           </div>
-          <div>
-            <label>End Time</label>
-            <DateTimePicker onChange={setEndTime} value={endTime} />
+          <div className="event-timebox_timepick-container">
+            <label>Select End Time</label>
+            <TimeKeeper
+              time={endTime}
+              onChange={(t) => setEndTime(t.formatted24)}
+              coarseMinutes={15}
+              forceCoarseMinutes
+            />
           </div>
         </div>
       </div>
