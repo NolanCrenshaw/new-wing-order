@@ -41,7 +41,7 @@ const Location = () => {
       console.log("getEvents res failure");
     } else {
       const json = await res.json();
-      await setEvents(json.events);
+      setEvents(json.events);
     }
   };
 

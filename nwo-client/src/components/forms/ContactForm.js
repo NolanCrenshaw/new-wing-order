@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
+import { BASE_URL } from "../../config";
 
 const ContactForm = () => {
   const userID = `${process.env.REACT_APP_EMAILJS_USER_ID}`;
@@ -19,6 +20,26 @@ const ContactForm = () => {
   const handleMessage = (e) => setMessage(e.target.value);
 
   // Functions
+  const fetchContactVars = async () => {
+    const res = await fetch(`${BASE_URL}/api/contact/`, {
+      method: "GET",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (!res.ok) {
+      // -- TODO -- handling
+      console.log("fetchContact res failure", res);
+    } else {
+      const json = await res.json();
+      const contactVars = {
+        service: json.service,
+        template: json.template,
+        user: json.user,
+      };
+      return contactVars;
+    }
+  };
+
   const clearForm = () => {
     setFirstname("");
     setLastname("");
@@ -33,17 +54,17 @@ const ContactForm = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
+    const vars = await fetchContactVars();
     const res = await emailjs.sendForm(
-      ejsSERVICE,
-      ejsTEMPLATE,
+      vars.service,
+      vars.template,
       e.target,
-      userID
+      vars.user
     );
     if (res.text !== "OK") {
       // -- TODO -- Error Handling
       // console.log("Contact Form EmailJS res failure: ", res.text);
     } else {
-      console.log("Contact Form success");
       clearForm();
     }
   };
