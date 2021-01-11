@@ -35,29 +35,38 @@ const Location = () => {
     const now = DateTime.local();
     const prunedArr = events.filter(
       (e) =>
-        // returns events w/ end_times after now +6hrs
-        DateTime.fromISO(e.end_time) > now.plus({ hours: 6 })
+        // returns events w/ end_times after now +3hrs
+        DateTime.fromISO(e.end_time) > now.plus({ hours: 3 })
     );
     console.log("PRUNE: ", prunedArr);
     return prunedArr;
   };
 
-  const sortEvents = (events) => {
-    for (let i = 1; i < events.length; i++) {
-      let cur = events[i],
-        curTime = DateTime.fromISO(cur.start_time);
-      let j = i - 1;
-      let comp = events[j],
-        compTime = DateTime.fromISO(comp.start_time);
-      while (j >= 0 && compTime > curTime) {
-        events[j + 1] = events[j];
-        j--;
-      }
-      events[j + 1] = cur;
-    }
-    console.log("SORT: ", events);
-    return events;
-  };
+  /*
+    ~~~ EVENT SORT ~~~
+    Event sorting is currently handled on backend by
+    Event.query.order_by(Event.start_time).all().
+    This works because event times are stored in ISO string format.
+    A frontend solution will be able to be more explicit.
+    This may be needed in a future implementation.
+    ~~~ TODO ~~~
+  */
+  // const sortEvents = (events) => {
+  //   for (let i = 1; i < events.length; i++) {
+  //     let cur = events[i],
+  //       curTime = DateTime.fromISO(cur.start_time);
+  //     let j = i - 1;
+  //     let comp = events[j],
+  //       compTime = DateTime.fromISO(comp.start_time);
+  //     while (j >= 0 && compTime > curTime) {
+  //       events[j + 1] = events[j];
+  //       j--;
+  //     }
+  //     events[j + 1] = cur;
+  //   }
+  //   console.log("SORT: ", events);
+  //   return events;
+  // };
 
   const getEvents = async () => {
     const res = await fetch(`${BASE_URL}/api/events/`, {
@@ -75,8 +84,6 @@ const Location = () => {
       console.log("FETCH", json.events);
       const pruned = pruneEvents(json.events);
       setEvents(pruned);
-      // const sorted = sortEvents(pruned);
-      // setEvents(sorted);
     }
   };
 
