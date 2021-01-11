@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = ({ modalControl }) => {
+const Footer = ({ handleAdmin }) => {
   return (
     <div className="footer-container">
       <div className="footer-credits">
@@ -20,7 +20,7 @@ const Footer = ({ modalControl }) => {
           Twitter icon by Icons8
         </a>
       </div>
-      <button onClick={() => modalControl("admin")}>Admin</button>
+      <button onClick={() => handleAdmin()}>Admin</button>
     </div>
   );
 };
