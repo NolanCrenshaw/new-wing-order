@@ -30,16 +30,15 @@ const Location = () => {
     );
   };
 
+  // Functions
   const pruneEvents = (events) => {
     const now = DateTime.local();
-    const prunedArr = events.filter((e) => {
-      const end = DateTime.fromISO(e.end_time);
-      // returns only event.end_times within 6hrs
-      if (end > now.plus({ hours: 6 })) {
-        return e;
-      }
-    });
-    console.log("PRUNE: ", events);
+    const prunedArr = events.filter(
+      (e) =>
+        // returns events w/ end_times after now +6hrs
+        DateTime.fromISO(e.end_time) > now.plus({ hours: 6 })
+    );
+    console.log("PRUNE: ", prunedArr);
     return prunedArr;
   };
 
@@ -73,10 +72,11 @@ const Location = () => {
       console.log("getEvents res failure");
     } else {
       const json = await res.json();
-      console.log(json.events);
+      console.log("FETCH", json.events);
       const pruned = pruneEvents(json.events);
-      const sorted = sortEvents(pruned);
-      setEvents(sorted);
+      setEvents(pruned);
+      // const sorted = sortEvents(pruned);
+      // setEvents(sorted);
     }
   };
 
@@ -84,20 +84,20 @@ const Location = () => {
     setMapEvent(events[0]);
   };
 
+  // useEffects
   useEffect(() => {
     getEvents();
   }, []);
-
   useEffect(() => {
     assignMapEvent();
   }, [events]);
-
   useEffect(() => {
     mapEvent !== undefined
       ? interpretLocation()
       : console.log("mapEvent is still loading");
   }, [mapEvent]);
 
+  // Render
   return (
     <div className="location-container">
       <div id="location" />
