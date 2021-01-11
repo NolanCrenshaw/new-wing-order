@@ -1086,7 +1086,6 @@ a {
       grid-template-columns: 0.02fr 1fr 0.02fr;
   -ms-grid-rows: 80vh 4fr 0.1fr;
       grid-template-rows: 80vh 4fr 0.1fr;
-  z-index: 2;
 }
 
 .menu-container .brush_wing--bg {
