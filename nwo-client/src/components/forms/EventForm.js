@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 import { DateTime } from "luxon";
+import DatePicker from "react-modern-calendar-datepicker";
 import TimeKeeper from "react-timekeeper";
-// import DayPicker from "react-day-picker";
-// import Geocode from "react-geocode";
-
-// import { FloatToString } from "../utils";
 
 const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
-  const [dateChoice, setDateChoice] = useState(new Date());
+  const [dateChoice, setDateChoice] = useState(null);
   const [startTime, setStartTime] = useState(DateTime.local());
   const [endTime, setEndTime] = useState(DateTime.local());
-  // const [geoLat, setGeoLat] = useState("");
-  // const [geoLng, setGeoLng] = useState("");
 
   // Input Handlers
   const updateLocation = (e) => setLocation(e.target.value);
@@ -25,58 +20,34 @@ const EventForm = () => {
   const stateRestore = () => {
     setLocation("");
     setAddress("");
+    setDateChoice(null);
     setStartTime(DateTime.local());
     setEndTime(DateTime.local());
-    // setGeoLat("");
-    // setGeoLng("");
   };
-
-  // // Geocode
-  // Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
-  // Geocode.setLanguage("en");
-  // const interpretLocation = async () => {
-  //   await Geocode.fromAddress(`${address}`).then(
-  //     (res) => {
-  //       const { lat, lng } = res.results[0].geometry.location;
-  //       const latString = FloatToString(lat);
-  //       const lngString = FloatToString(lng);
-  //       setGeoLat(latString);
-  //       setGeoLng(lngString);
-  //     },
-  //     (err) => {
-  //       console.error(err);
-  //     }
-  //   );
-  // };
 
   const submitEvent = async (e) => {
     e.preventDefault();
 
-    const d = DateTime.fromISO(dateChoice.toISOString());
     const splitStartTime = startTime.split(":");
     const splitEndTime = endTime.split(":");
-    // const start = DateTime.local();
-    // const end = DateTime.local();
 
     const event_obj = {
       location: location,
       address: address,
       startTime: DateTime.fromObject({
-        year: d.year,
-        month: d.month,
-        day: d.day,
+        year: dateChoice.year,
+        month: dateChoice.month,
+        day: dateChoice.day,
         hour: splitStartTime[0],
         minute: splitStartTime[1],
       }).toISO(),
       endTime: DateTime.fromObject({
-        year: d.year,
-        month: d.month,
-        day: d.day,
+        year: dateChoice.year,
+        month: dateChoice.month,
+        day: dateChoice.day,
         hour: splitEndTime[0],
         minute: splitEndTime[1],
       }).toISO(),
-      // geoLat: geoLat,
-      // geoLng: geoLng,
     };
 
     const res = await fetch(`${BASE_URL}/api/events/`, {
@@ -116,8 +87,13 @@ const EventForm = () => {
         </ul>
         <div className="event-datebox">
           <label>Select Date</label>
-          {/* <DayPicker onDayClick={setDateChoice} selectedDays={dateChoice} />
-        </div> */}
+          <DatePicker
+            value={dateChoice}
+            onChange={setDateChoice}
+            inputPlaceholder="Select a day"
+            shouldHighlightWeekends
+          />
+        </div>
         <div className="event-timebox">
           <div className="event-timebox_timepick-container">
             <label>Select Start Time</label>

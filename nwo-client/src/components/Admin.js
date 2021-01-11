@@ -119,7 +119,7 @@ const Admin = () => {
   }, []);
 
   return (
-    <div className="admin-container">
+    <div className="admin-container" id="admin">
       <nav>
         <h2>Admin Dashboard</h2>
         <motion.li

@@ -12,6 +12,7 @@ import Catering from "./Catering";
 import Awards from "./Awards";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import Admin from "./Admin";
 
 const modalStyles = {
   content: {
@@ -37,19 +38,12 @@ const modalStyles = {
 
 const Main = () => {
   // Modal State
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("blank");
+  const [adminIsOpen, setAdminIsOpen] = useState(false);
 
   // Expand State
 
-  const handleModal = (component) => {
-    if (modalIsOpen) {
-      setModalIsOpen(false);
-      setModalContent("modal_blank");
-    } else {
-      setModalIsOpen(true);
-      setModalContent(`${component}`);
-    }
+  const handleAdmin = () => {
+    setAdminIsOpen(!adminIsOpen);
   };
 
   return (
@@ -59,7 +53,7 @@ const Main = () => {
       transition={{ duration: 2 }}
       className="main-container"
     >
-      <ReactModal
+      {/* <ReactModal
         isOpen={modalIsOpen}
         onRequestClose={handleModal}
         style={modalStyles}
@@ -68,14 +62,15 @@ const Main = () => {
         <div className="landing-modal--background">
           <Modal content={modalContent} />
         </div>
-      </ReactModal>
+      </ReactModal> */}
       <Router>
         <Landing />
         <Location />
         <Menu />
         <Awards />
         <Contact />
-        <Footer modalControl={handleModal} />
+        <Footer handleAdmin={handleAdmin} />
+        {adminIsOpen ? <Admin /> : <div />}
       </Router>
     </motion.div>
   );
