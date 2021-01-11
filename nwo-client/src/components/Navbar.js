@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav>
         <div id="link-box">
-          <HashLink smooth to="#quickmenu">
+          <HashLink smooth to="#menu">
             Menu
           </HashLink>
           <HashLink smooth to="#store">

@@ -6,7 +6,6 @@ import ReactModal from "react-modal";
 import Modal from "./Modal";
 import Landing from "./Landing";
 import Location from "./Location";
-import QuickMenu from "./QuickMenu";
 import Menu from "./Menu";
 import Store from "./Store";
 import Catering from "./Catering";
@@ -73,7 +72,6 @@ const Main = () => {
       <Router>
         <Landing />
         <Location />
-        {/* <QuickMenu modalControl={handleModal} /> */}
         <Menu />
         <Awards />
         <Contact />

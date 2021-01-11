@@ -1,6 +1,6 @@
 .menu-container {
   height: auto;
-  margin-top: 50rem;
+  // margin-top: 50rem;
 
   border-radius: 12px;
   position: relative;
@@ -9,18 +9,6 @@
   grid-template-columns: 0.02fr 1fr 0.02fr;
   grid-template-rows: 80vh 4fr 0.1fr;
   z-index: 2;
-
-  #full_bird_logo {
-    position: absolute;
-    background-size: 25%;
-    height: 800px;
-    width: auto;
-    // opacity: 100%;
-    top: -53rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-  }
 
   .brush_wing--bg {
     grid-column: 1/4;

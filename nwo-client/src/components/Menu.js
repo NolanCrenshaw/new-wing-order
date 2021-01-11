@@ -67,12 +67,7 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="menu-container">
-      <img
-        id="full_bird_logo"
-        alt="bird logo"
-        src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"
-      />
+    <div className="menu-container" id="menu">
       <div className="brush_wing--bg" />
       <div className="menu_items">
         <div>

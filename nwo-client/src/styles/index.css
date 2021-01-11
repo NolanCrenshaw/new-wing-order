@@ -572,95 +572,6 @@ a {
           align-items: center;
 }
 
-.infobar-container {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-column: 2/5;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  width: 100%;
-  min-height: 8vh;
-  margin: auto;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.infobar-container .infobar_logo-container {
-  position: absolute;
-  left: 3rem;
-  top: 1rem;
-}
-
-.infobar-container .infobar_logo-container #infobar_logo {
-  height: 15vh;
-}
-
-.infobar-container span {
-  padding-right: 2.5rem;
-  color: #323232;
-  font-size: 2rem;
-}
-
-.infobar-container ul {
-  margin-right: 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  list-style: none;
-}
-
-.infobar-container ul li {
-  height: 4rem;
-  width: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0.5rem;
-  border-radius: 20%;
-}
-
-.infobar-container ul li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: white;
-  border-radius: 4px;
-}
-
-.infobar-container ul li a img {
-  height: 90%;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.infobar-container ul li a:hover {
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-  background: white;
-  background-size: 150%;
-}
-
 .navbar-container {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -738,8 +649,8 @@ a {
   background-color: #323232;
   -webkit-transition: all;
   transition: all;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 .navbar-container nav #link-box span {
@@ -1183,7 +1094,6 @@ a {
 
 .menu-container {
   height: auto;
-  margin-top: 50rem;
   border-radius: 12px;
   position: relative;
   display: -ms-grid;
@@ -1193,18 +1103,6 @@ a {
   -ms-grid-rows: 80vh 4fr 0.1fr;
       grid-template-rows: 80vh 4fr 0.1fr;
   z-index: 2;
-}
-
-.menu-container #full_bird_logo {
-  position: absolute;
-  background-size: 25%;
-  height: 800px;
-  width: auto;
-  top: -53rem;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 0;
 }
 
 .menu-container .brush_wing--bg {
@@ -1395,157 +1293,6 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-}
-
-.quickmenu-container {
-  min-height: 80vh;
-  width: 100%;
-  max-width: 1600px;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.quickmenu-container .brush_wing--bg {
-  min-height: 100%;
-  width: 100%;
-  max-width: 1440px;
-  position: absolute;
-  pointer-events: none;
-  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_01.jpg");
-  background-size: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  z-index: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.quickmenu-container .brush_wing--bg::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_mask.jpg");
-  background-size: 140%;
-  background-position: center;
-  background-repeat: no-repeat;
-  mix-blend-mode: screen;
-}
-
-.quickmenu-container div {
-  padding: 1.5rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 0, 0, 0.5)), color-stop(50%, rgba(255, 255, 255, 0.8)), to(white));
-  background: linear-gradient(rgba(200, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.8) 50%, white 100%);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20x);
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.quickmenu-container div h1 {
-  margin-bottom: 1.5rem;
-}
-
-.quickmenu-container div p {
-  font-size: 1.7rem;
-  font-style: italic;
-}
-
-.quickmenu-container div ul {
-  margin-top: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.quickmenu-container div ul h3 {
-  font-size: 1.8rem;
-}
-
-.quickmenu-container .quickmenu_wings {
-  height: 22rem;
-  width: 60rem;
-  position: absolute;
-  top: 8%;
-  left: 8%;
-  z-index: 2;
-}
-
-.quickmenu-container .quickmenu_other {
-  height: 22rem;
-  width: 60rem;
-  position: absolute;
-  top: 8%;
-  right: 8%;
-  z-index: 1;
-}
-
-.quickmenu-container .quickmenu_other h1 {
-  margin-bottom: 0.5rem;
-}
-
-.quickmenu-container .quickmenu_other h3 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.quickmenu-container #full_menu_button {
-  height: 8rem;
-  width: 24rem;
-  background-color: #ffb002;
-  border: 4px solid #c89600;
-  border-radius: 8px;
-  -webkit-box-shadow: 1rem 1rem 2rem #323232;
-          box-shadow: 1rem 1rem 2rem #323232;
-  color: #323232;
-  font-size: 2rem;
-  font-weight: 600;
-  font-style: italic;
-  cursor: pointer;
-  z-index: 1;
 }
 
 .store-container {
