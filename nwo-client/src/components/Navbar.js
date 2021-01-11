@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-import Infobar from "./Infobar";
-
 const Navbar = () => {
   return (
     <div className="navbar-container">

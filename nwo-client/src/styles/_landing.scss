@@ -6,16 +6,16 @@
 
   display: grid;
   grid-template-columns: 5vw 1fr 1fr 5vw;
-  grid-template-rows: 12vh 88vh;
+  grid-template-rows: 6vh 86vh 6vh;
 
   .landing-bg {
     height: 100vh;
     width: 100%;
-    z-index: 0;
     pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
 
     #elipse01 {
       height: 80rem;
@@ -26,186 +26,225 @@
 
       border-radius: 50%;
       background: linear-gradient(
-        rgba(200, 0, 0, 0.5) 0%,
+        rgba(234, 16, 20, 0.9) 0%,
+        rgba(234, 16, 20, 0.7) 50%,
         rgba(255, 255, 255, 0.5) 100%
       );
     }
     #elipse02 {
-      height: 50rem;
-      width: 50rem;
+      height: 100rem;
+      width: 100rem;
       position: absolute;
-      top: -20%;
-      left: -10%;
+      top: -50%;
+      left: -20%;
 
       border-radius: 50%;
       background: linear-gradient(
-        rgba(200, 0, 0, 0.5) 0%,
+        rgba(234, 16, 20, 0.9) 0%,
+        rgba(234, 16, 20, 0.7) 50%,
         rgba(255, 255, 255, 0.5) 100%
       );
     }
-    #elipse03 {
-      height: 50rem;
-      width: 50rem;
-      position: absolute;
-      bottom: -70%;
-      left: -8%;
 
-      border-radius: 50%;
-      background: linear-gradient(
-        rgba(0, 174, 255, 0.5) 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 1) 100%
-      );
+    //   #elipse03 {
+    //     height: 50rem;
+    //     width: 50rem;
+    //     position: absolute;
+    //     bottom: -70%;
+    //     left: -8%;
 
-      #elipse04 {
-        height: 4rem;
-        width: 4rem;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50%;
-        background-color: yellow;
-        backdrop-filter: blur(20px);
-      }
-    }
+    //     border-radius: 50%;
+    //     background: linear-gradient(
+    //       rgba(0, 174, 255, 0.5) 0%,
+    //       rgba(255, 255, 255, 0.5) 50%,
+    //       rgba(255, 255, 255, 1) 100%
+    //     );
+
+    //     #elipse04 {
+    //       height: 4rem;
+    //       width: 4rem;
+    //       position: absolute;
+    //       top: 20%;
+    //       left: 50%;
+    //       transform: translateX(-50%);
+    //       border-radius: 50%;
+    //       background-color: yellow;
+    //       backdrop-filter: blur(20px);
+    //     }
+    //   }
   }
 
-  .landing-textbox {
+  .landing_glass-panel {
     grid-column: 2/4;
     grid-row: 2/3;
-    width: 90%;
-    margin-top: 2rem;
-    padding: 5rem;
-    z-index: 1;
-    pointer-events: none;
+    min-width: 1023px;
+    position: relative;
+    z-index: 0;
 
-    h1 {
-      width: 550px;
-      color: $_gray;
-      font-size: 7rem;
-      font-style: italic;
-    }
-    h3 {
-      width: 370px;
-      margin-top: 3rem;
-      color: $_gray;
-      font-size: 3rem;
-      font-style: italic;
-    }
-  }
+    border-radius: 24px;
+    background: linear-gradient(
+      104.04deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.5) 100%
+    );
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      5rem 5rem 20rem rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(100px);
 
-  .landing-socialbox {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    height: 45%;
-    width: 500px;
-    justify-self: flex-start;
-    align-self: flex-end;
-    z-index: 2;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 8vh 1fr 1fr;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .landing-textbox {
+      grid-column: 1/2;
+      grid-row: 2/3;
+      // width: 90%;
+      margin-left: 2rem;
+      padding: 2rem;
+      z-index: 1;
+      pointer-events: none;
 
-    button {
-      height: 5.5rem;
-      width: 22rem;
-      margin-bottom: 5rem;
-
-      background-color: rgb(255, 176, 2);
-      border: 4px solid rgb(200, 150, 0);
-      border-radius: 8px;
-      box-shadow: 1rem 1rem 2rem $_gray;
-      color: $_gray;
-      font-size: 2rem;
-      font-weight: 600;
-      font-style: italic;
-      cursor: pointer;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        height: 5.5rem;
-        width: 22rem;
+      h1 {
+        width: 550px;
         color: $_gray;
-        text-decoration: none;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 7rem;
+        font-style: italic;
+      }
+      h3 {
+        width: 370px;
+        margin-top: 3rem;
+        color: $_gray;
+        font-size: 3rem;
+        font-style: italic;
       }
     }
 
-    ul {
+    .landing-socialbox {
+      grid-column: 1/2;
+      grid-row: 3/4;
+
+      padding: 4rem;
+      justify-self: flex-start;
+      align-self: center;
+      z-index: 2;
+
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-decoration: none;
-      list-style: none;
 
-      li {
-        height: 4rem;
-        width: 4rem;
-        display: flex;
-        margin: 0.5rem;
-        border-radius: 20%;
-        cursor: pointer;
+      .hash_link {
+        height: 5.5rem;
+        width: 22rem;
+        margin-bottom: 3rem;
 
-        a {
+        button {
+          height: 100%;
+          width: 100%;
+
+          background-color: rgb(255, 176, 2);
+          border: 4px solid rgb(200, 150, 0);
+          border-radius: 8px;
+          box-shadow: 1rem 1rem 2rem $_gray;
+          color: $_gray;
+          font-size: 2rem;
+          font-weight: 600;
+          font-style: italic;
+          cursor: pointer;
+
           display: flex;
           justify-content: center;
           align-items: center;
 
-          background-color: white;
-          border-radius: 4px;
+          a {
+            // height: 5.5rem;
+            // width: 22rem;
+            color: $_gray;
+            text-decoration: none;
 
-          img {
-            height: 90%;
-            width: 100%;
-            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
-        a:hover {
-          transition: all 0.8s;
-          background: white;
-          background-size: 150%;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        list-style: none;
+
+        li {
+          height: 4rem;
+          width: 4rem;
+          display: flex;
+          margin: 0.5rem;
+          border-radius: 20%;
+          cursor: pointer;
+
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: white;
+            border-radius: 4px;
+
+            img {
+              height: 90%;
+              width: 100%;
+              border-radius: 8px;
+            }
+          }
+          a:hover {
+            transition: all 0.8s;
+            background: white;
+            background-size: 150%;
+          }
+        }
+        .socialbox-divider {
+          width: 8rem;
+          height: 0;
+          margin: 0 1rem;
+
+          border: 1px solid $_gray;
+          border-radius: 50%;
         }
       }
-      .socialbox-divider {
-        width: 8rem;
-        height: 0;
-        margin: 0 1rem;
-
-        border: 1px solid $_gray;
-        border-radius: 50%;
+      span {
+        margin-top: 1rem;
+        color: $_gray;
+        font-size: 2rem;
       }
     }
-    span {
-      margin-top: 1rem;
-      color: $_gray;
-      font-size: 2rem;
-    }
-  }
 
-  .bird-container {
-    grid-column: 1/5;
-    grid-row: 2/3;
-    height: 100%;
-    max-height: 780px;
-    width: 100%;
-    position: relative;
-    z-index: 0;
+    .bird-container {
+      grid-column: 2/3;
+      grid-row: 3/4;
+      height: 100%;
+      // max-height: 780px;
+      width: 100%;
+      position: relative;
+      justify-self: center;
+      // align-self: flex-start;
+      // top: 2rem;
+      // right: 5rem;
 
-    #full_bird_logo {
-      height: 100rem;
-      width: auto;
-      position: absolute;
-      bottom: -50%;
-      right: -2%;
+      // background-color: gold;
+      z-index: 2;
+
+      #full_bird_logo {
+        height: 90rem;
+        // height: 100rem;
+        // width: auto;
+        position: absolute;
+        top: -150%;
+        left: -90%;
+      }
     }
   }
   .little-truck-backdrop {
