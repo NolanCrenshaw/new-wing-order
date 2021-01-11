@@ -5,7 +5,7 @@ const QuickMenu = ({ modalControl }) => {
   return (
     <div className="quickmenu-container" id="quickmenu">
       <div className="brush_wing--bg" />
-      <div className="quickmenu_wings">
+      {/* <div className="quickmenu_wings">
         <h1>Wings</h1>
         <p>
           Wings are available Traditional or Boneless, and come seasoned or
@@ -27,14 +27,14 @@ const QuickMenu = ({ modalControl }) => {
           <h3>Memphis Buffalo Chicken Sliders</h3>
         </ul>
         <p></p>
-      </div>
-      <motion.button
+      </div> */}
+      {/* <motion.button
         whileHover={{ scale: 1.2 }}
         id="full_menu_button"
         onClick={() => modalControl("menu")}
       >
-        Full Menu
-      </motion.button>
+        Show Full Menu
+      </motion.button> */}
     </div>
   );
 };

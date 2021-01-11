@@ -5,7 +5,43 @@
 
   display: grid;
   grid-template-columns: 0.02fr 1fr 0.02fr;
-  grid-template-rows: 0.05fr 4fr 0.1fr;
+  grid-template-rows: 80vh 4fr 0.1fr;
+
+  .brush_wing--bg {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    min-height: 100%;
+    width: 100%;
+    // max-width: 1440px;
+
+    // position: absolute;
+    pointer-events: none;
+    background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_01.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: "";
+      // position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_mask.jpg");
+      // background-color: black;
+      background-size: 140%;
+      background-position: center;
+      background-repeat: no-repeat;
+      mix-blend-mode: screen;
+    }
+  }
 
   h2 {
     margin: 2rem;
@@ -17,10 +53,13 @@
   .menu_items {
     grid-column: 2/3;
     grid-row: 2/3;
-    background-color: white;
-    border: 1px solid $_gray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 20px;
+    // background-color: white;
+    // border: 1px solid $_gray;
+    // border-radius: 10px;
+    // box-shadow: 5px 5px 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     ul {
       width: 100%;
@@ -30,70 +69,79 @@
       }
     }
 
-    .wings {
-      p {
-        margin: 0.4rem 1.8rem;
-        padding: 0 2rem;
-        font-style: italic;
-      }
-      .wing_option {
-        margin: 1.8rem;
-        padding: 1rem;
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        border-radius: 5px;
-        box-shadow: 2px 2px 10px $_gray;
+    div:nth-child(1) {
+      grid-column: 1/2;
+    }
 
+    div:nth-child(2) {
+      grid-column: 2/3;
+      .wings {
         p {
-          background-color: blue;
-          padding: 8rem;
+          margin: 0.4rem 1.8rem;
+          padding: 0 2rem;
+          font-style: italic;
         }
-        .wing_text {
+        .wing_option {
+          margin: 1.8rem;
+          padding: 1rem;
+          display: grid;
+          grid-template-columns: 4fr 1fr;
+          border-radius: 5px;
+          box-shadow: 2px 2px 10px $_gray;
+
+          p {
+            background-color: blue;
+            padding: 8rem;
+          }
+          .wing_text {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            h4 {
+              color: $_red;
+              font-size: 2.3rem;
+              margin-right: 3rem;
+            }
+            span {
+              font-size: 1.8rem;
+              font-style: italic;
+            }
+          }
+        }
+
+        .item_price {
+          justify-self: center;
+          align-self: center;
+          font-weight: 600;
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
 
-          h4 {
-            color: $_red;
-            font-size: 2.3rem;
-            margin-right: 3rem;
-          }
           span {
-            font-size: 1.8rem;
             font-style: italic;
+            font-size: 1.8rem;
+          }
+          div {
+            margin-left: 0.8rem;
+            font-weight: 900;
+            font-size: 2.5rem;
           }
         }
       }
-
-      .item_price {
-        justify-self: center;
-        align-self: center;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        span {
-          font-style: italic;
-          font-size: 1.8rem;
-        }
-        div {
-          margin-left: 0.8rem;
-          font-weight: 900;
-          font-size: 2.5rem;
-        }
-      }
     }
-    .flavors-divider {
-      border: 2px solid $_gray;
-      border-radius: 100%;
-    }
+
     .flavors {
+      grid-column: 1/3;
       margin: 1.8rem;
       padding: 2rem;
       display: flex;
       justify-content: space-around;
 
+      .flavors-divider {
+        border: 2px solid $_gray;
+        border-radius: 100%;
+      }
       .sauces,
       .rubs {
         display: flex;

@@ -1,12 +1,12 @@
 .quickmenu-container {
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   max-width: 1600px;
   position: relative;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 
   .brush_wing--bg {
     min-height: 100%;
@@ -15,8 +15,8 @@
 
     position: absolute;
     pointer-events: none;
-    background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/wings_01_bg.jpg");
-    background-size: 80%;
+    background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_01.jpg");
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: none;
@@ -33,8 +33,8 @@
       height: 100%;
       top: 0;
       right: 0;
-      background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/brush_stroke_bg.jpg");
-      background-size: 110%;
+      background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_mask.jpg");
+      background-size: 140%;
       background-position: center;
       background-repeat: no-repeat;
       mix-blend-mode: screen;
@@ -104,9 +104,7 @@
   #full_menu_button {
     height: 8rem;
     width: 24rem;
-    position: absolute;
-    bottom: 20%;
-    right: 29%;
+    // margin-bottom: 5rem;
 
     background-color: rgb(255, 176, 2);
     border: 4px solid rgb(200, 150, 0);
