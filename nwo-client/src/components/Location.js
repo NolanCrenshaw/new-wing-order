@@ -42,6 +42,22 @@ const Location = () => {
     return prunedArr;
   };
 
+  const sortEvents = (events) => {
+    for (let i = 1; i < events.length; i++) {
+      let cur = events[i],
+        curTime = DateTime.fromISO(cur.start_time);
+      let j = i - 1;
+      let comp = events[j],
+        compTime = DateTime.fromISO(comp.start_time);
+      while (j >= 0 && compTime > curTime) {
+        events[j + 1] = events[j];
+        j--;
+      }
+      events[j + 1] = cur;
+    }
+    return events;
+  };
+
   const getEvents = async () => {
     const res = await fetch(`${BASE_URL}/api/events/`, {
       method: "GET",
@@ -55,8 +71,9 @@ const Location = () => {
       console.log("getEvents res failure");
     } else {
       const json = await res.json();
-      const prune = pruneEvents(json.events);
-      setEvents(prune);
+      const pruned = pruneEvents(json.events);
+      const sorted = sortEvents(pruned);
+      setEvents(sorted);
     }
   };
 
