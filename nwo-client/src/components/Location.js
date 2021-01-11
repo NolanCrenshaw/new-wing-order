@@ -101,8 +101,7 @@ const Location = () => {
 
   // Render
   return (
-    <div className="location-container">
-      <div id="location" />
+    <div className="location-container" id="location">
       <div className="map-container">
         <div id="header-box">
           {mapEvent ? (

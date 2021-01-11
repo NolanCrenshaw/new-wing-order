@@ -1,12 +1,19 @@
 .event-card {
   height: 8rem;
-  width: 98%;
+  width: 100%;
   margin: 1rem;
 
   color: white;
+
   border-radius: 12px;
-  // background-color: rgba(255, 0, 0, 0.5);
-  box-shadow: 0.2rem 0.2rem 0.5rem rgba(255, 255, 255, 0.5);
+  background: linear-gradient(
+    104.04deg,
+    rgb(235, 16, 20) 20%,
+    rgba(235, 16, 20, 0.3) 100%
+  );
+  // background-color: #eb1014;
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3),
+    -1rem -1rem 5rem rgba(0, 0, 0, 0.2), 1rem 1rem 5rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
 
   display: flex;
@@ -19,7 +26,7 @@
     padding: 1rem;
     margin-right: 1rem;
 
-    background-color: rgba(250, 128, 114, 0.425);
+    background-color: rgba(250, 128, 114, 0.6);
     overflow: hidden;
 
     display: flex;
@@ -62,7 +69,7 @@
     height: 100%;
     width: auto;
     padding: 1rem;
-    background-color: rgba(250, 128, 114, 0.425);
+    // background-color: rgba(250, 128, 114, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;

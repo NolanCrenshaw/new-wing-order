@@ -67,54 +67,58 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="menu-container">
+    <div className="menu-container" id="menu">
+      <div className="brush_wing--bg" />
       <div className="menu_items">
-        <h2>Menu</h2>
-        <ul>
-          {menuItems.map((item, i) => (
-            <li key={i}>
-              <MenuItemCard item={item} />
-            </li>
-          ))}
-        </ul>
-        <h2>Wings</h2>
-        <div className="wings">
-          <p>
-            Seasoned or sauced of your choice of flavor (one flavor per six
-            wings).
-          </p>
-          <p>Your choice of dipping sauce: Ranch or Blue Cheese.</p>
-          <p>Includes Hawaiian Roll, Carrots, and Celery.</p>
-          <p>Extra sauce $0.25</p>
-          <p>Extra bread $0.50</p>
-          <div className="wing_option">
-            <div className="wing_text">
-              <h4>Six Piece</h4>
-              <span>Traditional or Boneless</span>
+        <div>
+          <ul>
+            {menuItems.map((item, i) => (
+              <li key={i}>
+                <MenuItemCard item={item} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Wings</h2>
+          <div className="wings">
+            <p>
+              Seasoned or sauced of your choice of flavor (one flavor per six
+              wings).
+            </p>
+            <p>Your choice of dipping sauce: Ranch or Blue Cheese.</p>
+            <p>Includes Hawaiian Roll, Carrots, and Celery.</p>
+            <p>Extra sauce $0.25</p>
+            <p>Extra bread $0.50</p>
+            <div className="wing_option">
+              <div className="wing_text">
+                <h4>Six Piece</h4>
+                <span>Traditional or Boneless</span>
+              </div>
+              <div className="item_price">
+                <span>$</span>
+                <div>9</div>
+              </div>
             </div>
-            <div className="item_price">
-              <span>$</span>
-              <div>9</div>
+            <div className="wing_option">
+              <div className="wing_text">
+                <h4>Twelve Piece</h4>
+                <span>Traditional or Boneless</span>
+              </div>
+              <div className="item_price">
+                <span>$</span>
+                <div>15</div>
+              </div>
             </div>
-          </div>
-          <div className="wing_option">
-            <div className="wing_text">
-              <h4>Twelve Piece</h4>
-              <span>Traditional or Boneless</span>
-            </div>
-            <div className="item_price">
-              <span>$</span>
-              <div>15</div>
-            </div>
-          </div>
-          <div className="wing_option">
-            <div className="wing_text">
-              <h4>Eighteen Piece</h4>
-              <span>Traditional or Boneless</span>
-            </div>
-            <div className="item_price">
-              <span>$</span>
-              <div>21</div>
+            <div className="wing_option">
+              <div className="wing_text">
+                <h4>Eighteen Piece</h4>
+                <span>Traditional or Boneless</span>
+              </div>
+              <div className="item_price">
+                <span>$</span>
+                <div>21</div>
+              </div>
             </div>
           </div>
         </div>

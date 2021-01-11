@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-import Infobar from "./Infobar";
-
 const Navbar = () => {
   return (
     <div className="navbar-container">
       <nav>
         <div id="link-box">
-          <HashLink smooth to="#quickmenu">
+          <HashLink smooth to="#menu">
             Menu
           </HashLink>
           <HashLink smooth to="#store">
