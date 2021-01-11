@@ -39,6 +39,7 @@ const Location = () => {
         return e;
       }
     });
+    console.log("PRUNE: ", events);
     return prunedArr;
   };
 
@@ -55,6 +56,7 @@ const Location = () => {
       }
       events[j + 1] = cur;
     }
+    console.log("SORT: ", events);
     return events;
   };
 
@@ -71,6 +73,7 @@ const Location = () => {
       console.log("getEvents res failure");
     } else {
       const json = await res.json();
+      console.log(json.events);
       const pruned = pruneEvents(json.events);
       const sorted = sortEvents(pruned);
       setEvents(sorted);
