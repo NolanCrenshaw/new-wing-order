@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
+import { DateTime } from "luxon";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import Geocode from "react-geocode";
 
@@ -8,6 +9,7 @@ import EventCard from "./cards/EventCard";
 const Location = () => {
   // State
   const [events, setEvents] = useState([]);
+  const [focusEvent, setFocusEvent] = useState();
   const [mapEvent, setMapEvent] = useState(undefined);
   const [mapLocation, setMapLocation] = useState([]);
   const [mapIsPreloaded, setMapIsPreloaded] = useState(false);
@@ -28,6 +30,18 @@ const Location = () => {
     );
   };
 
+  const pruneEvents = (events) => {
+    const now = DateTime.local();
+    const prunedArr = events.filter((e) => {
+      const end = DateTime.fromISO(e.end_time);
+      // returns only event.end_times within 6hrs
+      if (end > now.plus({ hours: 6 })) {
+        return e;
+      }
+    });
+    return prunedArr;
+  };
+
   const getEvents = async () => {
     const res = await fetch(`${BASE_URL}/api/events/`, {
       method: "GET",
@@ -41,7 +55,8 @@ const Location = () => {
       console.log("getEvents res failure");
     } else {
       const json = await res.json();
-      setEvents(json.events);
+      const prune = pruneEvents(json.events);
+      setEvents(prune);
     }
   };
 
