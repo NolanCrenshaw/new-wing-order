@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 import { DateTime } from "luxon";
-import DayPicker from "react-day-picker";
 import TimeKeeper from "react-timekeeper";
+// import DayPicker from "react-day-picker";
 // import Geocode from "react-geocode";
 
 // import { FloatToString } from "../utils";
@@ -116,8 +116,8 @@ const EventForm = () => {
         </ul>
         <div className="event-datebox">
           <label>Select Date</label>
-          <DayPicker onDayClick={setDateChoice} selectedDays={dateChoice} />
-        </div>
+          {/* <DayPicker onDayClick={setDateChoice} selectedDays={dateChoice} />
+        </div> */}
         <div className="event-timebox">
           <div className="event-timebox_timepick-container">
             <label>Select Start Time</label>
