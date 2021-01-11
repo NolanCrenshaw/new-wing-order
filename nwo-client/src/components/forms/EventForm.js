@@ -3,7 +3,6 @@ import { BASE_URL } from "../../config";
 import { DateTime } from "luxon";
 import DayPicker from "react-day-picker";
 import TimeKeeper from "react-timekeeper";
-// import DateTimePicker from "react-datetime-picker";
 // import Geocode from "react-geocode";
 
 // import { FloatToString } from "../utils";
@@ -12,7 +11,7 @@ const EventForm = () => {
   // State
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
-  const [dateChoice, setDateChoice] = useState(DateTime.local());
+  const [dateChoice, setDateChoice] = useState(new Date());
   const [startTime, setStartTime] = useState(DateTime.local());
   const [endTime, setEndTime] = useState(DateTime.local());
   // const [geoLat, setGeoLat] = useState("");
@@ -53,32 +52,29 @@ const EventForm = () => {
   const submitEvent = async (e) => {
     e.preventDefault();
 
-    const destructuredStartTime = startTime.split(":");
-    const destructuredEndTime = startTime.split(":");
-    const start = DateTime.local();
-    const end = DateTime.local();
+    const d = DateTime.fromISO(dateChoice.toISOString());
+    const splitStartTime = startTime.split(":");
+    const splitEndTime = endTime.split(":");
+    // const start = DateTime.local();
+    // const end = DateTime.local();
 
     const event_obj = {
       location: location,
       address: address,
-      startTime: start
-        .set({
-          year: dateChoice.year,
-          month: dateChoice.month,
-          day: dateChoice.day,
-          hour: destructuredStartTime[0],
-          minute: destructuredStartTime[1],
-        })
-        .toISO(),
-      endTime: end
-        .set({
-          year: dateChoice.year,
-          month: dateChoice.month,
-          day: dateChoice.day,
-          hour: destructuredEndTime[0],
-          minute: destructuredEndTime[1],
-        })
-        .toISO(),
+      startTime: DateTime.fromObject({
+        year: d.year,
+        month: d.month,
+        day: d.day,
+        hour: splitStartTime[0],
+        minute: splitStartTime[1],
+      }).toISO(),
+      endTime: DateTime.fromObject({
+        year: d.year,
+        month: d.month,
+        day: d.day,
+        hour: splitEndTime[0],
+        minute: splitEndTime[1],
+      }).toISO(),
       // geoLat: geoLat,
       // geoLng: geoLng,
     };
@@ -97,6 +93,7 @@ const EventForm = () => {
     }
   };
 
+  // Render
   return (
     <div className="event_form-container">
       <h2>Create New Event</h2>
