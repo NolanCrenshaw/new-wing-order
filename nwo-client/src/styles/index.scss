@@ -4,7 +4,7 @@ $breakpoints: (
   tablet: 728px,
   desktop: 1024px,
 );
-$_red: #f53d30;
+$_red: rgba(235, 16, 20, 1);
 $_gray: rgb(50, 50, 50);
 $_yellow: #e8b80c;
 $_orange: #db5f00;
@@ -51,7 +51,7 @@ a {
 
 // Package Imports
 @import "../../node_modules/include-media/dist/include-media.scss";
-@import "../../node_modules/react-modern-calendar-datepicker/lib/DatePicker.css";
+// @import "../../node_modules/react-modern-calendar-datepicker/lib/DatePicker.css";
 
 // Module Imports
 @import "cards";

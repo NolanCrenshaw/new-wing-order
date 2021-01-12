@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 import { DateTime } from "luxon";
 import DatePicker from "react-modern-calendar-datepicker";
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import TimeKeeper from "react-timekeeper";
 
 const EventForm = () => {
