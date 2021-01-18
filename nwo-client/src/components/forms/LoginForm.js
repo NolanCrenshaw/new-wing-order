@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../config";
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
   // State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +30,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
       const json = await res.json();
       if (json.auth_token !== undefined) {
         window.localStorage.setItem("auth_token", json.auth_token);
-        setIsLoggedIn(true);
+        setLoginAttempt(loginAttempt++);
       }
     }
   };
@@ -38,6 +38,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
   return (
     <div className="login_form-container">
       <form className="login_form" onSubmit={logInUser}>
+        <h1>Admin Login</h1>
         <input
           id="login_username"
           name="username"

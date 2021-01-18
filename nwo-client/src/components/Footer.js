@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = ({ handleAdmin }) => {
+const Footer = ({ toggleAdmin }) => {
   return (
     <div className="footer-container">
       <div className="footer-credits">
@@ -20,7 +20,7 @@ const Footer = ({ handleAdmin }) => {
           Twitter icon by Icons8
         </a>
       </div>
-      <button onClick={() => handleAdmin()}>Admin</button>
+      <button onClick={() => toggleAdmin()}>Admin</button>
     </div>
   );
 };
