@@ -1,5 +1,9 @@
 from flask import Blueprint, request, jsonify, make_response
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import (
+    create_access_token,
+    jwt_required,
+    get_jwt_identity
+)
 from flask_cors import cross_origin
 import bcrypt
 
@@ -72,3 +76,15 @@ def login():
 
         except Exception:
             return jsonify(message="Log In Failed"), 400
+
+
+@auth.route("/verify", methods=["GET"])
+@jwt_required
+def check_token():
+    try:
+        auth_token = get_jwt_identity()
+        admin = Admin.query.filter_by(username=auth_token['username']).first()
+        safe_admin = admin.to_safe_object()
+        return jsonify(admin=safe_admin), 200
+    except Exception:
+        return jsonify(message="Token Check Failed"), 403

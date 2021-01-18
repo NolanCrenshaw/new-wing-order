@@ -38,6 +38,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
   return (
     <div className="login_form-container">
       <form className="login_form" onSubmit={logInUser}>
+        <h1>Admin Login</h1>
         <input
           id="login_username"
           name="username"
