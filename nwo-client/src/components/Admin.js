@@ -11,8 +11,9 @@ import LoginForm from "./forms/LoginForm";
 
 const Admin = () => {
   // Controls State
+  const [loginAttempt, setLoginAttempt] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState("default");
+  const [user, setUser] = useState({ username: "default" });
   const [dashboardScreen, setDashboardScreen] = useState("event");
   const [eventControl, setEventControl] = useState("");
   const [menuControl, setMenuControl] = useState("");
@@ -29,78 +30,33 @@ const Admin = () => {
     setDashboardScreen(`${element}`);
   };
 
-  // Fetch Functions
-  const getEvents = async () => {
-    const res = await fetch(`${BASE_URL}/api/events/`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      // -- TODO Handling
-      console.log("getEvents res failure");
-    } else {
-      const json = await res.json();
-      setEvents(json.events);
-    }
-  };
-  const getMenuItems = async () => {
-    const res = await fetch(`${BASE_URL}/api/menu_items/`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      // -- TODO Handling
-      console.log("getMenuItems res failure");
-    } else {
-      const json = await res.json();
-      setMenuItems(json.menu_items);
-    }
-  };
-  const getSauces = async () => {
-    const res = await fetch(`${BASE_URL}/api/sauces/`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      // -- TODO Handling
-      console.log("getSauces res failure");
-    } else {
-      const json = await res.json();
-      setSauces(json.sauces);
-    }
-  };
-  const getRubs = async () => {
-    const res = await fetch(`${BASE_URL}/api/rubs/`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      // -- TODO Handling
-      console.log("getRubs res failure");
-    } else {
-      const json = await res.json();
-      setRubs(json.rubs);
-    }
-  };
-
   // Login Control
   useEffect(() => {
     const token = window.localStorage.getItem("auth_token");
-    console.log("Token: ", token);
-    console.log("isLoggedIn: ", isLoggedIn);
-  }, [isLoggedIn]);
+    const checkToken = async (tk) => {
+      const res = await fetch(`${BASE_URL}/api/auth/`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tk}`,
+        },
+      });
+      if (!res.ok) {
+        // -- TODO Handling
+        setUser({ username: "default" });
+        setIsLoggedIn(false);
+        console.log("checkToken res failure");
+      } else {
+        const json = await res.json();
+        setUser(json.admin);
+        setIsLoggedIn(true);
+      }
+    };
+    if (token !== null) {
+      checkToken(token);
+    }
+  }, [loginAttempt]);
 
   // Admin Screen Control
   useEffect(() => {
@@ -121,6 +77,70 @@ const Admin = () => {
 
   // Fetch Control
   useEffect(() => {
+    const getEvents = async () => {
+      const res = await fetch(`${BASE_URL}/api/events/`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        // -- TODO Handling
+        console.log("getEvents res failure");
+      } else {
+        const json = await res.json();
+        setEvents(json.events);
+      }
+    };
+    const getMenuItems = async () => {
+      const res = await fetch(`${BASE_URL}/api/menu_items/`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        // -- TODO Handling
+        console.log("getMenuItems res failure");
+      } else {
+        const json = await res.json();
+        setMenuItems(json.menu_items);
+      }
+    };
+    const getSauces = async () => {
+      const res = await fetch(`${BASE_URL}/api/sauces/`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        // -- TODO Handling
+        console.log("getSauces res failure");
+      } else {
+        const json = await res.json();
+        setSauces(json.sauces);
+      }
+    };
+    const getRubs = async () => {
+      const res = await fetch(`${BASE_URL}/api/rubs/`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        // -- TODO Handling
+        console.log("getRubs res failure");
+      } else {
+        const json = await res.json();
+        setRubs(json.rubs);
+      }
+    };
     getEvents();
     getMenuItems();
     getSauces();
@@ -130,7 +150,10 @@ const Admin = () => {
   return (
     <div className="admin-container" id="admin">
       {!isLoggedIn ? (
-        <LoginForm setIsLoggedIn={setIsLoggedIn} />
+        <LoginForm
+          setLoginAttempt={setLoginAttempt}
+          loginAttempt={loginAttempt}
+        />
       ) : (
         <>
           <nav>

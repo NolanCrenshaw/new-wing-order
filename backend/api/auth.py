@@ -78,7 +78,7 @@ def login():
             return jsonify(message="Log In Failed"), 400
 
 
-@auth.route("/verify", methods=["GET"])
+@auth.route("/", methods=["GET"])
 @jwt_required
 def check_token():
     try:
