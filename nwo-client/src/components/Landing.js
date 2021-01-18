@@ -19,8 +19,18 @@ const Landing = () => {
     <div className="landing-container" id="landing">
       {/* <Navbar /> */}
       <div className="landing-bg">
-        <div id="elipse01" />
-        <div id="elipse02" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1.5 }}
+          id="elipse01"
+        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1.5 }}
+          id="elipse02"
+        />
       </div>
       <div className="landing_glass-panel">
         <Navbar />

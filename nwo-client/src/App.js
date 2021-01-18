@@ -22,9 +22,9 @@ const App = () => {
 
   // Standard Page Render
   return (
-    <>
+    <div className="app-container">
       <Main />
-    </>
+    </div>
   );
 };
 
