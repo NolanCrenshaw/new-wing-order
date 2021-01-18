@@ -11,10 +11,10 @@ import EventForm from "./forms/EventForm";
 const Admin = () => {
   // Controls State
   const [user, setUser] = useState("default");
-  const [dashScreen, setDashScreen] = useState("event");
-  const [eventClass, setEventClass] = useState("");
-  const [menuClass, setMenuClass] = useState("");
-  const [sauceClass, setSauceClass] = useState("");
+  const [dashboardScreen, setDashboardScreen] = useState("event");
+  const [eventControl, setEventControl] = useState("");
+  const [menuControl, setMenuControl] = useState("");
+  const [sauceControl, setSauceControl] = useState("");
 
   // Fetched State
   const [events, setEvents] = useState([]);
@@ -24,7 +24,7 @@ const Admin = () => {
 
   // Navigation Control
   const handleClick = (element) => {
-    setDashScreen(`${element}`);
+    setDashboardScreen(`${element}`);
   };
 
   // Fetch Functions
@@ -95,20 +95,20 @@ const Admin = () => {
 
   // Admin Screen Control
   useEffect(() => {
-    if (dashScreen === "event") {
-      setEventClass("admin_event");
-      setMenuClass("admin_menu hidden");
-      setSauceClass("admin_sauce hidden");
-    } else if (dashScreen === "menu") {
-      setEventClass("admin_event hidden");
-      setMenuClass("admin_menu");
-      setSauceClass("admin_sauce hidden");
-    } else if (dashScreen === "sauce") {
-      setEventClass("admin_event hidden");
-      setMenuClass("admin_menu hidden");
-      setSauceClass("admin_sauce");
+    if (dashboardScreen === "event") {
+      setEventControl("admin_event");
+      setMenuControl("admin_menu hidden");
+      setSauceControl("admin_sauce hidden");
+    } else if (dashboardScreen === "menu") {
+      setEventControl("admin_event hidden");
+      setMenuControl("admin_menu");
+      setSauceControl("admin_sauce hidden");
+    } else if (dashboardScreen === "sauce") {
+      setEventControl("admin_event hidden");
+      setMenuControl("admin_menu hidden");
+      setSauceControl("admin_sauce");
     }
-  }, [dashScreen]);
+  }, [dashboardScreen]);
 
   // Fetch Control
   useEffect(() => {
@@ -142,14 +142,14 @@ const Admin = () => {
         </motion.li>
         <h3>{`Welcome ${user}`}</h3>
       </nav>
-      <section className={eventClass}>
+      <section className={eventControl}>
         <h2 className="admin_list_title">Events</h2>
         <EventForm />
         {events.map((event) => (
           <EventCard event={event} />
         ))}
       </section>
-      <section className={menuClass}>
+      <section className={menuControl}>
         <h2 className="admin_list_title">Menu Items</h2>
         <ul>
           {menuItems.map((item, i) => (
@@ -159,7 +159,7 @@ const Admin = () => {
           ))}
         </ul>
       </section>
-      <section className={sauceClass}>
+      <section className={sauceControl}>
         <h2 className="admin_list_title">Sauces</h2>
         <ul>
           {sauces.map((item, i) => (
