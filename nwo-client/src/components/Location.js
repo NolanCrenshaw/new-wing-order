@@ -14,10 +14,6 @@ const Location = () => {
   const [mapIsPreloaded, setMapIsPreloaded] = useState(false);
   const [truckStatus, setTruckStatus] = useState("");
 
-  // Geocode
-  Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
-  Geocode.setLanguage("en");
-
   // Functions
   const pruneEvents = (events) => {
     const now = DateTime.local();
@@ -74,7 +70,24 @@ const Location = () => {
         setEvents(pruned);
       }
     };
+    const fetchKey = async () => {
+      const res = await fetch(`${BASE_URL}/api/events/key/`, {
+        method: "GET",
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) {
+        // -- TODO -- handling
+        console.log("fetchKey res failure", res);
+      } else {
+        const json = await res.json();
+        const key = json.key;
+        Geocode.setApiKey(key);
+        Geocode.setLanguage("en");
+      }
+    };
     getEvents();
+    fetchKey();
   }, []);
 
   // Handles MapBox elements from Event List

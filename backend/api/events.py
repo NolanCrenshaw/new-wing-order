@@ -4,6 +4,8 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from ..models import db, Event
 
+key = os.environ.get("REACT_APP_GOOGLE_API_KEY")
+
 
 event = Blueprint("events", __name__)
 
@@ -21,7 +23,7 @@ def get_events():
 
 
 @event.route("/", methods=["POST"])
-# @jwt_required
+@jwt_required
 def create_event():
     try:
         event_object = request.get_json()
@@ -39,3 +41,11 @@ def create_event():
         return jsonify(message="Event POST Request Successful"), 200
     except Exception:
         return jsonify(message="Event POST Request Failure"), 400
+
+
+@event.route("/key")
+def get_key():
+    try:
+        return jsonify(key=key), 200
+    except Exception:
+        return jsonify(message="EVENT GET Request Failure"), 400
