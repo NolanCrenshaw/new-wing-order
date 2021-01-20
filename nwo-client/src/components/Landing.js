@@ -72,7 +72,7 @@ const Landing = () => {
         </div>
         <div
           className="bird-container"
-          style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+          style={{ transform: `translateY(-${offsetY * 0.35}px)` }}
         >
           <img
             id="full_bird_logo"

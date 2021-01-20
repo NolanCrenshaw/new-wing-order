@@ -504,14 +504,14 @@ a {
 
 .contact_form-container div:nth-child(4) {
   margin-top: 1rem;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .contact_form-container div:nth-child(4) button {
   height: 5rem;
-  width: 40%;
+  width: 45%;
   background-color: #ffb002;
   border: 4px solid #c89600;
   border-radius: 8px;
@@ -520,7 +520,6 @@ a {
   color: #323232;
   font-size: 2rem;
   font-weight: 600;
-  font-style: italic;
   cursor: pointer;
 }
 
@@ -776,7 +775,6 @@ a {
   width: 95%;
   min-width: 1023px;
   position: relative;
-  overflow: hidden;
   z-index: 0;
   border-radius: 24px;
   background: linear-gradient(104.04deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
