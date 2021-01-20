@@ -21,7 +21,7 @@ const Location = () => {
     const prunedArr = events.filter(
       (e) =>
         // returns events w/ end_times after now +3hrs
-        DateTime.fromISO(e.end_time) > now.plus({ hours: 3 })
+        DateTime.fromISO(e.end_time) > now.minus({ hours: 2 })
     );
     return prunedArr;
   };
@@ -71,15 +71,6 @@ const Location = () => {
         setEvents(pruned);
       }
     };
-    getEvents();
-  }, []);
-
-  // Handles MapBox elements from Event List
-  useEffect(() => {
-    setMapEvent(events[0]);
-  }, [events]);
-
-  useEffect(() => {
     const fetchKey = async () => {
       const res = await fetch(`${BASE_URL}/api/events/key`, {
         method: "GET",
@@ -97,7 +88,16 @@ const Location = () => {
         setIsKeyLoaded(true);
       }
     };
+    getEvents();
     fetchKey();
+  }, []);
+
+  // Handles MapBox elements from Event List
+  useEffect(() => {
+    setMapEvent(events[0]);
+  }, [events]);
+
+  useEffect(() => {
     const interpretLocation = async () => {
       await Geocode.fromAddress(mapEvent.address).then(
         (res) => {
@@ -128,7 +128,7 @@ const Location = () => {
         setTruckStatus("Service just ended. Catch us next time!");
       }
     }
-  }, [mapEvent]);
+  }, [mapEvent, isKeyLoaded]);
 
   // Render
   return (
