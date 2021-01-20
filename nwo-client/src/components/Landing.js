@@ -22,13 +22,13 @@ const Landing = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1.5 }}
+          transition={{ delay: 1.8, duration: 1 }}
           id="elipse01"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1.5 }}
+          transition={{ delay: 1.8, duration: 1 }}
           id="elipse02"
         />
       </div>
@@ -72,7 +72,7 @@ const Landing = () => {
         </div>
         <div
           className="bird-container"
-          style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+          style={{ transform: `translateY(-${offsetY * 0.35}px)` }}
         >
           <img
             id="full_bird_logo"

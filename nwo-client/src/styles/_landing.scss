@@ -1,12 +1,16 @@
 .landing-container {
-  min-height: 110vh;
+  min-height: 100vh;
   width: 100%;
   max-width: 1600px;
   position: relative;
 
-  display: grid;
-  grid-template-columns: 5vw 1fr 1fr 5vw;
-  grid-template-rows: 6vh 86vh 6vh;
+  // display: grid;
+  // grid-template-columns: 5vw 1fr 1fr 5vw;
+  // grid-template-rows: 6vh 86vh 6vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .landing-bg {
     height: 100vh;
@@ -45,38 +49,11 @@
         rgba(255, 255, 255, 0.5) 100%
       );
     }
-
-    //   #elipse03 {
-    //     height: 50rem;
-    //     width: 50rem;
-    //     position: absolute;
-    //     bottom: -70%;
-    //     left: -8%;
-
-    //     border-radius: 50%;
-    //     background: linear-gradient(
-    //       rgba(0, 174, 255, 0.5) 0%,
-    //       rgba(255, 255, 255, 0.5) 50%,
-    //       rgba(255, 255, 255, 1) 100%
-    //     );
-
-    //     #elipse04 {
-    //       height: 4rem;
-    //       width: 4rem;
-    //       position: absolute;
-    //       top: 20%;
-    //       left: 50%;
-    //       transform: translateX(-50%);
-    //       border-radius: 50%;
-    //       background-color: yellow;
-    //       backdrop-filter: blur(20px);
-    //     }
-    //   }
   }
 
   .landing_glass-panel {
-    grid-column: 2/4;
-    grid-row: 2/3;
+    height: 95%;
+    width: 95%;
     min-width: 1023px;
     position: relative;
     z-index: 0;
@@ -88,20 +65,18 @@
       rgba(255, 255, 255, 0.3) 100%
     );
     border: 1px solid #ffffff;
-    box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
       -2rem -2rem 5rem rgba(255, 255, 255, 0.2),
       5rem 5rem 20rem rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(100px);
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 8vh 1fr 1fr;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: 8vh 45% 50%;
 
     .landing-textbox {
       grid-column: 1/2;
       grid-row: 2/3;
-      // width: 90%;
       margin-left: 2rem;
       padding: 2rem;
       z-index: 1;
@@ -131,6 +106,7 @@
       align-self: center;
       z-index: 2;
 
+      // background-color: blue;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -224,45 +200,33 @@
     }
 
     .bird-container {
-      grid-column: 2/3;
-      grid-row: 3/4;
-      height: 100%;
-      // max-height: 780px;
-      width: 100%;
-      position: relative;
-      justify-self: center;
-      // align-self: flex-start;
-      // top: 2rem;
-      // right: 5rem;
+      position: absolute;
+      bottom: -50;
+      right: 0;
 
       // background-color: gold;
       z-index: 2;
 
       #full_bird_logo {
         height: 90rem;
-        // height: 100rem;
-        // width: auto;
-        position: absolute;
-        top: -150%;
-        left: -90%;
       }
     }
   }
-  .little-truck-backdrop {
-    height: 20rem;
-    width: 40%;
-    position: absolute;
-    bottom: 0;
-    left: 2%;
-    background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
-    background-size: cover;
-    border-bottom: 1px solid $_gray;
-  }
-  #little_truck {
-    height: 15rem;
-    width: auto;
-    position: absolute;
-    bottom: -1%;
-    right: 10%;
-  }
+  // .little-truck-backdrop {
+  //   height: 20rem;
+  //   width: 40%;
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 2%;
+  //   background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
+  //   background-size: cover;
+  //   border-bottom: 1px solid $_gray;
+  // }
+  // #little_truck {
+  //   height: 15rem;
+  //   width: auto;
+  //   position: absolute;
+  //   bottom: -1%;
+  //   right: 10%;
+  // }
 }

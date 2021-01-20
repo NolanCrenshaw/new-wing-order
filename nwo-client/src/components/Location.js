@@ -9,10 +9,10 @@ import EventCard from "./cards/EventCard";
 const Location = () => {
   // State
   const [events, setEvents] = useState([]);
-  const [focusEvent, setFocusEvent] = useState();
   const [mapEvent, setMapEvent] = useState(undefined);
   const [mapLocation, setMapLocation] = useState([]);
   const [mapIsPreloaded, setMapIsPreloaded] = useState(false);
+  const [truckStatus, setTruckStatus] = useState("");
 
   // Geocode
   Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
@@ -77,6 +77,7 @@ const Location = () => {
     getEvents();
   }, []);
 
+  // Handles MapBox elements from Event List
   useEffect(() => {
     setMapEvent(events[0]);
   }, [events]);
@@ -94,9 +95,24 @@ const Location = () => {
         }
       );
     };
-    mapEvent !== undefined
-      ? interpretLocation()
-      : console.log("mapEvent is still loading");
+    if (mapEvent !== undefined) {
+      interpretLocation();
+      const now = DateTime.local();
+      const eventStart = DateTime.fromISO(mapEvent.start_time);
+      const eventEnd = DateTime.fromISO(mapEvent.end_time);
+
+      if (now < eventStart && now < eventEnd) {
+        const dur = now
+          .diff(eventStart, ["hours", "minutes"])
+          .negate()
+          .toFormat("h 'hours' m 'mins'");
+        setTruckStatus(`Next Service in: ${dur}`);
+      } else if (now >= eventStart && now < eventEnd) {
+        setTruckStatus("Serving Now!");
+      } else {
+        setTruckStatus("Service just ended. Catch us next time!");
+      }
+    }
   }, [mapEvent]);
 
   // Render
@@ -106,7 +122,7 @@ const Location = () => {
         <div id="header-box">
           {mapEvent ? (
             <>
-              {/* <span>{truckStatus}</span> */}
+              <span>{truckStatus}</span>
               <h1>{mapEvent.location_name}</h1>
               <h3>{mapEvent.address}</h3>
             </>
