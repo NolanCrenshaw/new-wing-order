@@ -70,6 +70,15 @@ const Location = () => {
         setEvents(pruned);
       }
     };
+    getEvents();
+  }, []);
+
+  // Handles MapBox elements from Event List
+  useEffect(() => {
+    setMapEvent(events[0]);
+  }, [events]);
+
+  useEffect(() => {
     const fetchKey = async () => {
       const res = await fetch(`${BASE_URL}/api/events/key`, {
         method: "GET",
@@ -86,16 +95,7 @@ const Location = () => {
         Geocode.setLanguage("en");
       }
     };
-    getEvents();
     fetchKey();
-  }, []);
-
-  // Handles MapBox elements from Event List
-  useEffect(() => {
-    setMapEvent(events[0]);
-  }, [events]);
-
-  useEffect(() => {
     const interpretLocation = async () => {
       await Geocode.fromAddress(mapEvent.address).then(
         (res) => {
