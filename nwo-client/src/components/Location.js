@@ -9,6 +9,7 @@ import EventCard from "./cards/EventCard";
 const Location = () => {
   // State
   const [events, setEvents] = useState([]);
+  const [isKeyLoaded, setIsKeyLoaded] = useState(false);
   const [mapEvent, setMapEvent] = useState(undefined);
   const [mapLocation, setMapLocation] = useState([]);
   const [mapIsPreloaded, setMapIsPreloaded] = useState(false);
@@ -93,6 +94,7 @@ const Location = () => {
         const key = json.key;
         Geocode.setApiKey(key);
         Geocode.setLanguage("en");
+        setIsKeyLoaded(true);
       }
     };
     fetchKey();
@@ -108,7 +110,7 @@ const Location = () => {
         }
       );
     };
-    if (mapEvent !== undefined) {
+    if (mapEvent !== undefined && isKeyLoaded) {
       interpretLocation();
       const now = DateTime.local();
       const eventStart = DateTime.fromISO(mapEvent.start_time);
