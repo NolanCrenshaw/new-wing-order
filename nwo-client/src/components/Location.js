@@ -71,7 +71,7 @@ const Location = () => {
       }
     };
     const fetchKey = async () => {
-      const res = await fetch(`${BASE_URL}/api/events/key/`, {
+      const res = await fetch(`${BASE_URL}/api/events/key`, {
         method: "GET",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
