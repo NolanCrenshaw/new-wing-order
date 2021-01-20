@@ -1,7 +1,7 @@
 .landing-container {
   min-height: 100vh;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   position: relative;
 
   // display: grid;
@@ -201,8 +201,8 @@
 
     .bird-container {
       position: absolute;
-      bottom: -50;
-      right: 0;
+      bottom: -52%;
+      right: -15%;
 
       // background-color: gold;
       z-index: 2;
