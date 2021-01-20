@@ -968,20 +968,22 @@ a {
 }
 
 .location-container {
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   max-width: 1600px;
-  padding: 5rem;
+  padding: 10rem 5rem;
   z-index: 1;
+  background: -webkit-gradient(linear, left top, right top, from(black), color-stop(70%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -webkit-box-align: space-evenly;
-      -ms-flex-align: space-evenly;
-          align-items: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .location-container .map-container {
@@ -1022,28 +1024,32 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .location-container .map-container #header-box h1 {
-  color: black;
+  color: #eb1014;
+  font-size: 3.2rem;
+  text-shadow: 1px 1px 1px black;
 }
 
 .location-container .map-container #header-box span {
   color: blue;
-  font-size: 2.3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
 }
 
 .location-container .map-container #header-box h3 {
-  color: #eb1014;
-  font-size: 2rem;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .location-container .map-container #map-box {
-  height: 80%;
+  height: 75%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
