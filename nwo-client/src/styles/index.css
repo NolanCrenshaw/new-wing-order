@@ -724,16 +724,19 @@ a {
 }
 
 .landing-container {
-  min-height: 110vh;
+  min-height: 100vh;
   width: 100%;
   max-width: 1600px;
   position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 5vw 1fr 1fr 5vw;
-      grid-template-columns: 5vw 1fr 1fr 5vw;
-  -ms-grid-rows: 6vh 86vh 6vh;
-      grid-template-rows: 6vh 86vh 6vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .landing-container .landing-bg {
@@ -769,30 +772,25 @@ a {
 }
 
 .landing-container .landing_glass-panel {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2/4;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
+  height: 95%;
+  width: 95%;
   min-width: 1023px;
   position: relative;
+  overflow: hidden;
   z-index: 0;
   border-radius: 24px;
   background: linear-gradient(104.04deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
   border: 1px solid #ffffff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -2rem -2rem 5rem rgba(255, 255, 255, 0.2), 5rem 5rem 20rem rgba(255, 255, 255, 0.2);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -2rem -2rem 5rem rgba(255, 255, 255, 0.2), 5rem 5rem 20rem rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(100px);
           backdrop-filter: blur(100px);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
-  -ms-grid-rows: 8vh 1fr 1fr;
-      grid-template-rows: 8vh 1fr 1fr;
+  -ms-grid-columns: 1.8fr 1fr;
+      grid-template-columns: 1.8fr 1fr;
+  -ms-grid-rows: 8vh 45% 50%;
+      grid-template-rows: 8vh 45% 50%;
 }
 
 .landing-container .landing_glass-panel .landing-textbox {
@@ -961,44 +959,14 @@ a {
 }
 
 .landing-container .landing_glass-panel .bird-container {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3/4;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  position: absolute;
+  bottom: -50;
+  right: 0;
   z-index: 2;
 }
 
 .landing-container .landing_glass-panel .bird-container #full_bird_logo {
   height: 90rem;
-  position: absolute;
-  top: -150%;
-  left: -90%;
-}
-
-.landing-container .little-truck-backdrop {
-  height: 20rem;
-  width: 40%;
-  position: absolute;
-  bottom: 0;
-  left: 2%;
-  background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
-  background-size: cover;
-  border-bottom: 1px solid #323232;
-}
-
-.landing-container #little_truck {
-  height: 15rem;
-  width: auto;
-  position: absolute;
-  bottom: -1%;
-  right: 10%;
 }
 
 .location-container {
