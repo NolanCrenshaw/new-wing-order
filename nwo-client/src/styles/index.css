@@ -609,7 +609,6 @@ a {
 .main-container {
   min-height: 100vh;
   width: 100%;
-  max-width: 1920px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -970,7 +969,6 @@ a {
 .location-container {
   height: 120vh;
   width: 100%;
-  max-width: 1600px;
   padding: 10rem 5rem;
   z-index: 1;
   background: -webkit-gradient(linear, left top, right top, from(black), color-stop(70%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
@@ -978,9 +976,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -989,6 +987,7 @@ a {
 .location-container .map-container {
   height: 100%;
   width: 46%;
+  margin-right: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1085,6 +1084,7 @@ a {
   height: 100%;
   width: 46%;
   padding: 1rem;
+  margin-left: 2rem;
   z-index: 1;
   border-radius: 12px;
   display: -webkit-box;
@@ -1104,6 +1104,7 @@ a {
 
 .menu-container {
   height: auto;
+  max-width: 1600px;
   border-radius: 12px;
   position: relative;
   display: -ms-grid;

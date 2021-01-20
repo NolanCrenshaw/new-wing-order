@@ -1,7 +1,6 @@
 .location-container {
   height: 120vh;
   width: 100%;
-  max-width: 1600px;
   padding: 10rem 5rem;
   z-index: 1;
 
@@ -14,12 +13,14 @@
   );
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
   .map-container {
     height: 100%;
     width: 46%;
+    margin-right: 2rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,6 +90,7 @@
     height: 100%;
     width: 46%;
     padding: 1rem;
+    margin-left: 2rem;
     z-index: 1;
 
     border-radius: 12px;

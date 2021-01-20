@@ -1,9 +1,9 @@
 import os
 from flask import Blueprint, request, jsonify, make_response
 
-EJS_SERVICE = os.environ.get("EMAILJS_SERVICE_ID")
-EJS_TEMPLATE = os.environ.get("EMAILJS_TEMPLATE_ID")
-EJS_USER = os.environ.get("EMAILJS_USER_ID")
+EJS_SERVICE = os.environ["EMAILJS_SERVICE_ID"]
+EJS_TEMPLATE = os.environ["EMAILJS_TEMPLATE_ID"]
+EJS_USER = os.environ["EMAILJS_USER_ID"]
 
 
 contact = Blueprint("contact", __name__)
