@@ -29,6 +29,7 @@ const EventForm = () => {
   const submitEvent = async (e) => {
     e.preventDefault();
 
+    const token = window.localStorage.getItem("auth_token");
     const splitStartTime = startTime.split(":");
     const splitEndTime = endTime.split(":");
 
@@ -54,7 +55,10 @@ const EventForm = () => {
     const res = await fetch(`${BASE_URL}/api/events/`, {
       method: "POST",
       mode: "cors",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify(event_obj),
     });
     if (!res.ok) {
