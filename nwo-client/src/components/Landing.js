@@ -76,7 +76,10 @@ const Landing = () => {
           className="bird-container"
           style={{ transform: `translateY(${offsetY * 0.2}px)` }}
         >
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: 250, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 2 }}
             id="full_bird_logo"
             alt="bird logo"
             src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"

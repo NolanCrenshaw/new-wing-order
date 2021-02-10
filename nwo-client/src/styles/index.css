@@ -865,7 +865,7 @@ a {
 .landing-container .landing_glass-panel .landing-socialbox .hash_link button {
   height: 100%;
   width: 100%;
-  background-color: #ffb002;
+  background-color: #e8b80c;
   border: 4px solid #c89600;
   border-radius: 8px;
   -webkit-box-shadow: 1rem 1rem 2rem #323232;
@@ -875,6 +875,8 @@ a {
   font-weight: 600;
   font-style: italic;
   cursor: pointer;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -884,6 +886,12 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.landing-container .landing_glass-panel .landing-socialbox .hash_link button:hover {
+  color: black;
+  background-color: rgba(255, 176, 2, 0.5);
+  border: 4px solid black;
 }
 
 .landing-container .landing_glass-panel .landing-socialbox .hash_link button a {
