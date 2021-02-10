@@ -19,7 +19,9 @@ const Landing = () => {
     <div className="landing-container" id="landing">
       {/* <Navbar /> */}
       <div className="landing-bg">
-        <motion.div
+        <div className=".frame_element" />
+        <div className=".frame_element" />
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 1 }}
@@ -30,7 +32,7 @@ const Landing = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 1 }}
           id="elipse02"
-        />
+        /> */}
       </div>
       <div className="landing_glass-panel">
         <Navbar />
@@ -72,7 +74,7 @@ const Landing = () => {
         </div>
         <div
           className="bird-container"
-          style={{ transform: `translateY(-${offsetY * 0.35}px)` }}
+          style={{ transform: `translateY(${offsetY * 0.2}px)` }}
         >
           <img
             id="full_bird_logo"

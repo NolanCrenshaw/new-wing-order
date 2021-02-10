@@ -58,6 +58,7 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
 }
 
 .event-card {
@@ -745,43 +746,52 @@ a {
   top: 0;
   left: 0;
   z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.landing-container .landing-bg #elipse01 {
-  height: 80rem;
-  width: 80rem;
+.landing-container .landing-bg div {
+  height: 93%;
+  width: 95%;
+  min-width: 1023px;
   position: absolute;
-  bottom: -50%;
-  right: -10%;
-  border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(206, 33, 36, 0.9)), color-stop(50%, rgba(206, 33, 36, 0.7)), to(rgba(255, 255, 255, 0.5)));
-  background: linear-gradient(rgba(206, 33, 36, 0.9) 0%, rgba(206, 33, 36, 0.7) 50%, rgba(255, 255, 255, 0.5) 100%);
+  z-index: 1;
+  border-radius: 24px;
 }
 
-.landing-container .landing-bg #elipse02 {
-  height: 100rem;
-  width: 100rem;
-  position: absolute;
-  top: -50%;
-  left: -20%;
-  border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(234, 16, 20, 0.9)), color-stop(50%, rgba(234, 16, 20, 0.7)), to(rgba(255, 255, 255, 0.5)));
-  background: linear-gradient(rgba(234, 16, 20, 0.9) 0%, rgba(234, 16, 20, 0.7) 50%, rgba(255, 255, 255, 0.5) 100%);
+.landing-container .landing-bg div:nth-child(1) {
+  border: 10px solid #eb1014;
+  -webkit-transform: rotate(1deg);
+          transform: rotate(1deg);
+}
+
+.landing-container .landing-bg div:nth-child(2) {
+  border: 10px solid #e8b80c;
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
 }
 
 .landing-container .landing_glass-panel {
-  height: 95%;
-  width: 95%;
+  height: 50%;
+  width: 90%;
   min-width: 1023px;
   position: relative;
   z-index: 0;
   border-radius: 24px;
-  background: linear-gradient(104.04deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
-  border: 1px solid #ffffff;
+  background: linear-gradient(45deg, white 0%, rgba(255, 255, 255, 0.9) 100%);
+  border: 2px solid #ffffff;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -2rem -2rem 5rem rgba(255, 255, 255, 0.2), 5rem 5rem 20rem rgba(255, 255, 255, 0.2);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -2rem -2rem 5rem rgba(255, 255, 255, 0.2), 5rem 5rem 20rem rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(100px);
           backdrop-filter: blur(100px);
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1.8fr 1fr;
@@ -807,12 +817,13 @@ a {
   width: 550px;
   color: #323232;
   font-size: 7rem;
+  line-height: 7.5rem;
   font-style: italic;
 }
 
 .landing-container .landing_glass-panel .landing-textbox h3 {
   width: 370px;
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: #323232;
   font-size: 3rem;
   font-style: italic;
@@ -957,8 +968,8 @@ a {
 
 .landing-container .landing_glass-panel .bird-container {
   position: absolute;
-  bottom: -52%;
-  right: -15%;
+  bottom: -50%;
+  right: -8%;
   z-index: 2;
 }
 
@@ -971,8 +982,8 @@ a {
   width: 100%;
   padding: 10rem 5rem;
   z-index: 1;
-  background: -webkit-gradient(linear, left top, right top, from(black), color-stop(70%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-gradient(linear, bottom black 0%, color-stop(70%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to bottom black 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -8,6 +8,8 @@
   // grid-template-columns: 5vw 1fr 1fr 5vw;
   // grid-template-rows: 6vh 86vh 6vh;
 
+  // background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,54 +23,77 @@
     left: 0;
     z-index: 0;
 
-    #elipse01 {
-      height: 80rem;
-      width: 80rem;
-      position: absolute;
-      bottom: -50%;
-      right: -10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      border-radius: 50%;
-      background: linear-gradient(
-        rgba(206, 33, 36, 0.9) 0%,
-        rgba(206, 33, 36, 0.7) 50%,
-        rgba(255, 255, 255, 0.5) 100%
-      );
-    }
-    #elipse02 {
-      height: 100rem;
-      width: 100rem;
+    div {
+      height: 93%;
+      width: 95%;
+      min-width: 1023px;
       position: absolute;
-      top: -50%;
-      left: -20%;
+      z-index: 1;
 
-      border-radius: 50%;
-      background: linear-gradient(
-        rgba(234, 16, 20, 0.9) 0%,
-        rgba(234, 16, 20, 0.7) 50%,
-        rgba(255, 255, 255, 0.5) 100%
-      );
+      border-radius: 24px;
     }
+    div:nth-child(1) {
+      border: 10px solid $_red;
+      transform: rotate(1deg);
+    }
+    div:nth-child(2) {
+      border: 10px solid $_yellow;
+      transform: rotate(-1deg);
+    }
+
+    // #elipse01 {
+    //   height: 80rem;
+    //   width: 80rem;
+    //   position: absolute;
+    //   bottom: -50%;
+    //   right: -10%;
+
+    //   border-radius: 50%;
+    //   background: linear-gradient(
+    //     rgba(206, 33, 36, 0.9) 0%,
+    //     rgba(206, 33, 36, 0.7) 50%,
+    //     rgba(255, 255, 255, 0.5) 100%
+    //   );
+    // }
+    // #elipse02 {
+    //   height: 100rem;
+    //   width: 100rem;
+    //   position: absolute;
+    //   top: -50%;
+    //   left: -20%;
+
+    //   border-radius: 50%;
+    //   background: linear-gradient(
+    //     rgba(234, 16, 20, 0.9) 0%,
+    //     rgba(234, 16, 20, 0.7) 50%,
+    //     rgba(255, 255, 255, 0.5) 100%
+    //   );
+    // }
   }
 
   .landing_glass-panel {
-    height: 95%;
-    width: 95%;
+    height: 50%;
+    width: 90%;
     min-width: 1023px;
     position: relative;
     z-index: 0;
 
     border-radius: 24px;
     background: linear-gradient(
-      104.04deg,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.3) 100%
+      45deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 100%
     );
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
       -2rem -2rem 5rem rgba(255, 255, 255, 0.2),
       5rem 5rem 20rem rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(100px);
+    overflow: hidden;
 
     display: grid;
     grid-template-columns: 1.8fr 1fr;
@@ -86,11 +111,12 @@
         width: 550px;
         color: $_gray;
         font-size: 7rem;
+        line-height: 7.5rem;
         font-style: italic;
       }
       h3 {
         width: 370px;
-        margin-top: 3rem;
+        margin-top: 2rem;
         color: $_gray;
         font-size: 3rem;
         font-style: italic;
@@ -201,8 +227,8 @@
 
     .bird-container {
       position: absolute;
-      bottom: -52%;
-      right: -15%;
+      bottom: -50%;
+      right: -8%;
 
       // background-color: gold;
       z-index: 2;
