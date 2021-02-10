@@ -1128,6 +1128,7 @@ a {
   max-width: 1600px;
   border-radius: 12px;
   position: relative;
+  background-color: white;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0.02fr 1fr 0.02fr;
