@@ -4,15 +4,12 @@
   max-width: 1400px;
   position: relative;
 
-  // display: grid;
-  // grid-template-columns: 5vw 1fr 1fr 5vw;
-  // grid-template-rows: 6vh 86vh 6vh;
-
-  // background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include media("<desktop") {
+  }
 
   .landing-bg {
     height: 100vh;
@@ -35,6 +32,12 @@
       z-index: 1;
 
       border-radius: 24px;
+
+      @include media("<desktop") {
+        width: 95%;
+        min-width: 0;
+        border-radius: 12px;
+      }
     }
     div:nth-child(1) {
       border: 10px solid $_red;
@@ -43,6 +46,10 @@
     div:nth-child(2) {
       border: 10px solid $_yellow;
       transform: rotate(-1deg);
+    }
+
+    @include media("<desktop") {
+      width: 100%;
     }
   }
 
@@ -70,6 +77,18 @@
     grid-template-columns: 1.8fr 1fr;
     grid-template-rows: 8vh 45% 50%;
 
+    @include media("<desktop") {
+      width: 80%;
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      .navbar-container {
+        display: none;
+      }
+    }
+
     .landing-textbox {
       grid-column: 1/2;
       grid-row: 2/3;
@@ -78,12 +97,22 @@
       z-index: 1;
       pointer-events: none;
 
+      @include media("<desktop") {
+        margin-left: 0;
+      }
+
       h1 {
         width: 550px;
         color: $_gray;
         font-size: 7rem;
         line-height: 7.5rem;
         font-style: italic;
+
+        @include media("<desktop") {
+          width: 100%;
+          font-size: 5rem;
+          line-height: 5rem;
+        }
       }
       h3 {
         width: 370px;
@@ -91,6 +120,11 @@
         color: $_gray;
         font-size: 3rem;
         font-style: italic;
+
+        @include media("<desktop") {
+          width: 80%;
+          font-size: 3rem;
+        }
       }
     }
 
@@ -208,29 +242,28 @@
       bottom: -50%;
       right: -8%;
 
-      // background-color: gold;
       z-index: 2;
+
+      @include media("<desktop") {
+        height: 20vh;
+        // top: 0;
+        bottom: 0;
+        right: 0;
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       #full_bird_logo {
         height: 90rem;
+
+        @include media("<desktop") {
+          display: none;
+        }
       }
     }
   }
-  // .little-truck-backdrop {
-  //   height: 20rem;
-  //   width: 40%;
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 2%;
-  //   background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/backdrop_trees.png");
-  //   background-size: cover;
-  //   border-bottom: 1px solid $_gray;
-  // }
-  // #little_truck {
-  //   height: 15rem;
-  //   width: auto;
-  //   position: absolute;
-  //   bottom: -1%;
-  //   right: 10%;
-  // }
 }

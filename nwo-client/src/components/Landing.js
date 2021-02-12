@@ -23,6 +23,19 @@ const Landing = () => {
       </div>
       <div className="landing_glass-panel">
         <Navbar />
+        <div
+          className="bird-container"
+          style={{ transform: `translateY(${offsetY * 0.2}px)` }}
+        >
+          <motion.img
+            initial={{ opacity: 0, y: 250, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 2 }}
+            id="full_bird_logo"
+            alt="bird logo"
+            src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"
+          />
+        </div>
         <div className="landing-textbox">
           <h1>Memphis' Best Food Truck</h1>
           <h3>Award-Winning Wings & Southern Grub</h3>
@@ -59,7 +72,7 @@ const Landing = () => {
           </ul>
           <span>info@newwingorder.com | 901.747.8893 </span>
         </div>
-        <div
+        {/* <div
           className="bird-container"
           style={{ transform: `translateY(${offsetY * 0.2}px)` }}
         >
@@ -71,21 +84,8 @@ const Landing = () => {
             alt="bird logo"
             src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"
           />
-        </div>
+        </div> */}
       </div>
-      {/* <div
-        id="elipse03"
-        style={{ transform: `translateX(${offsetY * 0.2}px)` }}
-      >
-        <div id="elipse04" />
-      </div>
-      <div className="little-truck-backdrop" />
-      <img
-        id="little_truck"
-        alt="little truck"
-        src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/little_truck.png"
-        style={{ transform: `translateX(-${offsetY * 1}px)` }}
-      /> */}
     </div>
   );
 };

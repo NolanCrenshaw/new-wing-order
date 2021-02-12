@@ -766,6 +766,14 @@ a {
   border-radius: 24px;
 }
 
+@media (max-width: 1023px) {
+  .landing-container .landing-bg div {
+    width: 95%;
+    min-width: 0;
+    border-radius: 12px;
+  }
+}
+
 .landing-container .landing-bg div:nth-child(1) {
   border: 10px solid #eb1014;
   -webkit-transform: rotate(1deg);
@@ -776,6 +784,12 @@ a {
   border: 10px solid #e8b80c;
   -webkit-transform: rotate(-1deg);
           transform: rotate(-1deg);
+}
+
+@media (max-width: 1023px) {
+  .landing-container .landing-bg {
+    width: 100%;
+  }
 }
 
 .landing-container .landing_glass-panel {
@@ -800,6 +814,24 @@ a {
       grid-template-rows: 8vh 45% 50%;
 }
 
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel {
+    width: 80%;
+    min-width: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .landing-container .landing_glass-panel .navbar-container {
+    display: none;
+  }
+}
+
 .landing-container .landing_glass-panel .landing-textbox {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
@@ -813,6 +845,12 @@ a {
   pointer-events: none;
 }
 
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel .landing-textbox {
+    margin-left: 0;
+  }
+}
+
 .landing-container .landing_glass-panel .landing-textbox h1 {
   width: 550px;
   color: #323232;
@@ -821,12 +859,27 @@ a {
   font-style: italic;
 }
 
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel .landing-textbox h1 {
+    width: 100%;
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
 .landing-container .landing_glass-panel .landing-textbox h3 {
   width: 370px;
   margin-top: 2rem;
   color: #323232;
   font-size: 3rem;
   font-style: italic;
+}
+
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel .landing-textbox h3 {
+    width: 80%;
+    font-size: 3rem;
+  }
 }
 
 .landing-container .landing_glass-panel .landing-socialbox {
@@ -981,8 +1034,33 @@ a {
   z-index: 2;
 }
 
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel .bird-container {
+    height: 20vh;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .landing-container .landing_glass-panel .bird-container #full_bird_logo {
   height: 90rem;
+}
+
+@media (max-width: 1023px) {
+  .landing-container .landing_glass-panel .bird-container #full_bird_logo {
+    display: none;
+  }
 }
 
 .location-container {
