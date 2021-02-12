@@ -35,6 +35,14 @@ const Landing = () => {
             alt="bird logo"
             src="https://nwobucky.s3.us-east-2.amazonaws.com/NWO_Body+Full+Logo_Full+Color.png"
           />
+          <motion.img
+            initial={{ opacity: 0, y: 250, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 2 }}
+            id="name_logo"
+            alt="bird logo"
+            src="https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/NWO_Head+Full+Logo_Full+Color.png"
+          />
         </div>
         <div className="landing-textbox">
           <h1>Memphis' Best Food Truck</h1>
@@ -70,7 +78,11 @@ const Landing = () => {
             </motion.li>
             <div className="socialbox-divider" />
           </ul>
-          <span>info@newwingorder.com | 901.747.8893 </span>
+          <span id="info_span">info@newwingorder.com | 901.747.8893 </span>
+          <div id="mediaQ_spanbox">
+            <span>info@newwingorder.com</span>
+            <span>901.747.8893 </span>
+          </div>
         </div>
         {/* <div
           className="bird-container"

@@ -6,6 +6,19 @@
   grid-template-columns: 0.2fr 2fr 2fr 0.2fr;
   grid-template-rows: 0.1fr 2.5fr 4fr 0.5fr;
 
+  @include media("<desktop") {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  @include media("<=phone") {
+    height: auto;
+    min-height: 0;
+  }
+
   .contact_socialbox {
     grid-column: 2/4;
     grid-row: 2/3;
@@ -22,6 +35,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include media("<=phone") {
+      width: 100%;
+      padding: 1rem;
+    }
 
     h1 {
       color: white;
@@ -70,12 +88,36 @@
 
         border: 1px solid white;
         border-radius: 50%;
+
+        @include media("<=phone") {
+          display: none;
+        }
       }
     }
     span {
       margin-top: 1rem;
       color: white;
       font-size: 2rem;
+    }
+    #info_span {
+      @include media("<=phone") {
+        display: none;
+      }
+    }
+    #mediaQ_spanbox {
+      display: none;
+      width: 100%;
+      span {
+        font-size: 1.8rem;
+        line-height: 1.2rem;
+      }
+
+      @include media("<=phone") {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
     }
   }
 
@@ -86,6 +128,14 @@
     width: 60%;
     justify-self: flex-end;
     margin-right: 2rem;
+
+    @include media("<desktop") {
+      margin-right: 0;
+      margin: 0 0 4rem 0;
+    }
+    @include media("<=phone") {
+      width: 100%;
+    }
   }
 
   .contact_infobox {
@@ -104,6 +154,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @include media("<desktop") {
+      margin-left: 0;
+      margin: 4rem 0;
+    }
+    @include media("<=phone") {
+      width: 100%;
+    }
 
     h2 {
       margin-bottom: 3rem;

@@ -2,7 +2,7 @@
   height: auto;
   max-width: 1600px;
 
-  border-radius: 12px;
+  // border-radius: 12px;
   position: relative;
 
   background-color: white;
@@ -11,15 +11,20 @@
   grid-template-columns: 0.02fr 1fr 0.02fr;
   grid-template-rows: 80vh 4fr 0.1fr;
 
+  @include media("<desktop") {
+    grid-template-rows: 30vh 4fr 0.1fr;
+    width: 100%;
+  }
+  @include media("<=phone") {
+    width: 100%;
+  }
+
   .brush_wing--bg {
     grid-column: 1/4;
     grid-row: 1/2;
     min-height: 100%;
     width: 100%;
 
-    // max-width: 1440px;
-
-    // position: absolute;
     pointer-events: none;
     background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_01.jpg");
     background-size: 100%;
@@ -34,17 +39,18 @@
 
     &::before {
       content: "";
-      // position: absolute;
       width: 100%;
       height: 100%;
       top: 0;
       right: 0;
       background-image: url("https://nwobucky.s3.us-east-2.amazonaws.com/nwo_images/quickmenu_bg_mask.jpg");
-      // background-color: black;
       background-size: 140%;
       background-position: center;
       background-repeat: no-repeat;
       mix-blend-mode: screen;
+    }
+
+    @include media("<=phone") {
     }
   }
 
@@ -58,13 +64,14 @@
   .menu_items {
     grid-column: 2/3;
     grid-row: 2/3;
-    // background-color: white;
-    // border: 1px solid $_gray;
-    // border-radius: 10px;
-    // box-shadow: 5px 5px 20px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @include media("<desktop") {
+      display: flex;
+      flex-direction: column;
+    }
 
     ul {
       width: 100%;
@@ -80,11 +87,24 @@
 
     div:nth-child(2) {
       grid-column: 2/3;
+
+      h2 {
+        @include media("<=phone") {
+          margin: 0.5rem;
+          padding: 0 1rem;
+        }
+      }
       .wings {
         p {
           margin: 0.4rem 1.8rem;
           padding: 0 2rem;
           font-style: italic;
+
+          @include media("<=phone") {
+            margin: 0.5rem;
+            padding: 0 1rem;
+            font-size: 1.5rem;
+          }
         }
         .wing_option {
           margin: 1.8rem;
@@ -107,10 +127,17 @@
               color: $_red;
               font-size: 2.3rem;
               margin-right: 3rem;
+              @include media("<=phone") {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+              }
             }
             span {
               font-size: 1.8rem;
               font-style: italic;
+              @include media("<=phone") {
+                font-size: 1.5rem;
+              }
             }
           }
         }
@@ -143,9 +170,19 @@
       display: flex;
       justify-content: space-around;
 
+      @include media("<=phone") {
+        flex-direction: column;
+        margin: 1rem;
+        padding: 1rem;
+      }
+
       .flavors-divider {
         border: 2px solid $_gray;
         border-radius: 100%;
+
+        @include media("<=phone") {
+          display: none;
+        }
       }
       .sauces,
       .rubs {
@@ -153,6 +190,13 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+
+        h2 {
+          @include media("<=phone") {
+            margin: 1rem 0;
+            font-size: 3rem;
+          }
+        }
       }
     }
   }

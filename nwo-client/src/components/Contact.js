@@ -33,11 +33,13 @@ const Contact = () => {
           </motion.li>
           <div className="socialbox-divider" />
         </ul>
-        <span>info@newwingorder.com | 901.747.8893 </span>
+        <span id="info_span">info@newwingorder.com | 901.747.8893 </span>
+        <div id="mediaQ_spanbox">
+          <span>info@newwingorder.com</span>
+          <span>901.747.8893 </span>
+        </div>
       </div>
-      <div className="contact_formbox">
-        <ContactForm />
-      </div>
+
       <div className="contact_infobox">
         <h2>How Can We Help?</h2>
         <h4>We Cater</h4>
@@ -55,6 +57,9 @@ const Contact = () => {
           schedule. Not seeing a location close enough? Book us!
         </p>
         <div />
+      </div>
+      <div className="contact_formbox">
+        <ContactForm />
       </div>
     </div>
   );
