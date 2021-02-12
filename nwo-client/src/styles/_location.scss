@@ -17,6 +17,9 @@
   @include media("<desktop") {
     flex-direction: column;
   }
+  @include media("<=phone") {
+    padding: 5rem 1rem 2rem 1rem;
+  }
 
   .map-container {
     height: 100%;
@@ -37,6 +40,7 @@
 
     @include media("<desktop") {
       width: 100%;
+      margin-right: 0;
     }
 
     #header-box {
@@ -110,6 +114,7 @@
 
     @include media("<desktop") {
       width: 100%;
+      margin-left: 0;
     }
   }
 }

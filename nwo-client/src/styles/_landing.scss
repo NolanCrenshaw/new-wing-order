@@ -8,9 +8,6 @@
   justify-content: center;
   align-items: center;
 
-  @include media("<desktop") {
-  }
-
   .landing-bg {
     height: 100vh;
     width: 100%;
@@ -42,10 +39,18 @@
     div:nth-child(1) {
       border: 10px solid $_red;
       transform: rotate(1deg);
+
+      @include media("<=phone") {
+        border: 5px solid $_red;
+      }
     }
     div:nth-child(2) {
       border: 10px solid $_yellow;
       transform: rotate(-1deg);
+
+      @include media("<=phone") {
+        border: 5px solid $_yellow;
+      }
     }
 
     @include media("<desktop") {
@@ -89,6 +94,10 @@
       }
     }
 
+    @include media("<=phone") {
+      width: 85%;
+    }
+
     .landing-textbox {
       grid-column: 1/2;
       grid-row: 2/3;
@@ -100,6 +109,9 @@
       @include media("<desktop") {
         margin-left: 0;
         padding: 5rem;
+      }
+      @include media("<=phone") {
+        padding: 2rem 1rem;
       }
 
       h1 {
@@ -116,6 +128,11 @@
           font-size: 5rem;
           line-height: 5rem;
         }
+        @include media("<=phone") {
+          margin-top: 1rem;
+          font-size: 3.5rem;
+          line-height: 3.5rem;
+        }
       }
       h3 {
         width: 370px;
@@ -129,6 +146,10 @@
         @include media("<desktop") {
           width: 80%;
           font-size: 3rem;
+        }
+        @include media("<=phone") {
+          margin-top: 1rem;
+          font-size: 1.8rem;
         }
       }
     }
@@ -148,10 +169,22 @@
       justify-content: center;
       align-items: center;
 
+      @include media("<=phone") {
+        width: 100%;
+        padding: 1rem;
+      }
+
       .hash_link {
         height: 5.5rem;
         width: 22rem;
         margin-bottom: 3rem;
+
+        @include media("<=phone") {
+          height: 4rem;
+          width: 18rem;
+          margin-bottom: 2rem;
+          font-size: 1.5rem;
+        }
 
         button {
           height: 100%;
@@ -160,7 +193,8 @@
           background-color: $_yellow;
           border: 4px solid rgb(200, 150, 0);
           border-radius: 8px;
-          box-shadow: 1rem 1rem 2rem $_gray;
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+            -4px 4px 8px rgba(0, 0, 0, 0.2);
           color: $_gray;
           font-size: 2rem;
           font-weight: 600;
@@ -176,11 +210,17 @@
             color: black;
             background-color: rgba(255, 176, 2, 0.5);
             border: 4px solid black;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5),
+              -4px 4px 8px rgba(0, 0, 0, 0.5);
+          }
+
+          @include media("<=phone") {
+            font-size: 1.5rem;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+              -4px 4px 8px rgba(0, 0, 0, 0.2);
           }
 
           a {
-            // height: 5.5rem;
-            // width: 22rem;
             color: $_gray;
             text-decoration: none;
 
@@ -197,6 +237,10 @@
         align-items: center;
         text-decoration: none;
         list-style: none;
+
+        @include media("<=phone") {
+          width: 100%;
+        }
 
         li {
           height: 4rem;
@@ -233,12 +277,36 @@
 
           border: 1px solid $_gray;
           border-radius: 50%;
+
+          @include media("<=phone") {
+            display: none;
+          }
         }
       }
       span {
         margin-top: 1rem;
         color: $_gray;
         font-size: 2rem;
+      }
+      #info_span {
+        @include media("<=phone") {
+          display: none;
+        }
+      }
+      #mediaQ_spanbox {
+        display: none;
+        width: 100%;
+        span {
+          font-size: 1.8rem;
+          line-height: 1.2rem;
+        }
+
+        @include media("<=phone") {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+        }
       }
     }
 
@@ -261,6 +329,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      @include media("<=phone") {
+        margin-top: 2.5rem;
       }
 
       #full_bird_logo {
