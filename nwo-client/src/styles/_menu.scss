@@ -2,7 +2,7 @@
   height: auto;
   max-width: 1600px;
 
-  border-radius: 12px;
+  // border-radius: 12px;
   position: relative;
 
   background-color: white;
@@ -10,6 +10,10 @@
   display: grid;
   grid-template-columns: 0.02fr 1fr 0.02fr;
   grid-template-rows: 80vh 4fr 0.1fr;
+
+  @include media("<desktop") {
+    grid-template-rows: 30vh 4fr 0.1fr;
+  }
 
   .brush_wing--bg {
     grid-column: 1/4;
@@ -58,13 +62,14 @@
   .menu_items {
     grid-column: 2/3;
     grid-row: 2/3;
-    // background-color: white;
-    // border: 1px solid $_gray;
-    // border-radius: 10px;
-    // box-shadow: 5px 5px 20px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @include media("<desktop") {
+      display: flex;
+      flex-direction: column;
+    }
 
     ul {
       width: 100%;

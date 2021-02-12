@@ -99,6 +99,7 @@
 
       @include media("<desktop") {
         margin-left: 0;
+        padding: 5rem;
       }
 
       h1 {
@@ -107,6 +108,8 @@
         font-size: 7rem;
         line-height: 7.5rem;
         font-style: italic;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255),
+          -2px -2px 5px rgb(255, 255, 255), -2px 2px 5px rgb(255, 255, 255);
 
         @include media("<desktop") {
           width: 100%;
@@ -120,6 +123,8 @@
         color: $_gray;
         font-size: 3rem;
         font-style: italic;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255),
+          -2px -2px 5px rgb(255, 255, 255), -2px 2px 5px rgb(255, 255, 255);
 
         @include media("<desktop") {
           width: 80%;
@@ -242,15 +247,16 @@
       bottom: -50%;
       right: -8%;
 
-      z-index: 2;
+      z-index: 1;
 
       @include media("<desktop") {
-        height: 20vh;
+        height: 25vh;
+        margin-top: 1rem;
         // top: 0;
         bottom: 0;
         right: 0;
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
 
         display: flex;
         justify-content: center;
@@ -261,6 +267,12 @@
         height: 90rem;
 
         @include media("<desktop") {
+          display: none;
+        }
+      }
+      #name_logo {
+        height: 28rem;
+        @include media(">=desktop") {
           display: none;
         }
       }

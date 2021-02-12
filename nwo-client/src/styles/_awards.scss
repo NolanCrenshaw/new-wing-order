@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
 
+  @include media("<desktop") {
+    min-height: 0;
+  }
+
   img {
     height: 100vh;
     margin: 4rem;
@@ -15,5 +19,13 @@
     border-radius: 12px;
     box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.2),
       3rem 3rem 5rem rgba(0, 0, 0, 0.2);
+
+    @include media("<desktop") {
+      height: auto;
+      width: 100%;
+      margin: 2rem 0;
+      border: none;
+      border-radius: 0;
+    }
   }
 }
