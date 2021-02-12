@@ -17,22 +17,9 @@ const Landing = () => {
 
   return (
     <div className="landing-container" id="landing">
-      {/* <Navbar /> */}
       <div className="landing-bg">
         <div className=".frame_element" />
         <div className=".frame_element" />
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8, duration: 1 }}
-          id="elipse01"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8, duration: 1 }}
-          id="elipse02"
-        /> */}
       </div>
       <div className="landing_glass-panel">
         <Navbar />
