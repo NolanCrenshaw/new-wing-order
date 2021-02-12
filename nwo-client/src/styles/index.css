@@ -1358,6 +1358,12 @@ a {
   }
 }
 
+@media (max-width: 420px) {
+  .location-container .map-container {
+    min-height: 50vh;
+  }
+}
+
 .location-container .map-container #header-box {
   height: 22%;
   min-height: 9rem;

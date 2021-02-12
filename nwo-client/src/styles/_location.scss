@@ -43,6 +43,9 @@
       width: 100%;
       margin-right: 0;
     }
+    @include media("<=phone") {
+      min-height: 50vh;
+    }
 
     #header-box {
       height: 22%;
