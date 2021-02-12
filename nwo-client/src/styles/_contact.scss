@@ -14,6 +14,11 @@
     padding-top: 5rem;
   }
 
+  @include media("<=phone") {
+    height: auto;
+    min-height: 0;
+  }
+
   .contact_socialbox {
     grid-column: 2/4;
     grid-row: 2/3;
@@ -30,6 +35,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include media("<=phone") {
+      width: 100%;
+      padding: 1rem;
+    }
 
     h1 {
       color: white;
@@ -78,12 +88,36 @@
 
         border: 1px solid white;
         border-radius: 50%;
+
+        @include media("<=phone") {
+          display: none;
+        }
       }
     }
     span {
       margin-top: 1rem;
       color: white;
       font-size: 2rem;
+    }
+    #info_span {
+      @include media("<=phone") {
+        display: none;
+      }
+    }
+    #mediaQ_spanbox {
+      display: none;
+      width: 100%;
+      span {
+        font-size: 1.8rem;
+        line-height: 1.2rem;
+      }
+
+      @include media("<=phone") {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
     }
   }
 
@@ -98,6 +132,9 @@
     @include media("<desktop") {
       margin-right: 0;
       margin: 0 0 4rem 0;
+    }
+    @include media("<=phone") {
+      width: 100%;
     }
   }
 
@@ -121,6 +158,9 @@
     @include media("<desktop") {
       margin-left: 0;
       margin: 4rem 0;
+    }
+    @include media("<=phone") {
+      width: 100%;
     }
 
     h2 {

@@ -202,6 +202,12 @@ a {
           box-shadow: 2px 2px 10px #323232;
 }
 
+@media (max-width: 420px) {
+  .menuItem-card {
+    margin: 1.5rem 1rem;
+  }
+}
+
 .menuItem-card .item_text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -218,9 +224,21 @@ a {
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 420px) {
+  .menuItem-card .item_text span {
+    font-size: 1.75rem;
+  }
+}
+
 .menuItem-card .item_text p {
   font-style: italic;
   font-size: 1.8rem;
+}
+
+@media (max-width: 420px) {
+  .menuItem-card .item_text p {
+    font-size: 1.5rem;
+  }
 }
 
 .menuItem-card .item_price {
@@ -261,10 +279,22 @@ a {
           box-shadow: none;
 }
 
+@media (max-width: 420px) {
+  .sauce-card {
+    margin-left: 0;
+  }
+}
+
 .sauce-card span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (max-width: 420px) {
+  .sauce-card span {
+    font-size: 1.5rem;
+  }
 }
 
 .sauce-card span div {
@@ -284,6 +314,13 @@ a {
 .sauce-card img {
   width: 2rem;
   height: auto;
+}
+
+@media (max-width: 420px) {
+  .sauce-card img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 .event_form-container {
@@ -1377,6 +1414,13 @@ a {
   .menu-container {
     -ms-grid-rows: 30vh 4fr 0.1fr;
         grid-template-rows: 30vh 4fr 0.1fr;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .menu-container {
+    width: 100%;
   }
 }
 
@@ -1474,10 +1518,25 @@ a {
   grid-column: 2/3;
 }
 
+@media (max-width: 420px) {
+  .menu-container .menu_items div:nth-child(2) h2 {
+    margin: 0.5rem;
+    padding: 0 1rem;
+  }
+}
+
 .menu-container .menu_items div:nth-child(2) .wings p {
   margin: 0.4rem 1.8rem;
   padding: 0 2rem;
   font-style: italic;
+}
+
+@media (max-width: 420px) {
+  .menu-container .menu_items div:nth-child(2) .wings p {
+    margin: 0.5rem;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
 }
 
 .menu-container .menu_items div:nth-child(2) .wings .wing_option {
@@ -1515,9 +1574,22 @@ a {
   margin-right: 3rem;
 }
 
+@media (max-width: 420px) {
+  .menu-container .menu_items div:nth-child(2) .wings .wing_option .wing_text h4 {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
 .menu-container .menu_items div:nth-child(2) .wings .wing_option .wing_text span {
   font-size: 1.8rem;
   font-style: italic;
+}
+
+@media (max-width: 420px) {
+  .menu-container .menu_items div:nth-child(2) .wings .wing_option .wing_text span {
+    font-size: 1.5rem;
+  }
 }
 
 .menu-container .menu_items div:nth-child(2) .wings .item_price {
@@ -1560,9 +1632,26 @@ a {
       justify-content: space-around;
 }
 
+@media (max-width: 420px) {
+  .menu-container .menu_items .flavors {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
 .menu-container .menu_items .flavors .flavors-divider {
   border: 2px solid #323232;
   border-radius: 100%;
+}
+
+@media (max-width: 420px) {
+  .menu-container .menu_items .flavors .flavors-divider {
+    display: none;
+  }
 }
 
 .menu-container .menu_items .flavors .sauces,
@@ -1580,6 +1669,14 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+@media (max-width: 420px) {
+  .menu-container .menu_items .flavors .sauces h2,
+  .menu-container .menu_items .flavors .rubs h2 {
+    margin: 1rem 0;
+    font-size: 3rem;
+  }
 }
 
 .store-container {
@@ -1718,6 +1815,13 @@ a {
   }
 }
 
+@media (max-width: 420px) {
+  .contact-container {
+    height: auto;
+    min-height: 0;
+  }
+}
+
 .contact-container .contact_socialbox {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
@@ -1746,6 +1850,13 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 420px) {
+  .contact-container .contact_socialbox {
+    width: 100%;
+    padding: 1rem;
+  }
 }
 
 .contact-container .contact_socialbox h1 {
@@ -1813,10 +1924,50 @@ a {
   border-radius: 50%;
 }
 
+@media (max-width: 420px) {
+  .contact-container .contact_socialbox ul .socialbox-divider {
+    display: none;
+  }
+}
+
 .contact-container .contact_socialbox span {
   margin-top: 1rem;
   color: white;
   font-size: 2rem;
+}
+
+@media (max-width: 420px) {
+  .contact-container .contact_socialbox #info_span {
+    display: none;
+  }
+}
+
+.contact-container .contact_socialbox #mediaQ_spanbox {
+  display: none;
+  width: 100%;
+}
+
+.contact-container .contact_socialbox #mediaQ_spanbox span {
+  font-size: 1.8rem;
+  line-height: 1.2rem;
+}
+
+@media (max-width: 420px) {
+  .contact-container .contact_socialbox #mediaQ_spanbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .contact-container .contact_formbox {
@@ -1836,6 +1987,12 @@ a {
   .contact-container .contact_formbox {
     margin-right: 0;
     margin: 0 0 4rem 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-container .contact_formbox {
+    width: 100%;
   }
 }
 
@@ -1873,6 +2030,12 @@ a {
   .contact-container .contact_infobox {
     margin-left: 0;
     margin: 4rem 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-container .contact_infobox {
+    width: 100%;
   }
 }
 
@@ -2019,6 +2182,17 @@ a {
           align-items: center;
 }
 
+@media (max-width: 420px) {
+  .footer-container {
+    height: auto;
+    padding: 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .footer-container .footer-credits {
   width: 90%;
   height: 90%;
@@ -2028,10 +2202,27 @@ a {
   display: flex;
 }
 
+@media (max-width: 420px) {
+  .footer-container .footer-credits {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .footer-container .footer-credits a {
   font-size: 1.5rem;
   color: white;
   margin-right: 2rem;
+}
+
+@media (max-width: 420px) {
+  .footer-container .footer-credits a {
+    margin-right: 0;
+    margin: 0.25rem;
+  }
 }
 
 .footer-container button {
