@@ -45,6 +45,10 @@
       }
     }
     div {
+      @include media("<=phone") {
+        display: flex;
+        flex-direction: column;
+      }
       span:nth-child(1) {
         font-size: 1.2rem;
 
@@ -70,6 +74,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @include media("<=phone") {
+      align-items: center;
+    }
     h2 {
       font-size: 2.2rem;
 
