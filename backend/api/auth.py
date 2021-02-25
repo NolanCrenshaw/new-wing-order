@@ -27,22 +27,16 @@ def verify_password(password, hashed_password):
         return False
 
 
-# Routes
 @auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
-    print(f"DATA! ~~ {data}")
-
     username = data["username"]
     password = data["password"]
 
     admin = Admin.query.filter_by(username=username).first()
-
-    # Empty Query Return Validation
     if not admin:
         return jsonify(message="Username Not Valid"), 401
 
-    # Correct Password Validation
     verified = verify_password(password, admin.hashed_password)
     if not verified:
         return jsonify(message="Incorrect Password"), 401
@@ -52,12 +46,9 @@ def login():
 
 
 @auth.route("/", methods=["GET"])
-@jwt_required
+@jwt_required()
 def check_token():
-    try:
-        auth_token = get_jwt_identity()
-        admin = Admin.query.filter_by(username=auth_token['username']).first()
-        safe_admin = admin.to_safe_object()
-        return jsonify(admin=safe_admin), 200
-    except Exception:
-        return jsonify(message="Token Check Failed"), 403
+    auth_token = get_jwt_identity()
+    admin = Admin.query.filter_by(username=auth_token).first()
+    safe_admin = admin.to_safe_object()
+    return jsonify(admin=safe_admin), 200

@@ -42,13 +42,11 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
 
   useEffect(() => {
     const loginUser = async () => {
-      const token = window.localStorage.getItem("auth_token");
       const res = await fetch(`${BASE_URL}/api/auth/login`, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(submittedData),
       });
