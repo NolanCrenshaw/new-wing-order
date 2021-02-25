@@ -27,3 +27,13 @@ def handle_sauces():
             heat=sauce["heat"],
         )
         return jsonify(message="/sauces POST success"), 200
+
+
+@sauce.route("/delete", methods=["DELETE"])
+@jwt_required()
+def delete_sauce():
+    data = request.get_json()
+    sauce = Sauce.query.filter_by(id=data["id"]).first()
+    db.session.delete(sauce)
+    db.session.commit()
+    return jsonify(message="/sauces DELETE success"), 200

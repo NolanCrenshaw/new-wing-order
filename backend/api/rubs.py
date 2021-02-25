@@ -7,7 +7,8 @@ from ..models import db, Rub
 rub = Blueprint("rubs", __name__)
 
 
-@rub.route("/", methods=["GET"])
+@rub.route("/", methods=["GET", "POST"])
+@jwt_required()
 def handle_rubs():
 
     # Fetch Rubs
@@ -28,15 +29,11 @@ def handle_rubs():
         return jsonify(message="/rubs POST success"), 200
 
 
-@rub.route("/", methods=["POST"])
-@jwt_required
-def create_rub():
-    try:
-        rub_object = request.get_json()
-        rub = Rub(
-            name=rub["name"],
-            heat=rub["heat"],
-        )
-        return jsonify(message="rub POST Request Successful"), 200
-    except Exception:
-        return jsonify(message="rub POST Request Failure"), 400
+@rub.route("/delete", methods=["DELETE"])
+@jwt_required()
+def delete_rub():
+    data = request.get_json()
+    rub = Rub.query.filter_by(id=data["id"]).first()
+    db.session.delete(rub)
+    db.session.commit()
+    return jsonify(message="/rubs DELETE success"), 200
