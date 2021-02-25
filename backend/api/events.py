@@ -13,14 +13,12 @@ event = Blueprint("events", __name__)
 
 @event.route("/", methods=["GET"])
 def get_events():
-    try:
-        event_objects = Event.query.order_by(Event.start_time).all()
-        events = []
-        for obj in event_objects:
-            events.append(obj.to_dict())
-        return jsonify(events=events), 200
-    except Exception:
-        return jsonify(message="Event GET Request Failure"), 400
+    # Fetch Events
+    event_objects = Event.query.order_by(Event.start_time).all()
+    events = []
+    for obj in event_objects:
+        events.append(obj.to_dict())
+    return jsonify(events=events), 200
 
 
 @event.route("/", methods=["POST"])

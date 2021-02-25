@@ -7,31 +7,33 @@ from ..models import db, Sauce
 sauce = Blueprint("sauces", __name__)
 
 
-@sauce.route("/", methods=["GET", "POST"])
-@jwt_required()
-def handle_sauces():
-
+# Unprotected
+@sauce.route("/", methods=["GET"])
+def get_sauces():
     # Fetch Sauces
-    if request.method == "GET":
-        sauce_objects = Sauce.query.all()
-        sauces = []
-        for obj in sauce_objects:
-            sauces.append(obj.to_dict())
-        return jsonify(sauces=sauces), 200
+    sauce_objects = Sauce.query.all()
+    sauces = []
+    for obj in sauce_objects:
+        sauces.append(obj.to_dict())
+    return jsonify(sauces=sauces), 200
 
+
+@sauce.route("/", methods=["POST"])
+@jwt_required()
+def create_sauce():
     # Create Sauce
-    if request.method == "POST":
-        sauce_object = request.get_json()
-        sauce = Sauce(
-            name=sauce["name"],
-            heat=sauce["heat"],
-        )
-        return jsonify(message="/sauces POST success"), 200
+    sauce_object = request.get_json()
+    sauce = Sauce(
+        name=sauce["name"],
+        heat=sauce["heat"],
+    )
+    return jsonify(message="/sauces POST success"), 200
 
 
 @sauce.route("/delete", methods=["DELETE"])
 @jwt_required()
 def delete_sauce():
+    # Delete Sauce
     data = request.get_json()
     sauce = Sauce.query.filter_by(id=data["id"]).first()
     db.session.delete(sauce)

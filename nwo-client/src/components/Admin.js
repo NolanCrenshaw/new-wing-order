@@ -30,6 +30,7 @@ const Admin = () => {
     setDashboardScreen(`${element}`);
   };
 
+  // Logout Function
   const logout = () => {
     window.localStorage.removeItem("auth_token");
     setIsLoggedIn(false);
