@@ -660,9 +660,21 @@ a {
   width: 100%;
 }
 
-.login_form-container form .form_element label {
+.login_form-container form .form_element div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.login_form-container form .form_element div label {
+  margin-right: 0.5rem;
   font-size: 2rem;
   font-weight: 400;
+}
+
+.login_form-container form .form_element div p {
+  color: red;
+  font-size: 1rem;
 }
 
 .login_form-container form .form_element input {
@@ -672,10 +684,20 @@ a {
   padding: 0 0.5rem;
 }
 
+.login_form-container form span {
+  height: 2.75rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: start;
+}
+
 .login_form-container form button {
   height: 4rem;
   width: 100%;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   background-color: #ffb002;
   font-size: 1.8rem;
   font-weight: 600;

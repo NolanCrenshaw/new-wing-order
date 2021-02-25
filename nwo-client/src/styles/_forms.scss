@@ -197,9 +197,17 @@
     .form_element {
       width: 100%;
 
-      label {
-        font-size: 2rem;
-        font-weight: 400;
+      div {
+        display: flex;
+        label {
+          margin-right: 0.5rem;
+          font-size: 2rem;
+          font-weight: 400;
+        }
+        p {
+          color: red;
+          font-size: 1rem;
+        }
       }
 
       input {
@@ -209,10 +217,20 @@
         padding: 0 0.5rem;
       }
     }
+    span {
+      height: 2.75rem;
+      width: 100%;
+      padding: 0.5rem 0;
+
+      color: red;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: start;
+    }
     button {
       height: 4rem;
       width: 100%;
-      margin: 1rem 0;
+      margin: 0.5rem 0;
 
       background-color: rgb(255, 176, 2);
       font-size: 1.8rem;

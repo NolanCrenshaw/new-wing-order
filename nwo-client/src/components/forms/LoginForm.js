@@ -53,15 +53,12 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
         body: JSON.stringify(submittedData),
       });
       if (!res.ok) {
-        // -- TODO -- Error Handling
-        console.log("login res failure", res.status);
+        setLoginError("Login Failed");
       } else {
-        // <"auth_token"> Storage
         const json = await res.json();
-        if (json.auth_token !== undefined) {
-          window.localStorage.setItem("auth_token", json.auth_token);
-          setLoginAttempt(loginAttempt++);
-        }
+        window.localStorage.setItem("auth_token", json.auth_token);
+        setLoginError("");
+        setLoginAttempt(loginAttempt++);
       }
     };
     if (submittedData.username !== undefined) {
@@ -89,6 +86,7 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
             </div>
           );
         })}
+        <span>{loginError}</span>
         <button id="login_button" type="submit">
           Log In
         </button>

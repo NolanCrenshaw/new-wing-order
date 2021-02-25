@@ -27,55 +27,28 @@ def verify_password(password, hashed_password):
         return False
 
 
-# CORS Preflight Header Handling
-def cors_preflight_res():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
-
-
 # Routes
-@auth.route("/login", methods=["POST", "OPTIONS"])
+@auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
+    print(f"DATA! ~~ {data}")
 
-    # CORS Preflight Handling
-    if request.method == "OPTIONS":
-        return cors_preflight_res()
+    username = data["username"]
+    password = data["password"]
 
-    elif request.method == "POST":
-        # Request Handling
-        try:
-            username = data["username"]
-            password = data["password"]
+    admin = Admin.query.filter_by(username=username).first()
 
-            # Empty Value Validation
-            if not username:
-                return jsonify(message="Username Required"), 401
-            elif not password:
-                return jsonify(message="Password Required"), 401
+    # Empty Query Return Validation
+    if not admin:
+        return jsonify(message="Username Not Valid"), 401
 
-            # Query Admin Obj
-            admin = Admin.query.filter_by(username=username).first()
-
-            # Empty Query Return Validation
-            if not admin:
-                return jsonify(message="Username Not Valid"), 401
-
-            # Correct Password Validation
-            verified = verify_password(password, admin.hashed_password)
-            if not verified:
-                return jsonify(message="Incorrect Password"), 401
-            else:
-                auth_token = create_access_token(
-                    identity={"username": admin.username}
-                )
-            return jsonify(auth_token=auth_token), 200
-
-        except Exception:
-            return jsonify(message="Log In Failed"), 400
+    # Correct Password Validation
+    verified = verify_password(password, admin.hashed_password)
+    if not verified:
+        return jsonify(message="Incorrect Password"), 401
+    else:
+        auth_token = create_access_token(admin.username)
+    return jsonify(auth_token=auth_token), 200
 
 
 @auth.route("/", methods=["GET"])
