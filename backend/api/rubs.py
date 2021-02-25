@@ -8,15 +8,24 @@ rub = Blueprint("rubs", __name__)
 
 
 @rub.route("/", methods=["GET"])
-def get_rubs():
-    try:
+def handle_rubs():
+
+    # Fetch Rubs
+    if request.method == "GET":
         rub_objects = Rub.query.all()
         rubs = []
         for obj in rub_objects:
             rubs.append(obj.to_dict())
         return jsonify(rubs=rubs), 200
-    except Exception:
-        return jsonify(message="rub GET Request Failure"), 400
+
+    # Create Rub
+    if request.method == "POST":
+        rub_object = request.get_json()
+        rub = Rub(
+            name=rub["name"],
+            heat=rub["heat"],
+        )
+        return jsonify(message="/rubs POST success"), 200
 
 
 @rub.route("/", methods=["POST"])

@@ -7,10 +7,11 @@ from ..models import db, Sauce
 sauce = Blueprint("sauces", __name__)
 
 
-@sauce.route("/", methods=["GET"])
+@sauce.route("/", methods=["GET", "POST"])
 @jwt_required()
-def get_sauces():
+def handle_sauces():
 
+    # Fetch Sauces
     if request.method == "GET":
         sauce_objects = Sauce.query.all()
         sauces = []
@@ -18,10 +19,11 @@ def get_sauces():
             sauces.append(obj.to_dict())
         return jsonify(sauces=sauces), 200
 
+    # Create Sauce
     if request.method == "POST":
         sauce_object = request.get_json()
         sauce = Sauce(
             name=sauce["name"],
             heat=sauce["heat"],
         )
-        return jsonify(message="Sauce POST Request Successful"), 200
+        return jsonify(message="/sauces POST success"), 200
