@@ -7,7 +7,7 @@ from ..models import db, Menu_Item
 menu_item = Blueprint("menu_items", __name__)
 
 
-# Unprotected Fetch Route
+# Unprotected
 @menu_item.route("/", methods=["GET"])
 def get_menu_items():
     # Fetch Menu Items

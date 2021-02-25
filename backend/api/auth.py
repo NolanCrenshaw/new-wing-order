@@ -7,19 +7,21 @@ from flask_jwt_extended import (
 from flask_cors import cross_origin
 import bcrypt
 
-
 from ..models import db, Admin
 
+
 auth = Blueprint("auth", __name__)
+key = os.environ["GOOGLE_API_KEY"]
 
 
-# Password Functions
+# Set Password Function
 def set_password(password):
     hashed_password = bcrypt.hashpw(
         password.encode("utf-*"), bcrypt.gensalt())
     return hashed_password
 
 
+# Verify Password Function
 def verify_password(password, hashed_password):
     if bcrypt.checkpw(password.encode("utf-8"), hashed_password):
         return True
@@ -27,6 +29,7 @@ def verify_password(password, hashed_password):
         return False
 
 
+# Unprotected
 @auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -48,7 +51,16 @@ def login():
 @auth.route("/", methods=["GET"])
 @jwt_required()
 def check_token():
+    # Verify Auth Token
     auth_token = get_jwt_identity()
     admin = Admin.query.filter_by(username=auth_token).first()
     safe_admin = admin.to_safe_object()
     return jsonify(admin=safe_admin), 200
+
+
+# Unprotected
+# ~~ TODO ~~
+@event.route("/key", method=["GET"])
+def get_key():
+    # Fetch Google API Key from Server
+    return jsonify(key=key), 200
