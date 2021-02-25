@@ -30,6 +30,11 @@ const Admin = () => {
     setDashboardScreen(`${element}`);
   };
 
+  const logout = () => {
+    window.localStorage.removeItem("auth_token");
+    setIsLoggedIn(false);
+  };
+
   // Login Control
   useEffect(() => {
     const token = window.localStorage.getItem("auth_token");
@@ -151,7 +156,7 @@ const Admin = () => {
     <div className="admin-container" id="admin">
       {!isLoggedIn ? (
         <LoginForm
-          setLoginAttempt={setLoginAttempt}
+          setLoginAttempt={() => setLoginAttempt()}
           loginAttempt={loginAttempt}
         />
       ) : (
@@ -176,7 +181,7 @@ const Admin = () => {
             >
               Sauces
             </motion.li>
-            <h3>{`Welcome ${user}`}</h3>
+            <h3>{`Welcome ${user.username}`}</h3>
           </nav>
           <section className={eventControl}>
             <h2 className="admin_list_title">Events</h2>
