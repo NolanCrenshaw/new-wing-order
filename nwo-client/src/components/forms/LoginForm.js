@@ -56,7 +56,7 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
         const json = await res.json();
         window.localStorage.setItem("auth_token", json.auth_token);
         setLoginError("");
-        setLoginAttempt(loginAttempt++);
+        setLoginAttempt(!loginAttempt);
       }
     };
     if (submittedData.username !== undefined) {

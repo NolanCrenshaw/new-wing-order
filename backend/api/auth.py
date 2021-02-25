@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, request, jsonify, make_response
 from flask_jwt_extended import (
     create_access_token,
@@ -60,7 +61,7 @@ def check_token():
 
 # Unprotected
 # ~~ TODO ~~
-@event.route("/key", method=["GET"])
+@auth.route("/key", methods=["GET"])
 def get_key():
     # Fetch Google API Key from Server
     return jsonify(key=key), 200
