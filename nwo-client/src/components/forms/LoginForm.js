@@ -1,7 +1,43 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { BASE_URL } from "../../config";
 
+const content = {
+  inputs: [
+    {
+      label: "Email",
+      name: "email",
+      type: "email",
+    },
+    {
+      label: "Password",
+      name: "password",
+      type: "password",
+    },
+  ],
+};
+
+const schema = yup.object().shape({
+  email: yup.string().required().max(30).email(),
+  password: yup.string().required().min(6).max(25),
+});
+
 const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
+  // Data State
+  const [submittedData, setSubmittedData] = useState({});
+
+  // React Hook Form Ctrl w/ Yup Validation
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    setSubmittedData(data);
+    e.target.reset();
+  };
+
   // State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -37,9 +73,25 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
 
   return (
     <div className="login_form-container">
-      <form className="login_form" onSubmit={logInUser}>
-        <h1>Admin Login</h1>
-        <input
+      <h1>Admin Login</h1>
+      <form className="login_form" onSubmit={handleSubmit(onSubmit)}>
+        {content.inputs.map((input, key) => {
+          return (
+            <div className="form_element" key={key}>
+              <div>
+                <label>{input.label}</label>
+                <p>{errors[input.name]?.message}</p>
+              </div>
+              <input
+                name={input.name}
+                type={input.type}
+                ref={register}
+                placeholder={input.label}
+              />
+            </div>
+          );
+        })}
+        {/* <input
           id="login_username"
           name="username"
           type="text"
@@ -54,7 +106,7 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
           value={password}
           onChange={handlePassword}
           placeholder="Password"
-        />
+        /> */}
         <button id="login_button" type="submit">
           Log In
         </button>

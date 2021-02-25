@@ -179,8 +179,14 @@
   margin-top: 10rem;
   padding: 1rem;
 
-  border-radius: 12px;
-  background-color: black;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.747);
+
+  h1 {
+    margin: 1rem 0;
+    color: black;
+    text-shadow: 1px 1px 2px white;
+  }
 
   form {
     display: flex;
@@ -188,27 +194,37 @@
     justify-content: flex-start;
     align-items: center;
 
-    h1 {
-      color: white;
-    }
-    input {
-      height: 4rem;
+    .form_element {
       width: 100%;
-      margin: 0.2rem;
+
+      label {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      input {
+        height: 4rem;
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0 0.5rem;
+      }
     }
     button {
       height: 4rem;
       width: 100%;
+      margin: 1rem 0;
 
+      background-color: rgb(255, 176, 2);
       font-size: 1.8rem;
       font-weight: 600;
       cursor: pointer;
 
-      box-shadow: inset 1px 1px 5px white;
+      border: 2px solid rgb(200, 150, 0);
 
       &:hover {
         background-color: $_gray;
         color: white;
+        border: 2px solid white;
       }
     }
   }
