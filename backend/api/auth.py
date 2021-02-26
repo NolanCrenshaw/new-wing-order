@@ -37,7 +37,7 @@ def login():
     username = data["username"]
     password = data["password"]
 
-    admin = Admin.query.filter_by(username=username).first()
+    admin = Admin.query.filter_by(username=username).first_or_404()
     if not admin:
         return jsonify(message="Username Not Valid"), 401
 
@@ -54,7 +54,7 @@ def login():
 def check_token():
     # Verify Auth Token
     auth_token = get_jwt_identity()
-    admin = Admin.query.filter_by(username=auth_token).first()
+    admin = Admin.query.filter_by(username=auth_token).first_or_404()
     safe_admin = admin.to_safe_object()
     return jsonify(admin=safe_admin), 200
 

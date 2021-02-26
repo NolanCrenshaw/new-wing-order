@@ -2,16 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { DateTime } from "luxon";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
-
-// import DatePicker from "react-modern-calendar-datepicker";
-// import "react-modern-calendar-datepicker/lib/DatePicker.css";
-// import TimeKeeper from "react-timekeeper";
 import { BASE_URL } from "../../config";
 
 const content = {
@@ -77,10 +71,10 @@ const EventForm = () => {
         body: JSON.stringify(data),
       });
       if (!res.ok) {
-        // -- TODO -- handling
-        console.log("createEvent failure");
+        let json = res.json();
+        console.log(`createEvent failure: ${json.message}`);
       } else {
-        console.log("createEvent success");
+        console.log(`createEvent success`);
       }
     };
     if (submittedData.location !== undefined) {

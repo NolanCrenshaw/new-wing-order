@@ -37,7 +37,7 @@ def create_menu_item():
 def delete_menu_item():
     # Delete Menu Item
     data = request.get_json()
-    menu_item = Menu_Item.query.filter_by(id=data["id"]).first()
+    menu_item = Menu_Item.query.filter_by(id=data["id"]).first_or_404()
     db.session.delete(menu_item)
     db.session.commit()
     return jsonify(message="/menu_items POST success"), 200

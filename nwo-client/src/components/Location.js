@@ -89,7 +89,7 @@ const Location = () => {
       }
     };
     getEvents();
-    fetchKey();
+    // fetchKey();
   }, []);
 
   // Handles MapBox elements from Event List
