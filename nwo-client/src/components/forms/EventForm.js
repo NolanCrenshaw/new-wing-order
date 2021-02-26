@@ -58,7 +58,6 @@ const EventForm = () => {
 
   // Data State
   const [submittedData, setSubmittedData] = useState({});
-  // const [dateVal, setDateVal] = useState(new Date());
 
   // React Hook Form Setup w/ Yup Validation
   const { register, handleSubmit, errors, control } = useForm({
@@ -66,43 +65,14 @@ const EventForm = () => {
     resolver: yupResolver(schema),
   });
 
-  // Form Submit Control Function
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    setSubmittedData(data);
-    e.target.reset();
-  };
-
-  // const splitStartTime = startTime.split(":");
-  // const splitEndTime = endTime.split(":");
-
-  // const event_obj = {
-  //   location: location,
-  //   address: address,
-  //   startTime: DateTime.fromObject({
-  //     year: dateChoice.year,
-  //     month: dateChoice.month,
-  //     day: dateChoice.day,
-  //     hour: splitStartTime[0],
-  //     minute: splitStartTime[1],
-  //   }).toISO(),
-  //   endTime: DateTime.fromObject({
-  //     year: dateChoice.year,
-  //     month: dateChoice.month,
-  //     day: dateChoice.day,
-  //     hour: splitEndTime[0],
-  //     minute: splitEndTime[1],
-  //   }).toISO(),
-  // };
   useEffect(() => {
-    const token = window.localStorage.getItem("auth_token");
-    const createEvent = async (tk, data) => {
+    const createEvent = async (data) => {
       const res = await fetch(`${BASE_URL}/api/events/`, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${tk}`,
+          Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
         },
         body: JSON.stringify(data),
       });
@@ -113,7 +83,17 @@ const EventForm = () => {
         console.log("createEvent success");
       }
     };
-  }, []);
+    if (submittedData.location !== undefined) {
+      createEvent(submittedData);
+    }
+  }, [submittedData]);
+
+  // Form Submit Control Function
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    setSubmittedData(data);
+    e.target.reset();
+  };
 
   // Render
   return (

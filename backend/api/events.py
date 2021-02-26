@@ -20,7 +20,7 @@ def get_events():
 
 
 @event.route("/", methods=["POST"])
-@jwt_required
+@jwt_required()
 def create_event():
     # Create Event
     event_object = request.get_json()
