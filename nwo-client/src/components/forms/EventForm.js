@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { DateTime } from "luxon";
 
-import DatePicker from "react-datepicker";
+import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 // import DatePicker from "react-modern-calendar-datepicker";
@@ -25,13 +25,19 @@ const content = {
       type: "text",
     },
   ],
+  dateSelect: [
+    {
+      label: "Select Date",
+      name: "date",
+    },
+  ],
 };
 
 const schema = yup.object().shape({
   location: yup.string().required().min(4).max(30),
   address: yup.string().required().min(4).max(30),
+  date: yup.date().required(),
 });
-
 const EventForm = () => {
   const [submitError, setSubmitError] = useState("");
   const [dateError, setDateError] = useState("");
@@ -54,10 +60,10 @@ const EventForm = () => {
 
   // Form Submit Control Function
   const onSubmit = (data, e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // const dateCheck = validateDate(dateVal);
     // dateCheck ? setDateError("True") : setDateError("False");
-    // setSubmittedData(data);
+    setSubmittedData(data);
     e.target.reset();
   };
 
@@ -127,7 +133,6 @@ const EventForm = () => {
   // Render
   return (
     <div className="event_form-container">
-      {/* <h2>Create New Event</h2> */}
       <form className="event_form" onSubmit={handleSubmit(onSubmit)}>
         {content.inputs.map((input, key) => {
           return (
@@ -145,18 +150,31 @@ const EventForm = () => {
             </div>
           );
         })}
-        <div className="form_element">
-          <div className="form_label-box">
-            <label>Select Date</label>
-            <p>{dateError}</p>
-          </div>
-          <DatePicker
-            name="date"
-            selected={dateVal}
-            onSelect={(date) => setDateVal(date)}
-            onChange={(date) => setDateVal(date)}
-          />
-        </div>
+        {content.dateSelect.map((input, key) => {
+          return (
+            <div className="form_element">
+              <div className="form_label-box">
+                <label>{input.label}</label>
+                <p>{errors[input.name]?.message}</p>
+              </div>
+              <Controller
+                control={control}
+                name={input.name}
+                render={(props) => (
+                  <ReactDatePicker
+                    placeholderText="Select Trip Date"
+                    selected={props.value}
+                    onChange={(e) => props.onChange(e)}
+                    onSelect={(e) => props.onChange(e)}
+                  />
+                )}
+              />
+            </div>
+          );
+        })}
+        <button id="create_event-button" type="submit">
+          Create Event
+        </button>
       </form>
       {/* <div className="form-inputs">
         <div className="event-datebox">
@@ -183,9 +201,6 @@ const EventForm = () => {
           </div>
         </div>
       </div> */}
-      <button id="create_event-button" type="submit">
-        Create Event
-      </button>
     </div>
   );
 };
