@@ -10,7 +10,7 @@ class Config:
 
     # Cors
     CORS_HEADER = "Content-Type"
-    CORS_RESOURCES = {r"*": {"origins": "*"}}
+    # CORS_RESOURCES = {r"*": {"origins": "*"}}
 
     # Key Variables
     SECRET_KEY = os.environ.get("SECRET_KEY")
