@@ -2308,11 +2308,13 @@ a {
 }
 
 .admin-container nav ul li {
+  height: 40px;
   margin: 0 0.5rem;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   list-style: none;
+  color: white;
   font-weight: 600;
-  background-color: white;
+  background-color: #9e0000;
   border: 2px solid black;
   border-radius: 4px;
   cursor: pointer;
