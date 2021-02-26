@@ -39,3 +39,14 @@ def create_event():
     db.session.add(event)
     db.session.commit()
     return jsonify(message="Event POST Request Successful"), 200
+
+
+@event.route("/delete", methods=["DELETE"])
+@jwt_required()
+def delete_event():
+    # DELETE Event
+    data = request.get_json()
+    event = Event.query.filter_by(id=data["id"]).first()
+    db.session.delete(event)
+    db.session.commit()
+    return jsonify(message="/event DELETE success"), 200
