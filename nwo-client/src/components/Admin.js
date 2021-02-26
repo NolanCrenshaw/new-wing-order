@@ -6,8 +6,9 @@ import EventCard from "./cards/EventCard";
 import MenuItemCard from "./cards/MenuItemCard";
 import SauceCard from "./cards/SauceCard";
 
-import EventForm from "./forms/EventForm";
 import LoginForm from "./forms/LoginForm";
+import EventForm from "./forms/EventForm";
+import MenuItemForm from "./forms/MenuItemForm";
 
 const Admin = () => {
   // Controls State
@@ -195,6 +196,7 @@ const Admin = () => {
                   {events.map((event, key) => (
                     <li className="admin-card-wrapper" key={key}>
                       <EventCard event={event} />
+                      <button onClick={event.id} />
                     </li>
                   ))}
                 </ul>
