@@ -22,24 +22,24 @@ const content = {
       type: "text",
     },
     {
-      label: "Street Address",
+      label: "Address",
       name: "address",
       type: "text",
     },
   ],
   dateSelect: [
     {
-      label: "Select Date",
+      label: "Event Date",
       name: "date",
     },
   ],
   timeSelect: [
     {
-      label: "Select Start Time",
+      label: "Start Time",
       name: "startTime",
     },
     {
-      label: "Select End Time",
+      label: "End Time",
       name: "endTime",
     },
   ],
@@ -66,43 +66,12 @@ const EventForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const validateDate = (value) => {
-    const now = DateTime.local();
-    const selectedDate = DateTime.fromObject(value);
-    return now < selectedDate;
-  };
-
   // Form Submit Control Function
   const onSubmit = (data, e) => {
-    // e.preventDefault();
-    // const dateCheck = validateDate(dateVal);
-    // dateCheck ? setDateError("True") : setDateError("False");
+    e.preventDefault();
     setSubmittedData(data);
     e.target.reset();
   };
-
-  // // State
-  // const [location, setLocation] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [dateChoice, setDateChoice] = useState(new Date());
-  // const [startTime, setStartTime] = useState(DateTime.local());
-  // const [endTime, setEndTime] = useState(DateTime.local());
-
-  // // Input Handlers
-  // const updateLocation = (e) => setLocation(e.target.value);
-  // const updateAddress = (e) => setAddress(e.target.value);
-
-  // Restore Default States
-  // const stateRestore = () => {
-  //   setLocation("");
-  //   setAddress("");
-  //   setDateChoice(null);
-  //   setStartTime(DateTime.local());
-  //   setEndTime(DateTime.local());
-  // };
-
-  // const submitEvent = async (e) => {
-  //   e.preventDefault();
 
   //   const token = window.localStorage.getItem("auth_token");
   //   const splitStartTime = startTime.split(":");
@@ -147,7 +116,7 @@ const EventForm = () => {
   // Render
   return (
     <div className="event_form-container">
-      <form className="event_form" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {content.inputs.map((input, key) => {
           return (
             <div className="form_element" key={key}>
@@ -176,7 +145,7 @@ const EventForm = () => {
                 name={input.name}
                 render={(props) => (
                   <DatePicker
-                    placeholderText="Select Trip Date"
+                    placeholderText="Select Event Date"
                     selected={props.value}
                     onChange={(e) => props.onChange(e)}
                     onSelect={(e) => props.onChange(e)}
@@ -211,31 +180,6 @@ const EventForm = () => {
           Create Event
         </button>
       </form>
-      {/* <div className="form-inputs">
-        <div className="event-datebox">
-          <label>Select Date</label>
-        </div>
-        <div className="event-timebox">
-          <div className="event-timebox_timepick-container">
-            <label>Select Start Time</label>
-            <TimeKeeper
-              time={startTime}
-              onChange={(t) => setStartTime(t.formatted24)}
-              coarseMinutes={15}
-              forceCoarseMinutes
-            />
-          </div>
-          <div className="event-timebox_timepick-container">
-            <label>Select End Time</label>
-            <TimeKeeper
-              time={endTime}
-              onChange={(t) => setEndTime(t.formatted24)}
-              coarseMinutes={15}
-              forceCoarseMinutes
-            />
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

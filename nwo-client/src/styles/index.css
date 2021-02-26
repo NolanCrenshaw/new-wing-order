@@ -452,20 +452,20 @@ a {
   color: #272727;
 }
 
-.event_form-container .event_form {
+.event_form-container form {
   height: 100%;
   width: 100%;
 }
 
 .event_form-container #create_event-button {
   height: 4rem;
-  width: 12rem;
+  width: 14rem;
   margin: 2rem 0;
   color: white;
   font-weight: 600;
   background-color: #cf2525;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2), 2rem 2rem 5rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2), 2rem 2rem 5rem rgba(0, 0, 0, 0.2);
   cursor: pointer;
