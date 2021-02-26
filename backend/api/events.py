@@ -1,6 +1,7 @@
 from ..models import db, Event
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
+import geocoder
 
 from ..models import db, Event
 
@@ -24,13 +25,16 @@ def get_events():
 def create_event():
     # Create Event
     event_object = request.get_json()
+    g = geocoder.google(event_object["address"])
+    lat = round(g.latlng[0], 5)
+    lng = round(g.latlng[1], 5)
     event = Event(
         address=event_object["address"],
         location_name=event_object["location"],
-        # geo_lat=event_object["geoLat"],
-        # geo_lng=event_object["geoLng"],
         start_time=event_object["startTime"],
         end_time=event_object["endTime"],
+        geo_lat=lat,
+        geo_lng=lng,
     )
     db.session.add(event)
     db.session.commit()
