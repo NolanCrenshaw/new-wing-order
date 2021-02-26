@@ -622,17 +622,24 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form_element .form_label-box label {
-  margin-right: 0.5rem;
+  width: 50%;
   font-size: 2rem;
   font-weight: 400;
 }
 
 .form_element .form_label-box p {
-  color: red;
+  width: 50%;
+  margin-right: 0.5rem;
+  color: #9b0101;
+  text-align: end;
   font-size: 1rem;
+  font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -644,11 +651,19 @@ a {
           align-items: center;
 }
 
+.form_element input {
+  height: 4rem;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0 0.5rem;
+}
+
 .form_element .react-datepicker-wrapper {
+  height: auto;
   width: 100%;
 }
 
-.form_element input {
+.form_element .react-datepicker-wrapper .react-datepicker__input-container input {
   height: 4rem;
   width: 100%;
   margin: 0.5rem 0;

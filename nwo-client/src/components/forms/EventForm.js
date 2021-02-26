@@ -4,8 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { DateTime } from "luxon";
 
-import DateInput from "./DateInput";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -27,13 +25,6 @@ const content = {
       type: "text",
     },
   ],
-  dateTime: [
-    {
-      label: "Select Date",
-      name: "date",
-      type: "text",
-    },
-  ],
 };
 
 const schema = yup.object().shape({
@@ -43,15 +34,11 @@ const schema = yup.object().shape({
 
 const EventForm = () => {
   const [submitError, setSubmitError] = useState("");
+  const [dateError, setDateError] = useState("");
 
   // Data State
   const [submittedData, setSubmittedData] = useState({});
-
-  // Controlled Component State
   const [dateVal, setDateVal] = useState(new Date());
-
-  // Controlled Component Handlers
-  const dateValHandler = (e) => setDateVal(e.target.value);
 
   // React Hook Form Setup w/ Yup Validation
   const { register, handleSubmit, errors, control } = useForm({
@@ -59,10 +46,18 @@ const EventForm = () => {
     resolver: yupResolver(schema),
   });
 
+  const validateDate = (value) => {
+    const now = DateTime.local();
+    const selectedDate = DateTime.fromObject(value);
+    return now < selectedDate;
+  };
+
   // Form Submit Control Function
   const onSubmit = (data, e) => {
     e.preventDefault();
-    setSubmittedData(data);
+    // const dateCheck = validateDate(dateVal);
+    // dateCheck ? setDateError("True") : setDateError("False");
+    // setSubmittedData(data);
     e.target.reset();
   };
 
@@ -150,42 +145,18 @@ const EventForm = () => {
             </div>
           );
         })}
-        <DatePicker
-          name="date"
-          selected={dateVal}
-          onSelect={(date) => setDateVal(date)}
-          onChange={(date) => setDateVal(date)}
-        />
-        {/* {content.dateTime.map((input, key) => {
-          return (
-            <div className="form_element" key={key}>
-              <div className="form_label-box">
-                <label>{input.label}</label>
-                <p>{errors[input.name]?.message}</p>
-              </div>
-              <Controller
-                name={input.name}
-                value={dateVal}
-                control={control}
-                onChange={dateValHandler}
-                defaultValue={dateVal}
-                type={input.type}
-                // ref={register}
-                render={(
-                  { onChange, onBlur, value, name, ref },
-                  { invalid, isTouched, isDirty }
-                ) => (
-                  <DatePicker
-                    name={name}
-                    value={value}
-                    onChange={onChange}
-                    ref={register}
-                  />
-                )}
-              />
-            </div>
-          );
-        })} */}
+        <div className="form_element">
+          <div className="form_label-box">
+            <label>Select Date</label>
+            <p>{dateError}</p>
+          </div>
+          <DatePicker
+            name="date"
+            selected={dateVal}
+            onSelect={(date) => setDateVal(date)}
+            onChange={(date) => setDateVal(date)}
+          />
+        </div>
       </form>
       {/* <div className="form-inputs">
         <div className="event-datebox">
