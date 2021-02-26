@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -73,45 +73,47 @@ const EventForm = () => {
     e.target.reset();
   };
 
-  //   const token = window.localStorage.getItem("auth_token");
-  //   const splitStartTime = startTime.split(":");
-  //   const splitEndTime = endTime.split(":");
+  // const splitStartTime = startTime.split(":");
+  // const splitEndTime = endTime.split(":");
 
-  //   const event_obj = {
-  //     location: location,
-  //     address: address,
-  //     startTime: DateTime.fromObject({
-  //       year: dateChoice.year,
-  //       month: dateChoice.month,
-  //       day: dateChoice.day,
-  //       hour: splitStartTime[0],
-  //       minute: splitStartTime[1],
-  //     }).toISO(),
-  //     endTime: DateTime.fromObject({
-  //       year: dateChoice.year,
-  //       month: dateChoice.month,
-  //       day: dateChoice.day,
-  //       hour: splitEndTime[0],
-  //       minute: splitEndTime[1],
-  //     }).toISO(),
-  //   };
-
-  //   const res = await fetch(`${BASE_URL}/api/events/`, {
-  //     method: "POST",
-  //     mode: "cors",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify(event_obj),
-  //   });
-  //   if (!res.ok) {
-  //     // -- TODO -- handling
-  //     console.log("submitEvent res failure", res);
-  //   } else {
-  //     stateRestore();
-  //   }
+  // const event_obj = {
+  //   location: location,
+  //   address: address,
+  //   startTime: DateTime.fromObject({
+  //     year: dateChoice.year,
+  //     month: dateChoice.month,
+  //     day: dateChoice.day,
+  //     hour: splitStartTime[0],
+  //     minute: splitStartTime[1],
+  //   }).toISO(),
+  //   endTime: DateTime.fromObject({
+  //     year: dateChoice.year,
+  //     month: dateChoice.month,
+  //     day: dateChoice.day,
+  //     hour: splitEndTime[0],
+  //     minute: splitEndTime[1],
+  //   }).toISO(),
   // };
+  useEffect(() => {
+    const token = window.localStorage.getItem("auth_token");
+    const createEvent = async (tk, data) => {
+      const res = await fetch(`${BASE_URL}/api/events/`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tk}`,
+        },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        // -- TODO -- handling
+        console.log("createEvent failure");
+      } else {
+        console.log("createEvent success");
+      }
+    };
+  }, []);
 
   // Render
   return (
