@@ -6,12 +6,13 @@ import EventCard from "./cards/EventCard";
 import MenuItemCard from "./cards/MenuItemCard";
 import SauceCard from "./cards/SauceCard";
 
-import EventForm from "./forms/EventForm";
 import LoginForm from "./forms/LoginForm";
+import EventForm from "./forms/EventForm";
+import MenuItemForm from "./forms/MenuItemForm";
 
 const Admin = () => {
   // Controls State
-  const [loginAttempt, setLoginAttempt] = useState(0);
+  const [loginAttempt, setLoginAttempt] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({ username: "default" });
   const [dashboardScreen, setDashboardScreen] = useState("event");
@@ -156,10 +157,7 @@ const Admin = () => {
   return (
     <div className="admin-container" id="admin">
       {!isLoggedIn ? (
-        <LoginForm
-          setLoginAttempt={() => setLoginAttempt()}
-          loginAttempt={loginAttempt}
-        />
+        <LoginForm setLoginAttempt={() => setLoginAttempt(!loginAttempt)} />
       ) : (
         <>
           <nav>
@@ -191,13 +189,14 @@ const Admin = () => {
           </nav>
           <body>
             <section className={eventControl}>
-              <h2>Events</h2>
+              <h2 className="admin-section_title">Events</h2>
               <div className="admin-screen">
                 <EventForm />
                 <ul>
                   {events.map((event, key) => (
                     <li className="admin-card-wrapper" key={key}>
                       <EventCard event={event} />
+                      <button onClick={event.id} />
                     </li>
                   ))}
                 </ul>
@@ -205,31 +204,35 @@ const Admin = () => {
             </section>
             <section className={menuControl}>
               <h2 className="admin_list_title">Menu Items</h2>
-              <ul>
-                {menuItems.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <MenuItemCard item={item} />
-                  </li>
-                ))}
-              </ul>
+              <div classname="admin-screen">
+                <ul>
+                  {menuItems.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <MenuItemCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </section>
             <section className={sauceControl}>
               <h2 className="admin_list_title">Sauces</h2>
-              <ul>
-                {sauces.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <SauceCard item={item} />
-                  </li>
-                ))}
-              </ul>
-              <h2 className="admin_list_title">Dry Rubs</h2>
-              <ul>
-                {rubs.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <SauceCard item={item} />
-                  </li>
-                ))}
-              </ul>
+              <div classname="admin-screen">
+                <ul>
+                  {sauces.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <SauceCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+                <h2 className="admin_list_title">Dry Rubs</h2>
+                <ul>
+                  {rubs.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <SauceCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </section>
           </body>
         </>

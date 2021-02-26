@@ -235,12 +235,13 @@
         font-size: 1.2rem;
       }
       div {
+        display: flex;
+        flex-direction: column;
         span:nth-child(1) {
           font-size: 1rem;
         }
         span:nth-child(2) {
           font-size: 1.2rem;
-          margin-left: 0.5rem;
         }
       }
     }
@@ -257,6 +258,7 @@
     }
     .event-card_timebox {
       padding: 0.5rem;
+      margin-right: 1rem;
       div {
         span {
           font-size: 1.2rem;

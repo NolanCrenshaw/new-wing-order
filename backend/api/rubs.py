@@ -35,7 +35,7 @@ def create_rub():
 def delete_rub():
     # Delete Rub
     data = request.get_json()
-    rub = Rub.query.filter_by(id=data["id"]).first()
+    rub = Rub.query.filter_by(id=data["id"]).first_or_404()
     db.session.delete(rub)
     db.session.commit()
     return jsonify(message="/rubs DELETE success"), 200
