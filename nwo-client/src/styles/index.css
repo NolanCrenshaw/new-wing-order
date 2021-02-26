@@ -437,7 +437,7 @@ a {
   font-weight: 400;
 }
 
-.event_form-container {
+.form-container {
   height: 100%;
   width: 45%;
   padding: 1rem;
@@ -458,19 +458,19 @@ a {
           align-items: center;
 }
 
-.event_form-container h2 {
+.form-container h2 {
   margin-top: 1rem;
   color: white;
 }
 
-.event_form-container form {
+.form-container form {
   padding: 2rem 1rem;
   height: 100%;
   max-width: 400px;
   width: 100%;
 }
 
-.event_form-container .submit-box {
+.form-container .submit-box {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -483,20 +483,7 @@ a {
           align-items: center;
 }
 
-.event_form-container .submit-box p {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.event_form-container .submit-box .submit--failure {
-  color: red;
-}
-
-.event_form-container .submit-box .submit--success {
-  color: green;
-}
-
-.event_form-container #create_event-button {
+.form-container .submit-box button {
   height: 4rem;
   width: 14rem;
   margin: 2rem 0;
@@ -512,86 +499,22 @@ a {
   transition: all ease 0.5s;
 }
 
-.event_form-container #create_event-button:hover {
+.form-container .submit-box button:hover {
   color: black;
   background-color: rgba(5, 255, 59, 0.3);
 }
 
-.contact_form-container {
-  height: 100%;
-  width: 100%;
-  padding: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.contact_form-container input {
-  height: 5rem;
-  width: 99%;
-  margin: 0.5rem 0;
-  padding: 1rem;
+.form-container .submit-box p {
   font-size: 1.5rem;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
 }
 
-.contact_form-container textarea {
-  height: 20rem;
-  width: 99%;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  color: black;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.8);
+.form-container .submit-box .submit--failure {
+  color: red;
 }
 
-.contact_form-container div {
-  width: 99%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.contact_form-container div:nth-child(1) input {
-  width: 49%;
-}
-
-.contact_form-container div:nth-child(4) {
-  margin-top: 1rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.contact_form-container div:nth-child(4) button {
-  height: 5rem;
-  width: 45%;
-  background-color: #ffb002;
-  border: 4px solid #c89600;
-  border-radius: 8px;
-  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem rgba(255, 255, 255, 0.2);
-          box-shadow: 0.5rem 0.5rem 0.5rem rgba(255, 255, 255, 0.2);
-  color: #323232;
-  font-size: 2rem;
-  font-weight: 600;
-  cursor: pointer;
+.form-container .submit-box .submit--success {
+  color: green;
 }
 
 .login_form-container {

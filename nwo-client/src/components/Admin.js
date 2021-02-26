@@ -202,31 +202,35 @@ const Admin = () => {
             </section>
             <section className={menuControl}>
               <h2 className="admin_list_title">Menu Items</h2>
-              <ul>
-                {menuItems.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <MenuItemCard item={item} />
-                  </li>
-                ))}
-              </ul>
+              <div classname="admin-screen">
+                <ul>
+                  {menuItems.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <MenuItemCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </section>
             <section className={sauceControl}>
               <h2 className="admin_list_title">Sauces</h2>
-              <ul>
-                {sauces.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <SauceCard item={item} />
-                  </li>
-                ))}
-              </ul>
-              <h2 className="admin_list_title">Dry Rubs</h2>
-              <ul>
-                {rubs.map((item, i) => (
-                  <li className="admin-card-wrapper" key={i}>
-                    <SauceCard item={item} />
-                  </li>
-                ))}
-              </ul>
+              <div classname="admin-screen">
+                <ul>
+                  {sauces.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <SauceCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+                <h2 className="admin_list_title">Dry Rubs</h2>
+                <ul>
+                  {rubs.map((item, i) => (
+                    <li className="admin-card-wrapper" key={i}>
+                      <SauceCard item={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </section>
           </body>
         </>

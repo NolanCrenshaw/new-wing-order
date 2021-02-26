@@ -46,7 +46,9 @@ const schema = yup.object().shape({
   startTime: yup.string().required("A starting time is required"),
   endTime: yup.string().required("An ending time is required"),
 });
+
 const EventForm = () => {
+  // Submit State
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitSuccessClass, setSubmitSuccessClass] = useState(
     "submit--failure"
