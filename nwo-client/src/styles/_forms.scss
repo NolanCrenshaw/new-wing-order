@@ -23,7 +23,7 @@
   #create_event-button {
     height: 4rem;
     width: 12rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
     color: white;
     font-weight: 600;
     background-color: rgb(207, 37, 37);
@@ -36,8 +36,8 @@
 
     &:hover {
       color: black;
-      background-color: rgb(255, 203, 203);
-      border: 4px solid rgb(207, 37, 37);
+      background-color: rgba(5, 255, 59, 0.3);
+      // border: 4px solid rgb(207, 37, 37);
     }
   }
 }
@@ -129,30 +129,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
-    // .form_element {
-    //   width: 100%;
-
-    //   div {
-    //     display: flex;
-    //     label {
-    //       margin-right: 0.5rem;
-    //       font-size: 2rem;
-    //       font-weight: 400;
-    //     }
-    //     p {
-    //       color: red;
-    //       font-size: 1rem;
-    //     }
-    //   }
-
-    //   input {
-    //     height: 4rem;
-    //     width: 100%;
-    //     margin: 0.5rem 0;
-    //     padding: 0 0.5rem;
-    //   }
-    // }
     span {
       height: 2.75rem;
       width: 100%;
@@ -200,10 +176,10 @@
       margin-right: 0.5rem;
       color: rgb(155, 1, 1);
       text-align: end;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 400;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
     }
   }
@@ -228,4 +204,44 @@
       }
     }
   }
+  .react-time-picker {
+    margin-top: 5px;
+    // width: 100%;
+    .react-time-picker__wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+
+      .react-time-picker__inputGroup {
+        padding: 0 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .react-time-picker__inputGroup__hour,
+      .react-time-picker__inputGroup__minute {
+        width: 25px !important;
+        margin: 0;
+        padding: 0 5px;
+        // background-color: salmon;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 1.75rem;
+      }
+      .react-time-picker__inputGroup__divider {
+        width: 8px !important;
+        color: black;
+        font-size: 1.75rem;
+      }
+      .react-time-picker__inputGroup__amPm {
+        width: 50px !important;
+        color: black;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.time_select {
+  margin-top: 5px;
 }

@@ -4,12 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { DateTime } from "luxon";
 
-import ReactDatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TimePicker from "react-time-picker";
+import "react-time-picker/dist/TimePicker.css";
 
 // import DatePicker from "react-modern-calendar-datepicker";
 // import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import TimeKeeper from "react-timekeeper";
+// import TimeKeeper from "react-timekeeper";
 import { BASE_URL } from "../../config";
 
 const content = {
@@ -31,12 +33,24 @@ const content = {
       name: "date",
     },
   ],
+  timeSelect: [
+    {
+      label: "Select Start Time",
+      name: "startTime",
+    },
+    {
+      label: "Select End Time",
+      name: "endTime",
+    },
+  ],
 };
 
 const schema = yup.object().shape({
-  location: yup.string().required().min(4).max(30),
-  address: yup.string().required().min(4).max(30),
-  date: yup.date().required(),
+  location: yup.string().required("A location is required").min(4).max(30),
+  address: yup.string().required("An address is required").min(4).max(30),
+  date: yup.date().required("An event date is required"),
+  startTime: yup.string().required("A starting time is required"),
+  endTime: yup.string().required("An ending time is required"),
 });
 const EventForm = () => {
   const [submitError, setSubmitError] = useState("");
@@ -44,7 +58,7 @@ const EventForm = () => {
 
   // Data State
   const [submittedData, setSubmittedData] = useState({});
-  const [dateVal, setDateVal] = useState(new Date());
+  // const [dateVal, setDateVal] = useState(new Date());
 
   // React Hook Form Setup w/ Yup Validation
   const { register, handleSubmit, errors, control } = useForm({
@@ -152,7 +166,7 @@ const EventForm = () => {
         })}
         {content.dateSelect.map((input, key) => {
           return (
-            <div className="form_element">
+            <div className="form_element " key={key}>
               <div className="form_label-box">
                 <label>{input.label}</label>
                 <p>{errors[input.name]?.message}</p>
@@ -161,11 +175,32 @@ const EventForm = () => {
                 control={control}
                 name={input.name}
                 render={(props) => (
-                  <ReactDatePicker
+                  <DatePicker
                     placeholderText="Select Trip Date"
                     selected={props.value}
                     onChange={(e) => props.onChange(e)}
                     onSelect={(e) => props.onChange(e)}
+                  />
+                )}
+              />
+            </div>
+          );
+        })}
+        {content.timeSelect.map((input, key) => {
+          return (
+            <div className="form_element time_select" key={key}>
+              <div className="form_label-box">
+                <label>{input.label}</label>
+                <p>{errors[input.name]?.message}</p>
+              </div>
+              <Controller
+                control={control}
+                name={input.name}
+                render={(props) => (
+                  <TimePicker
+                    value={props.value}
+                    onChange={(e) => props.onChange(e)}
+                    disableClock={true}
                   />
                 )}
               />

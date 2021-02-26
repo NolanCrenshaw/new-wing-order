@@ -460,7 +460,7 @@ a {
 .event_form-container #create_event-button {
   height: 4rem;
   width: 12rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
   color: white;
   font-weight: 600;
   background-color: #cf2525;
@@ -475,8 +475,7 @@ a {
 
 .event_form-container #create_event-button:hover {
   color: black;
-  background-color: #ffcbcb;
-  border: 4px solid #cf2525;
+  background-color: rgba(5, 255, 59, 0.3);
 }
 
 .contact_form-container {
@@ -638,14 +637,14 @@ a {
   margin-right: 0.5rem;
   color: #9b0101;
   text-align: end;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -668,6 +667,60 @@ a {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0 0.5rem;
+}
+
+.form_element .react-time-picker {
+  margin-top: 5px;
+}
+
+.form_element .react-time-picker .react-time-picker__wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form_element .react-time-picker .react-time-picker__wrapper .react-time-picker__inputGroup {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form_element .react-time-picker .react-time-picker__wrapper .react-time-picker__inputGroup__hour,
+.form_element .react-time-picker .react-time-picker__wrapper .react-time-picker__inputGroup__minute {
+  width: 25px !important;
+  margin: 0;
+  padding: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.75rem;
+}
+
+.form_element .react-time-picker .react-time-picker__wrapper .react-time-picker__inputGroup__divider {
+  width: 8px !important;
+  color: black;
+  font-size: 1.75rem;
+}
+
+.form_element .react-time-picker .react-time-picker__wrapper .react-time-picker__inputGroup__amPm {
+  width: 50px !important;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.time_select {
+  margin-top: 5px;
 }
 
 .loading-container {
