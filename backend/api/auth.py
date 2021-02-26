@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, request, jsonify, make_response
 from flask_jwt_extended import (
     create_access_token,
@@ -7,19 +8,21 @@ from flask_jwt_extended import (
 from flask_cors import cross_origin
 import bcrypt
 
-
 from ..models import db, Admin
 
+
 auth = Blueprint("auth", __name__)
+key = os.environ["GOOGLE_API_KEY"]
 
 
-# Password Functions
+# Set Password Function
 def set_password(password):
     hashed_password = bcrypt.hashpw(
         password.encode("utf-*"), bcrypt.gensalt())
     return hashed_password
 
 
+# Verify Password Function
 def verify_password(password, hashed_password):
     if bcrypt.checkpw(password.encode("utf-8"), hashed_password):
         return True
@@ -27,64 +30,38 @@ def verify_password(password, hashed_password):
         return False
 
 
-# CORS Preflight Header Handling
-def cors_preflight_res():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
-
-
-# Routes
-@auth.route("/login", methods=["POST", "OPTIONS"])
+# Unprotected
+@auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
+    username = data["username"]
+    password = data["password"]
 
-    # CORS Preflight Handling
-    if request.method == "OPTIONS":
-        return cors_preflight_res()
+    admin = Admin.query.filter_by(username=username).first()
+    if not admin:
+        return jsonify(message="Username Not Valid"), 401
 
-    elif request.method == "POST":
-        # Request Handling
-        try:
-            username = data["username"]
-            password = data["password"]
-
-            # Empty Value Validation
-            if not username:
-                return jsonify(message="Username Required"), 401
-            elif not password:
-                return jsonify(message="Password Required"), 401
-
-            # Query Admin Obj
-            admin = Admin.query.filter_by(username=username).first()
-
-            # Empty Query Return Validation
-            if not admin:
-                return jsonify(message="Username Not Valid"), 401
-
-            # Correct Password Validation
-            verified = verify_password(password, admin.hashed_password)
-            if not verified:
-                return jsonify(message="Incorrect Password"), 401
-            else:
-                auth_token = create_access_token(
-                    identity={"username": admin.username}
-                )
-            return jsonify(auth_token=auth_token), 200
-
-        except Exception:
-            return jsonify(message="Log In Failed"), 400
+    verified = verify_password(password, admin.hashed_password)
+    if not verified:
+        return jsonify(message="Incorrect Password"), 401
+    else:
+        auth_token = create_access_token(admin.username)
+    return jsonify(auth_token=auth_token), 200
 
 
 @auth.route("/", methods=["GET"])
-@jwt_required
+@jwt_required()
 def check_token():
-    try:
-        auth_token = get_jwt_identity()
-        admin = Admin.query.filter_by(username=auth_token['username']).first()
-        safe_admin = admin.to_safe_object()
-        return jsonify(admin=safe_admin), 200
-    except Exception:
-        return jsonify(message="Token Check Failed"), 403
+    # Verify Auth Token
+    auth_token = get_jwt_identity()
+    admin = Admin.query.filter_by(username=auth_token).first()
+    safe_admin = admin.to_safe_object()
+    return jsonify(admin=safe_admin), 200
+
+
+# Unprotected
+# ~~ TODO ~~
+@auth.route("/key", methods=["GET"])
+def get_key():
+    # Fetch Google API Key from Server
+    return jsonify(key=key), 200

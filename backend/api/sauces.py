@@ -7,27 +7,35 @@ from ..models import db, Sauce
 sauce = Blueprint("sauces", __name__)
 
 
+# Unprotected
 @sauce.route("/", methods=["GET"])
 def get_sauces():
-    try:
-        sauce_objects = Sauce.query.all()
-        sauces = []
-        for obj in sauce_objects:
-            sauces.append(obj.to_dict())
-        return jsonify(sauces=sauces), 200
-    except Exception:
-        return jsonify(message="Sauce GET Request Failure"), 400
+    # Fetch Sauces
+    sauce_objects = Sauce.query.all()
+    sauces = []
+    for obj in sauce_objects:
+        sauces.append(obj.to_dict())
+    return jsonify(sauces=sauces), 200
 
 
 @sauce.route("/", methods=["POST"])
-@jwt_required
+@jwt_required()
 def create_sauce():
-    try:
-        sauce_object = request.get_json()
-        sauce = Sauce(
-            name=sauce["name"],
-            heat=sauce["heat"],
-        )
-        return jsonify(message="Sauce POST Request Successful"), 200
-    except Exception:
-        return jsonify(message="Sauce POST Request Failure"), 400
+    # Create Sauce
+    sauce_object = request.get_json()
+    sauce = Sauce(
+        name=sauce["name"],
+        heat=sauce["heat"],
+    )
+    return jsonify(message="/sauces POST success"), 200
+
+
+@sauce.route("/delete", methods=["DELETE"])
+@jwt_required()
+def delete_sauce():
+    # Delete Sauce
+    data = request.get_json()
+    sauce = Sauce.query.filter_by(id=data["id"]).first()
+    db.session.delete(sauce)
+    db.session.commit()
+    return jsonify(message="/sauces DELETE success"), 200

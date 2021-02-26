@@ -1,60 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { BASE_URL } from "../../config";
 
+const content = {
+  inputs: [
+    {
+      label: "Username",
+      name: "username",
+      type: "text",
+    },
+    {
+      label: "Password",
+      name: "password",
+      type: "password",
+    },
+  ],
+};
+
+const schema = yup.object().shape({
+  username: yup.string().required().min(4).max(30),
+  password: yup.string().required().min(6).max(25),
+});
+
 const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
-  // State
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
 
-  // Handlers
-  const handleUsername = (e) => setUsername(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
+  // Data State
+  const [submittedData, setSubmittedData] = useState({});
 
-  // Function
-  const logInUser = async (e) => {
+  // React Hook Form Ctrl w/ Yup Validation
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data, e) => {
     e.preventDefault();
-    const res = await fetch(`${BASE_URL}/api/auth/login`, {
-      method: "POST",
-      mode: "cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: `${username}`,
-        password: `${password}`,
-      }),
-    });
-    if (!res.ok) {
-      // -- TODO -- Error Handling
-      console.log("login res failure", res.status);
-    } else {
-      // <"auth_token"> Storage
-      const json = await res.json();
-      if (json.auth_token !== undefined) {
-        window.localStorage.setItem("auth_token", json.auth_token);
-        setLoginAttempt(loginAttempt++);
-      }
-    }
+    setSubmittedData(data);
+    e.target.reset();
   };
+
+  useEffect(() => {
+    const loginUser = async () => {
+      const res = await fetch(`${BASE_URL}/api/auth/login`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submittedData),
+      });
+      if (!res.ok) {
+        setLoginError("Login Failed");
+      } else {
+        const json = await res.json();
+        window.localStorage.setItem("auth_token", json.auth_token);
+        setLoginError("");
+        setLoginAttempt(!loginAttempt);
+      }
+    };
+    if (submittedData.username !== undefined) {
+      loginUser();
+    }
+  }, [submittedData]);
 
   return (
     <div className="login_form-container">
-      <form className="login_form" onSubmit={logInUser}>
-        <h1>Admin Login</h1>
-        <input
-          id="login_username"
-          name="username"
-          type="text"
-          value={username}
-          onChange={handleUsername}
-          placeholder="Username"
-        />
-        <input
-          id="login_password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={handlePassword}
-          placeholder="Password"
-        />
+      <h1>Admin Login</h1>
+      <form className="login_form" onSubmit={handleSubmit(onSubmit)}>
+        {content.inputs.map((input, key) => {
+          return (
+            <div className="form_element" key={key}>
+              <div>
+                <label>{input.label}</label>
+                <p>{errors[input.name]?.message}</p>
+              </div>
+              <input
+                name={input.name}
+                type={input.type}
+                ref={register}
+                placeholder={input.label}
+              />
+            </div>
+          );
+        })}
+        <span>{loginError}</span>
         <button id="login_button" type="submit">
           Log In
         </button>

@@ -30,6 +30,12 @@ const Admin = () => {
     setDashboardScreen(`${element}`);
   };
 
+  // Logout Function
+  const logout = () => {
+    window.localStorage.removeItem("auth_token");
+    setIsLoggedIn(false);
+  };
+
   // Login Control
   useEffect(() => {
     const token = window.localStorage.getItem("auth_token");
@@ -151,68 +157,81 @@ const Admin = () => {
     <div className="admin-container" id="admin">
       {!isLoggedIn ? (
         <LoginForm
-          setLoginAttempt={setLoginAttempt}
+          setLoginAttempt={() => setLoginAttempt()}
           loginAttempt={loginAttempt}
         />
       ) : (
         <>
           <nav>
             <h2>Admin Dashboard</h2>
-            <motion.li
-              whileHover={{ scale: 1.2 }}
-              onClick={() => handleClick("event")}
-            >
-              Events
-            </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.2 }}
-              onClick={() => handleClick("menu")}
-            >
-              Menu
-            </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.2 }}
-              onClick={() => handleClick("sauce")}
-            >
-              Sauces
-            </motion.li>
-            <h3>{`Welcome ${user}`}</h3>
+            <ul>
+              <motion.li
+                whileHover={{ scale: 1.2 }}
+                onClick={() => handleClick("event")}
+              >
+                Events
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.2 }}
+                onClick={() => handleClick("menu")}
+              >
+                Menu
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.2 }}
+                onClick={() => handleClick("sauce")}
+              >
+                Sauces
+              </motion.li>
+            </ul>
+            <div>
+              <h3>{`Welcome ${user.username}`}</h3>
+              <button onClick={() => logout()}>Log Out</button>
+            </div>
           </nav>
-          <section className={eventControl}>
-            <h2 className="admin_list_title">Events</h2>
-            <EventForm />
-            {events.map((event, i) => (
-              <EventCard event={event} key={i} />
-            ))}
-          </section>
-          <section className={menuControl}>
-            <h2 className="admin_list_title">Menu Items</h2>
-            <ul>
-              {menuItems.map((item, i) => (
-                <li key={i}>
-                  <MenuItemCard item={item} />
-                </li>
-              ))}
-            </ul>
-          </section>
-          <section className={sauceControl}>
-            <h2 className="admin_list_title">Sauces</h2>
-            <ul>
-              {sauces.map((item, i) => (
-                <li key={i}>
-                  <SauceCard item={item} />
-                </li>
-              ))}
-            </ul>
-            <h2 className="admin_list_title">Dry Rubs</h2>
-            <ul>
-              {rubs.map((item, i) => (
-                <li key={i}>
-                  <SauceCard item={item} />
-                </li>
-              ))}
-            </ul>
-          </section>
+          <body>
+            <section className={eventControl}>
+              <h2>Events</h2>
+              <div className="admin-screen">
+                <EventForm />
+                <ul>
+                  {events.map((event, key) => (
+                    <li className="admin-card-wrapper" key={key}>
+                      <EventCard event={event} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+            <section className={menuControl}>
+              <h2 className="admin_list_title">Menu Items</h2>
+              <ul>
+                {menuItems.map((item, i) => (
+                  <li className="admin-card-wrapper" key={i}>
+                    <MenuItemCard item={item} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section className={sauceControl}>
+              <h2 className="admin_list_title">Sauces</h2>
+              <ul>
+                {sauces.map((item, i) => (
+                  <li className="admin-card-wrapper" key={i}>
+                    <SauceCard item={item} />
+                  </li>
+                ))}
+              </ul>
+              <h2 className="admin_list_title">Dry Rubs</h2>
+              <ul>
+                {rubs.map((item, i) => (
+                  <li className="admin-card-wrapper" key={i}>
+                    <SauceCard item={item} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </body>
         </>
       )}
     </div>

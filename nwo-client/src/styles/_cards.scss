@@ -221,3 +221,48 @@
     }
   }
 }
+
+// ~~~ ADMIN CARD WRAPPER ~~~
+.admin-card-wrapper {
+  .event-card {
+    height: auto;
+    margin: 0.4rem;
+    background: none;
+    border-radius: 0;
+
+    .event-card_datebox {
+      span {
+        font-size: 1.2rem;
+      }
+      div {
+        span:nth-child(1) {
+          font-size: 1rem;
+        }
+        span:nth-child(2) {
+          font-size: 1.2rem;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    .event-card_textbox {
+      h2 {
+        margin: 0.2rem 0;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+    .event-card_timebox {
+      padding: 0.5rem;
+      div {
+        span {
+          font-size: 1.2rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
