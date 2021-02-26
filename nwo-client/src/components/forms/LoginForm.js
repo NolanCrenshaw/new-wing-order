@@ -24,7 +24,7 @@ const schema = yup.object().shape({
   password: yup.string().required().min(6).max(25),
 });
 
-const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
+const LoginForm = ({ setLoginAttempt }) => {
   const [loginError, setLoginError] = useState("");
 
   // Data State
@@ -56,7 +56,7 @@ const LoginForm = ({ setLoginAttempt, loginAttempt }) => {
         const json = await res.json();
         window.localStorage.setItem("auth_token", json.auth_token);
         setLoginError("");
-        setLoginAttempt(!loginAttempt);
+        setLoginAttempt();
       }
     };
     if (submittedData.username !== undefined) {

@@ -28,8 +28,8 @@ def create_event():
     g = geocoder.google(event_object["address"])
     lat = round(g.latlng[0], 5)
     lng = round(g.latlng[1], 5)
-    # if not lat or not lng:
-    return jsonify(message="lat or lng null"), 400
+    if not lat or not lng:
+        return jsonify(message="Address not valid"), 400
     event = Event(
         address=event_object["address"],
         location_name=event_object["location"],
@@ -40,7 +40,7 @@ def create_event():
     )
     db.session.add(event)
     db.session.commit()
-    return jsonify(message="Event POST Request Successful"), 200
+    return jsonify(message="Event successfully created"), 200
 
 
 @event.route("/delete", methods=["DELETE"])

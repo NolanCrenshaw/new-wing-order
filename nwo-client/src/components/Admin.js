@@ -11,7 +11,7 @@ import LoginForm from "./forms/LoginForm";
 
 const Admin = () => {
   // Controls State
-  const [loginAttempt, setLoginAttempt] = useState(0);
+  const [loginAttempt, setLoginAttempt] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({ username: "default" });
   const [dashboardScreen, setDashboardScreen] = useState("event");
@@ -156,10 +156,7 @@ const Admin = () => {
   return (
     <div className="admin-container" id="admin">
       {!isLoggedIn ? (
-        <LoginForm
-          setLoginAttempt={() => setLoginAttempt()}
-          loginAttempt={loginAttempt}
-        />
+        <LoginForm setLoginAttempt={() => setLoginAttempt(!loginAttempt)} />
       ) : (
         <>
           <nav>
@@ -191,7 +188,7 @@ const Admin = () => {
           </nav>
           <body>
             <section className={eventControl}>
-              <h2>Events</h2>
+              <h2 className="admin-section_title">Events</h2>
               <div className="admin-screen">
                 <EventForm />
                 <ul>

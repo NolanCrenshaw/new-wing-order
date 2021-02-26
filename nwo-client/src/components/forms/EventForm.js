@@ -47,15 +47,17 @@ const schema = yup.object().shape({
   endTime: yup.string().required("An ending time is required"),
 });
 const EventForm = () => {
-  const [submitError, setSubmitError] = useState("");
-  const [dateError, setDateError] = useState("");
+  const [submitStatus, setSubmitStatus] = useState("");
+  const [submitSuccessClass, setSubmitSuccessClass] = useState(
+    "submit--failure"
+  );
 
   // Data State
   const [submittedData, setSubmittedData] = useState({});
 
   // React Hook Form Setup w/ Yup Validation
   const { register, handleSubmit, errors, control } = useForm({
-    mode: "onBlur",
+    // mode: "onBlur",
     resolver: yupResolver(schema),
   });
 
@@ -71,10 +73,13 @@ const EventForm = () => {
         body: JSON.stringify(data),
       });
       if (!res.ok) {
-        let json = res.json();
-        console.log(`createEvent failure: ${json.message}`);
+        const json = await res.json();
+        setSubmitStatus(`${json.message}`);
+        setSubmitSuccessClass("submit--failure");
       } else {
-        console.log(`createEvent success`);
+        const json = await res.json();
+        setSubmitStatus(`${json.message}`);
+        setSubmitSuccessClass("submit--success");
       }
     };
     if (submittedData.location !== undefined) {
@@ -91,7 +96,8 @@ const EventForm = () => {
 
   // Render
   return (
-    <div className="event_form-container">
+    <div className="event_form-container form-container">
+      <h2>Create Event</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {content.inputs.map((input, key) => {
           return (
@@ -152,9 +158,12 @@ const EventForm = () => {
             </div>
           );
         })}
-        <button id="create_event-button" type="submit">
-          Create Event
-        </button>
+        <div className="submit-box">
+          <button id="create_event-button" type="submit">
+            Create Event
+          </button>
+          <p className={submitSuccessClass}>{submitStatus}</p>
+        </div>
       </form>
     </div>
   );

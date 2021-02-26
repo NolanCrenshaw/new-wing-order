@@ -1,10 +1,10 @@
 .event_form-container {
   height: 100%;
-  width: 50%;
+  width: 45%;
   padding: 1rem;
 
   border-radius: 12px;
-  background-color: rgb(151, 151, 151);
+  background-color: rgb(40, 40, 40);
 
   display: flex;
   flex-direction: column;
@@ -12,12 +12,32 @@
   align-items: center;
 
   h2 {
-    color: rgb(39, 39, 39);
+    margin-top: 1rem;
+    color: white;
   }
 
   form {
+    padding: 2rem 1rem;
     height: 100%;
+    max-width: 400px;
     width: 100%;
+  }
+
+  .submit-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    .submit--failure {
+      color: red;
+    }
+    .submit--success {
+      color: green;
+    }
   }
 
   #create_event-button {
