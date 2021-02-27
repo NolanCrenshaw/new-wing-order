@@ -309,6 +309,7 @@ const Admin = () => {
             <section className={menuControl}>
               <h2 className="admin_list_title">Menu Items</h2>
               <div classname="admin-screen">
+                <MenuItemForm />
                 <ul>
                   {menuItems.map((item, i) => (
                     <li className="admin-card-wrapper" key={i}>

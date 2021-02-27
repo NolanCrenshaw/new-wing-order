@@ -63,6 +63,13 @@ const EventForm = () => {
     resolver: yupResolver(schema),
   });
 
+  // Form Submit Control Function
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    setSubmittedData(data);
+    e.target.reset();
+  };
+
   useEffect(() => {
     const createEvent = async (data) => {
       const res = await fetch(`${BASE_URL}/api/events/`, {
@@ -84,17 +91,11 @@ const EventForm = () => {
         setSubmitSuccessClass("submit--success");
       }
     };
+    // Conditional function call
     if (submittedData.location !== undefined) {
       createEvent(submittedData);
     }
   }, [submittedData]);
-
-  // Form Submit Control Function
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    setSubmittedData(data);
-    e.target.reset();
-  };
 
   // Render
   return (
