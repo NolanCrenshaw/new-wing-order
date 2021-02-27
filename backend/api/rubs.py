@@ -24,10 +24,10 @@ def create_rub():
     # Create Rub
     rub_object = request.get_json()
     rub = Rub(
-        name=rub["name"],
-        heat=rub["heat"],
+        name=rub_object["name"],
+        heat=rub_object["heat"],
     )
-    return jsonify(message="/rubs POST success"), 200
+    return jsonify(message="Rub successfully created"), 200
 
 
 @rub.route("/delete", methods=["DELETE"])

@@ -24,10 +24,10 @@ def create_sauce():
     # Create Sauce
     sauce_object = request.get_json()
     sauce = Sauce(
-        name=sauce["name"],
-        heat=sauce["heat"],
+        name=sauce_object["name"],
+        heat=sauce_object["heat"],
     )
-    return jsonify(message="/sauces POST success"), 200
+    return jsonify(message="Sauce successfully created"), 200
 
 
 @sauce.route("/delete", methods=["DELETE"])

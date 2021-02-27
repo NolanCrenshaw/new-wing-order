@@ -388,6 +388,9 @@ a {
 }
 
 .admin-card-wrapper {
+  margin: 5px 0;
+  -webkit-box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3), -1rem -1rem 5rem rgba(0, 0, 0, 0.2), 1rem 1rem 5rem rgba(0, 0, 0, 0.2);
+          box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3), -1rem -1rem 5rem rgba(0, 0, 0, 0.2), 1rem 1rem 5rem rgba(0, 0, 0, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -403,6 +406,8 @@ a {
   height: auto;
   margin: 0.4rem;
   background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0;
 }
 
@@ -449,6 +454,56 @@ a {
   font-weight: 400;
 }
 
+.admin-card-wrapper .menuItem-card {
+  width: 90%;
+  margin: 0.5rem;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr 1fr;
+      grid-template-columns: 4fr 1fr;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 10px #323232;
+          box-shadow: 2px 2px 10px #323232;
+}
+
+.admin-card-wrapper .menuItem-card .item_text span {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.admin-card-wrapper .menuItem-card .item_text p {
+  color: white;
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.admin-card-wrapper .menuItem-card .item_price {
+  color: white;
+  font-weight: 400;
+}
+
+.admin-card-wrapper .menuItem-card .item_price span {
+  font-size: 1.25rem;
+}
+
+.admin-card-wrapper .menuItem-card .item_price div {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.admin-card-wrapper .sauce-card {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.admin-card-wrapper .sauce-card img {
+  width: 1.5rem;
+  height: auto;
+}
+
 .admin-card-wrapper .delete_card {
   height: 30px;
   width: 30px;
@@ -470,10 +525,6 @@ a {
 
 .admin-card-wrapper .delete_card:hover {
   background-color: white;
-}
-
-.admin-card-wrapper .delete_card:hover svg {
-  stroke: !important white;
 }
 
 .form-container {
@@ -507,6 +558,23 @@ a {
   height: 100%;
   max-width: 400px;
   width: 100%;
+}
+
+.form-container .pseudo-form {
+  margin-top: 2rem;
+  padding: 0 1rem;
+  height: auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-container .pseudo-form label {
+  margin: 2rem 0;
+  font-size: 2rem;
+}
+
+.form-container label {
+  color: white;
 }
 
 .form-container .submit-box {
@@ -2373,10 +2441,14 @@ a {
 .admin-container nav div button {
   height: 40px;
   width: 100px;
-  font-weight: 600;
+  color: #9e0000;
+  font-size: 1.5rem;
+  font-weight: 800;
   background-color: white;
   border: 2px solid black;
   border-radius: 8px;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
   cursor: pointer;
 }
 
@@ -2390,7 +2462,6 @@ a {
   height: 90vh;
   width: 100%;
   padding: 1rem;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2416,7 +2487,6 @@ a {
   padding: 1rem 1rem 3rem 1rem;
   margin: 0;
   overflow: hidden;
-  background-color: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2458,6 +2528,8 @@ a {
   margin: 1rem;
   padding: 1rem;
   list-style: none;
+  border: 1px solid black;
+  border-radius: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2476,16 +2548,6 @@ a {
 
 .admin-container body section .admin-screen ul li {
   width: 95%;
-}
-
-.admin-container .admin_event {
-  color: white;
-  background-color: #323232;
-}
-
-.admin-container .admin_menu {
-  color: white;
-  background-color: #323232;
 }
 
 .footer-container {

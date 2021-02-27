@@ -9,6 +9,7 @@ import SauceCard from "./cards/SauceCard";
 import LoginForm from "./forms/LoginForm";
 import EventForm from "./forms/EventForm";
 import MenuItemForm from "./forms/MenuItemForm";
+import SauceForm from "./forms/SauceForm";
 
 const Admin = () => {
   // Controls State
@@ -307,8 +308,8 @@ const Admin = () => {
               </div>
             </section>
             <section className={menuControl}>
-              <h2 className="admin_list_title">Menu Items</h2>
-              <div classname="admin-screen">
+              <h2 className="admin-section_title">Menu Items</h2>
+              <div className="admin-screen">
                 <MenuItemForm />
                 <ul>
                   {menuItems.map((item, i) => (
@@ -345,8 +346,9 @@ const Admin = () => {
               </div>
             </section>
             <section className={sauceControl}>
-              <h2 className="admin_list_title">Sauces</h2>
-              <div classname="admin-screen">
+              <h2 className="admin-section_title">Sauces</h2>
+              <div className="admin-screen">
+                <SauceForm />
                 <ul>
                   {sauces.map((sauce, i) => (
                     <li className="admin-card-wrapper" key={i}>
@@ -378,9 +380,6 @@ const Admin = () => {
                       </motion.button>
                     </li>
                   ))}
-                </ul>
-                <h2 className="admin_list_title">Dry Rubs</h2>
-                <ul>
                   {rubs.map((rub, i) => (
                     <li className="admin-card-wrapper" key={i}>
                       <SauceCard item={rub} />

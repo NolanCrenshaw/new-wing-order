@@ -19,6 +19,22 @@
     max-width: 400px;
     width: 100%;
   }
+  .pseudo-form {
+    margin-top: 2rem;
+    padding: 0 1rem;
+    height: auto;
+    max-width: 400px;
+    width: 100%;
+    label {
+      margin: 2rem 0;
+      font-size: 2rem;
+    }
+  }
+
+  label {
+    color: white;
+  }
+
   .submit-box {
     width: 100%;
     display: flex;
