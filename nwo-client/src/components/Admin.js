@@ -37,6 +37,24 @@ const Admin = () => {
     setIsLoggedIn(false);
   };
 
+  // Delete Functions
+  const deleteEvent = async (id) => {
+    const res = await fetch(`${BASE_URL}/api/events/delete`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
+      },
+      body: JSON.stringify(id),
+    });
+    if (!res.ok) {
+      console.log("deleteEvent failure");
+    } else {
+      console.log("deleteEvent success");
+    }
+  };
+
   // Login Control
   useEffect(() => {
     const token = window.localStorage.getItem("auth_token");
@@ -50,10 +68,8 @@ const Admin = () => {
         },
       });
       if (!res.ok) {
-        // -- TODO Handling
         setUser({ username: "default" });
         setIsLoggedIn(false);
-        console.log("checkToken res failure");
       } else {
         const json = await res.json();
         setUser(json.admin);
@@ -196,7 +212,31 @@ const Admin = () => {
                   {events.map((event, key) => (
                     <li className="admin-card-wrapper" key={key}>
                       <EventCard event={event} />
-                      <button onClick={event.id} />
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        className="delete_card"
+                        onClick={() => deleteEvent(event.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon icon-tabler icon-tabler-trash"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>

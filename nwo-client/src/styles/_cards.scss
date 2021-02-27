@@ -224,6 +224,9 @@
 
 // ~~~ ADMIN CARD WRAPPER ~~~
 .admin-card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   .event-card {
     height: auto;
     margin: 0.4rem;
@@ -264,6 +267,26 @@
           font-size: 1.2rem;
           font-weight: 400;
         }
+      }
+    }
+  }
+  .delete_card {
+    height: 30px;
+    width: 30px;
+    margin: 1rem;
+
+    border-radius: 6px;
+    transition: all ease-in-out 0.25s;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: white;
+      svg {
+        stroke: !important white;
       }
     }
   }
