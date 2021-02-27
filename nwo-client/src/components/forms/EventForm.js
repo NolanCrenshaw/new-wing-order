@@ -47,7 +47,7 @@ const schema = yup.object().shape({
   endTime: yup.string().required("An ending time is required"),
 });
 
-const EventForm = () => {
+const EventForm = ({ update }) => {
   // Submit State
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitSuccessClass, setSubmitSuccessClass] = useState(
@@ -89,6 +89,7 @@ const EventForm = () => {
         const json = await res.json();
         setSubmitStatus(`${json.message}`);
         setSubmitSuccessClass("submit--success");
+        update();
       }
     };
     // Conditional function call

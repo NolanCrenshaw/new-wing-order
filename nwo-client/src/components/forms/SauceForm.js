@@ -37,7 +37,7 @@ const options = [
   { value: "sauces", label: "Sauce" },
 ];
 
-const SauceForm = () => {
+const SauceForm = ({ update }) => {
   // Submit State
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitSuccessClass, setSubmitSuccessClass] = useState(
@@ -79,6 +79,7 @@ const SauceForm = () => {
         const json = await res.json();
         setSubmitStatus(`${json.message}`);
         setSubmitSuccessClass("submit--success");
+        update();
       }
     };
     // Conditional function call

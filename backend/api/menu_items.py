@@ -24,12 +24,14 @@ def create_menu_item():
     # Create Menu Item
     menu_item_object = request.get_json()
     menu_item = Menu_Item(
-        name=menu_item["name"],
-        description=menu_item["description"],
-        price=menu_item["price"],
-        item_type=menu_item["itemType"],
+        name=menu_item_object["name"],
+        description=menu_item_object["description"],
+        price=menu_item_object["price"],
+        item_type=menu_item_object["type"],
     )
-    return jsonify(message="/menu_items POST success"), 200
+    db.session.add(menu_item)
+    db.session.commit()
+    return jsonify(message="Menu Item successfully created"), 200
 
 
 @menu_item.route("/delete", methods=["DELETE"])

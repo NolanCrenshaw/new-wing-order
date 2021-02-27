@@ -27,6 +27,8 @@ def create_rub():
         name=rub_object["name"],
         heat=rub_object["heat"],
     )
+    db.session.add(rub)
+    db.session.commit()
     return jsonify(message="Rub successfully created"), 200
 
 

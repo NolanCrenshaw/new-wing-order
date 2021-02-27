@@ -27,6 +27,8 @@ def create_sauce():
         name=sauce_object["name"],
         heat=sauce_object["heat"],
     )
+    db.session.add(sauce)
+    db.session.commit()
     return jsonify(message="Sauce successfully created"), 200
 
 
