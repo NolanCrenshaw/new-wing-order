@@ -35,7 +35,7 @@ def create_sauce():
 def delete_sauce():
     # Delete Sauce
     data = request.get_json()
-    sauce = Sauce.query.filter_by(id=data["id"]).first_or_404()
+    sauce = Sauce.query.filter_by(id=data).first_or_404()
     db.session.delete(sauce)
     db.session.commit()
     return jsonify(message="/sauces DELETE success"), 200
