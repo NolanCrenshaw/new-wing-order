@@ -48,7 +48,7 @@ def create_event():
 def delete_event():
     # DELETE Event
     data = request.get_json()
-    event = Event.query.filter_by(id=data["id"]).first_or_404()
+    event = Event.query.filter_by(id=data).first_or_404()
     db.session.delete(event)
     db.session.commit()
     return jsonify(message="/event DELETE success"), 200

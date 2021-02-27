@@ -37,6 +37,77 @@ const Admin = () => {
     setIsLoggedIn(false);
   };
 
+  // ~~ Delete Functions ~~
+  // Delete Event
+  const deleteEvent = async (id) => {
+    const res = await fetch(`${BASE_URL}/api/events/delete`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
+      },
+      body: JSON.stringify(id),
+    });
+    if (!res.ok) {
+      console.log("deleteEvent failure");
+    } else {
+      console.log("deleteEvent success");
+    }
+  };
+  // Delete Menu Item
+  const deleteMenuItem = async (id) => {
+    const res = await fetch(`${BASE_URL}/api/menu_items/delete`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
+      },
+      body: JSON.stringify(id),
+    });
+    if (!res.ok) {
+      console.log("deleteMenuItem failure");
+    } else {
+      console.log("deleteMenuItem success");
+    }
+  };
+  // Delete Sauce
+  const deleteSauce = async (id) => {
+    const res = await fetch(`${BASE_URL}/api/sauces/delete`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
+      },
+      body: JSON.stringify(id),
+    });
+    if (!res.ok) {
+      console.log("deleteSauce failure");
+    } else {
+      console.log("deleteSauce success");
+    }
+  };
+  // Delete Sauce
+  const deleteRub = async (id) => {
+    const res = await fetch(`${BASE_URL}/api/rubs/delete`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${window.localStorage.getItem("auth_token")}`,
+      },
+      body: JSON.stringify(id),
+    });
+    if (!res.ok) {
+      console.log("deleteRub failure");
+    } else {
+      console.log("deleteRub success");
+    }
+  };
+  // ~~ End Delete Functions ~~
+
   // Login Control
   useEffect(() => {
     const token = window.localStorage.getItem("auth_token");
@@ -50,10 +121,8 @@ const Admin = () => {
         },
       });
       if (!res.ok) {
-        // -- TODO Handling
         setUser({ username: "default" });
         setIsLoggedIn(false);
-        console.log("checkToken res failure");
       } else {
         const json = await res.json();
         setUser(json.admin);
@@ -82,7 +151,8 @@ const Admin = () => {
     }
   }, [dashboardScreen]);
 
-  // Fetch Control
+  // ~~ Fetch Functions ~~
+  // Events Fetch Control
   useEffect(() => {
     const getEvents = async () => {
       const res = await fetch(`${BASE_URL}/api/events/`, {
@@ -100,6 +170,10 @@ const Admin = () => {
         setEvents(json.events);
       }
     };
+    getEvents();
+  }, []);
+  // Menu Items Fetch Control
+  useEffect(() => {
     const getMenuItems = async () => {
       const res = await fetch(`${BASE_URL}/api/menu_items/`, {
         method: "GET",
@@ -116,6 +190,10 @@ const Admin = () => {
         setMenuItems(json.menu_items);
       }
     };
+    getMenuItems();
+  }, []);
+  // Sauces Fetch Control
+  useEffect(() => {
     const getSauces = async () => {
       const res = await fetch(`${BASE_URL}/api/sauces/`, {
         method: "GET",
@@ -132,6 +210,10 @@ const Admin = () => {
         setSauces(json.sauces);
       }
     };
+    getSauces();
+  }, []);
+  // Rubs Fetch Control
+  useEffect(() => {
     const getRubs = async () => {
       const res = await fetch(`${BASE_URL}/api/rubs/`, {
         method: "GET",
@@ -148,11 +230,9 @@ const Admin = () => {
         setRubs(json.rubs);
       }
     };
-    getEvents();
-    getMenuItems();
-    getSauces();
     getRubs();
   }, []);
+  // ~~ End Fetch Functions ~~
 
   return (
     <div className="admin-container" id="admin">
@@ -196,7 +276,31 @@ const Admin = () => {
                   {events.map((event, key) => (
                     <li className="admin-card-wrapper" key={key}>
                       <EventCard event={event} />
-                      <button onClick={event.id} />
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        className="delete_card"
+                        onClick={() => deleteEvent(event.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon icon-tabler icon-tabler-trash"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>
@@ -209,6 +313,31 @@ const Admin = () => {
                   {menuItems.map((item, i) => (
                     <li className="admin-card-wrapper" key={i}>
                       <MenuItemCard item={item} />
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        className="delete_card"
+                        onClick={() => deleteMenuItem(item.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon icon-tabler icon-tabler-trash"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>
@@ -218,17 +347,67 @@ const Admin = () => {
               <h2 className="admin_list_title">Sauces</h2>
               <div classname="admin-screen">
                 <ul>
-                  {sauces.map((item, i) => (
+                  {sauces.map((sauce, i) => (
                     <li className="admin-card-wrapper" key={i}>
-                      <SauceCard item={item} />
+                      <SauceCard item={sauce} />
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        className="delete_card"
+                        onClick={() => deleteSauce(sauce.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon icon-tabler icon-tabler-trash"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>
                 <h2 className="admin_list_title">Dry Rubs</h2>
                 <ul>
-                  {rubs.map((item, i) => (
+                  {rubs.map((rub, i) => (
                     <li className="admin-card-wrapper" key={i}>
-                      <SauceCard item={item} />
+                      <SauceCard item={rub} />
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        className="delete_card"
+                        onClick={() => deleteRub(rub.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon icon-tabler icon-tabler-trash"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>
