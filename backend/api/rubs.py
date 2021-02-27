@@ -24,10 +24,12 @@ def create_rub():
     # Create Rub
     rub_object = request.get_json()
     rub = Rub(
-        name=rub["name"],
-        heat=rub["heat"],
+        name=rub_object["name"],
+        heat=rub_object["heat"],
     )
-    return jsonify(message="/rubs POST success"), 200
+    db.session.add(rub)
+    db.session.commit()
+    return jsonify(message="Rub successfully created"), 200
 
 
 @rub.route("/delete", methods=["DELETE"])
@@ -35,7 +37,7 @@ def create_rub():
 def delete_rub():
     # Delete Rub
     data = request.get_json()
-    rub = Rub.query.filter_by(id=data["id"]).first_or_404()
+    rub = Rub.query.filter_by(id=data).first_or_404()
     db.session.delete(rub)
     db.session.commit()
     return jsonify(message="/rubs DELETE success"), 200

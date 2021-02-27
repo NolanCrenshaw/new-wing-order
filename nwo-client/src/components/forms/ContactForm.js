@@ -4,9 +4,6 @@ import emailjs from "emailjs-com";
 import { BASE_URL } from "../../config";
 
 const ContactForm = () => {
-  const userID = `${process.env.REACT_APP_EMAILJS_USER_ID}`;
-  const ejsSERVICE = `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`;
-  const ejsTEMPLATE = `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`;
   // State
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -70,7 +67,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact_form-container">
+    <div className="contact_form-container form-container">
       <form className="contact_form" onSubmit={(e) => submitHandle(e)}>
         <div>
           <input

@@ -9,6 +9,7 @@ import SauceCard from "./cards/SauceCard";
 import LoginForm from "./forms/LoginForm";
 import EventForm from "./forms/EventForm";
 import MenuItemForm from "./forms/MenuItemForm";
+import SauceForm from "./forms/SauceForm";
 
 const Admin = () => {
   // Controls State
@@ -25,6 +26,11 @@ const Admin = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [sauces, setSauces] = useState([]);
   const [rubs, setRubs] = useState([]);
+
+  // Fetch Update Handlers
+  const [eventsUpdated, setEventsUpdated] = useState(false);
+  const [menuUpdated, setMenuUpdated] = useState(false);
+  const [saucesUpdated, setSaucesUpdated] = useState(false);
 
   // Navigation Control
   const handleClick = (element) => {
@@ -53,6 +59,7 @@ const Admin = () => {
       console.log("deleteEvent failure");
     } else {
       console.log("deleteEvent success");
+      setEventsUpdated(!eventsUpdated);
     }
   };
   // Delete Menu Item
@@ -70,6 +77,7 @@ const Admin = () => {
       console.log("deleteMenuItem failure");
     } else {
       console.log("deleteMenuItem success");
+      setMenuUpdated(!menuUpdated);
     }
   };
   // Delete Sauce
@@ -87,6 +95,7 @@ const Admin = () => {
       console.log("deleteSauce failure");
     } else {
       console.log("deleteSauce success");
+      setSaucesUpdated(!saucesUpdated);
     }
   };
   // Delete Sauce
@@ -104,6 +113,7 @@ const Admin = () => {
       console.log("deleteRub failure");
     } else {
       console.log("deleteRub success");
+      setSaucesUpdated(!saucesUpdated);
     }
   };
   // ~~ End Delete Functions ~~
@@ -171,7 +181,7 @@ const Admin = () => {
       }
     };
     getEvents();
-  }, []);
+  }, [eventsUpdated]);
   // Menu Items Fetch Control
   useEffect(() => {
     const getMenuItems = async () => {
@@ -191,7 +201,7 @@ const Admin = () => {
       }
     };
     getMenuItems();
-  }, []);
+  }, [menuUpdated]);
   // Sauces Fetch Control
   useEffect(() => {
     const getSauces = async () => {
@@ -211,7 +221,7 @@ const Admin = () => {
       }
     };
     getSauces();
-  }, []);
+  }, [saucesUpdated]);
   // Rubs Fetch Control
   useEffect(() => {
     const getRubs = async () => {
@@ -231,7 +241,7 @@ const Admin = () => {
       }
     };
     getRubs();
-  }, []);
+  }, [saucesUpdated]);
   // ~~ End Fetch Functions ~~
 
   return (
@@ -271,7 +281,7 @@ const Admin = () => {
             <section className={eventControl}>
               <h2 className="admin-section_title">Events</h2>
               <div className="admin-screen">
-                <EventForm />
+                <EventForm update={() => setEventsUpdated(!eventsUpdated)} />
                 <ul>
                   {events.map((event, key) => (
                     <li className="admin-card-wrapper" key={key}>
@@ -307,8 +317,9 @@ const Admin = () => {
               </div>
             </section>
             <section className={menuControl}>
-              <h2 className="admin_list_title">Menu Items</h2>
-              <div classname="admin-screen">
+              <h2 className="admin-section_title">Menu Items</h2>
+              <div className="admin-screen">
+                <MenuItemForm update={() => setMenuUpdated(!menuUpdated)} />
                 <ul>
                   {menuItems.map((item, i) => (
                     <li className="admin-card-wrapper" key={i}>
@@ -344,8 +355,9 @@ const Admin = () => {
               </div>
             </section>
             <section className={sauceControl}>
-              <h2 className="admin_list_title">Sauces</h2>
-              <div classname="admin-screen">
+              <h2 className="admin-section_title">Sauces</h2>
+              <div className="admin-screen">
+                <SauceForm update={() => setSaucesUpdated(!saucesUpdated)} />
                 <ul>
                   {sauces.map((sauce, i) => (
                     <li className="admin-card-wrapper" key={i}>
@@ -377,9 +389,6 @@ const Admin = () => {
                       </motion.button>
                     </li>
                   ))}
-                </ul>
-                <h2 className="admin_list_title">Dry Rubs</h2>
-                <ul>
                   {rubs.map((rub, i) => (
                     <li className="admin-card-wrapper" key={i}>
                       <SauceCard item={rub} />

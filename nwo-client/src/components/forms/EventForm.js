@@ -47,7 +47,7 @@ const schema = yup.object().shape({
   endTime: yup.string().required("An ending time is required"),
 });
 
-const EventForm = () => {
+const EventForm = ({ update }) => {
   // Submit State
   const [submitStatus, setSubmitStatus] = useState("");
   const [submitSuccessClass, setSubmitSuccessClass] = useState(
@@ -62,6 +62,13 @@ const EventForm = () => {
     // mode: "onBlur",
     resolver: yupResolver(schema),
   });
+
+  // Form Submit Control Function
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    setSubmittedData(data);
+    e.target.reset();
+  };
 
   useEffect(() => {
     const createEvent = async (data) => {
@@ -82,19 +89,14 @@ const EventForm = () => {
         const json = await res.json();
         setSubmitStatus(`${json.message}`);
         setSubmitSuccessClass("submit--success");
+        update();
       }
     };
+    // Conditional function call
     if (submittedData.location !== undefined) {
       createEvent(submittedData);
     }
   }, [submittedData]);
-
-  // Form Submit Control Function
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    setSubmittedData(data);
-    e.target.reset();
-  };
 
   // Render
   return (

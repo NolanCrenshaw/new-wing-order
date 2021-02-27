@@ -24,10 +24,12 @@ def create_sauce():
     # Create Sauce
     sauce_object = request.get_json()
     sauce = Sauce(
-        name=sauce["name"],
-        heat=sauce["heat"],
+        name=sauce_object["name"],
+        heat=sauce_object["heat"],
     )
-    return jsonify(message="/sauces POST success"), 200
+    db.session.add(sauce)
+    db.session.commit()
+    return jsonify(message="Sauce successfully created"), 200
 
 
 @sauce.route("/delete", methods=["DELETE"])
@@ -35,7 +37,7 @@ def create_sauce():
 def delete_sauce():
     # Delete Sauce
     data = request.get_json()
-    sauce = Sauce.query.filter_by(id=data["id"]).first_or_404()
+    sauce = Sauce.query.filter_by(id=data).first_or_404()
     db.session.delete(sauce)
     db.session.commit()
     return jsonify(message="/sauces DELETE success"), 200
