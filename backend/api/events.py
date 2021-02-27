@@ -46,7 +46,6 @@ def create_event():
 @event.route("/delete", methods=["DELETE"])
 @jwt_required()
 def delete_event():
-
     # DELETE Event
     data = request.get_json()
     event = Event.query.filter_by(id=data).first_or_404()
